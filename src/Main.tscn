@@ -4,22 +4,24 @@
 [ext_resource type="Texture2D" uid="uid://btvaafor481m1" path="res://assets/textures/floor.png" id="2_0r184"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o8jqq"]
-size = Vector2(812, 24)
+size = Vector2(814.5, 22)
 
 [node name="Main" type="Node"]
 
 [node name="BottomBorder" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BottomBorder"]
-position = Vector2(408, 240)
+position = Vector2(407.5, 234)
 shape = SubResource("RectangleShape2D_o8jqq")
 
 [node name="TopBorder" type="StaticBody2D" parent="."]
+light_mask = 0
 position = Vector2(-17, -135)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TopBorder"]
-position = Vector2(459, 251)
+position = Vector2(425, 255)
 shape = SubResource("RectangleShape2D_o8jqq")
+one_way_collision_margin = 0.0
 
 [node name="LeftBorder" type="StaticBody2D" parent="."]
 texture_filter = 2
