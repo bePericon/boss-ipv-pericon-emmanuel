@@ -230,7 +230,6 @@ _data = {
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_xgotg")
-ACCELERATION = 150.0
 
 [node name="FeetCollision" type="CollisionShape2D" parent="."]
 position = Vector2(0, 27)
