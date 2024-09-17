@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://3oxh1huylhow"]
+[gd_scene load_steps=5 format=3 uid="uid://3oxh1huylhow"]
 
 [ext_resource type="PackedScene" uid="uid://blfqraevuuw2o" path="res://src/entities/player/Player.tscn" id="1_ol61p"]
 [ext_resource type="Texture2D" uid="uid://btvaafor481m1" path="res://assets/textures/floor.png" id="2_0r184"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o8jqq"]
-size = Vector2(814.5, 22)
+size = Vector2(815.25, 22)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5xu8s"]
+size = Vector2(32, 26)
 
 [node name="Main" type="Node"]
 
@@ -13,15 +16,15 @@ size = Vector2(814.5, 22)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BottomBorder"]
 position = Vector2(407.5, 234)
 shape = SubResource("RectangleShape2D_o8jqq")
+one_way_collision_margin = 0.0
 
 [node name="TopBorder" type="StaticBody2D" parent="."]
 light_mask = 0
 position = Vector2(-17, -135)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TopBorder"]
-position = Vector2(425, 255)
-shape = SubResource("RectangleShape2D_o8jqq")
-one_way_collision_margin = 0.0
+position = Vector2(801, 250)
+shape = SubResource("RectangleShape2D_5xu8s")
 
 [node name="LeftBorder" type="StaticBody2D" parent="."]
 texture_filter = 2
@@ -66,7 +69,7 @@ texture = ExtResource("2_0r184")
 [node name="Entities" type="Node2D" parent="Environment"]
 
 [node name="Player" parent="Environment/Entities" instance=ExtResource("1_ol61p")]
-position = Vector2(158, 178)
+position = Vector2(208, 136)
 
 [node name="Camera2D" type="Camera2D" parent="Environment/Entities/Player"]
 limit_left = 0
