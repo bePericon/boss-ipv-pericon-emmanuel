@@ -1,7 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://3oxh1huylhow"]
+[gd_scene load_steps=9 format=3 uid="uid://3oxh1huylhow"]
 
 [ext_resource type="PackedScene" uid="uid://blfqraevuuw2o" path="res://src/entities/player/Player.tscn" id="1_ol61p"]
 [ext_resource type="Texture2D" uid="uid://btvaafor481m1" path="res://assets/textures/floor.png" id="2_0r184"]
+[ext_resource type="PackedScene" uid="uid://c3l35aa7vg2qc" path="res://src/entities/items/Onigiri.tscn" id="3_n32lp"]
+[ext_resource type="PackedScene" uid="uid://s2v1xaqflbpb" path="res://src/entities/items/Coin.tscn" id="4_mbq3b"]
+[ext_resource type="PackedScene" uid="uid://g0si1cv2ejki" path="res://src/entities/items/Sake.tscn" id="5_6aldb"]
+[ext_resource type="PackedScene" uid="uid://cdq2t7jjs1dc7" path="res://src/entities/enemy/Enemy.tscn" id="6_hqf03"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o8jqq"]
 size = Vector2(815.25, 22)
@@ -69,7 +73,7 @@ texture = ExtResource("2_0r184")
 [node name="Entities" type="Node2D" parent="Environment"]
 
 [node name="Player" parent="Environment/Entities" instance=ExtResource("1_ol61p")]
-position = Vector2(208, 136)
+position = Vector2(568, 160)
 
 [node name="Camera2D" type="Camera2D" parent="Environment/Entities/Player"]
 limit_left = 0
@@ -77,3 +81,18 @@ limit_top = 0
 limit_right = 800
 limit_bottom = 224
 editor_draw_limits = true
+
+[node name="Reward" parent="Environment/Entities" instance=ExtResource("3_n32lp")]
+z_index = 0
+position = Vector2(280, 168)
+collision_layer = 1
+collision_priority = 1.0
+
+[node name="Coin" parent="Environment/Entities" instance=ExtResource("4_mbq3b")]
+position = Vector2(344, 168)
+
+[node name="Reward2" parent="Environment/Entities" instance=ExtResource("5_6aldb")]
+position = Vector2(400, 168)
+
+[node name="Enemy" parent="Environment/Entities" instance=ExtResource("6_hqf03")]
+position = Vector2(568, 144)

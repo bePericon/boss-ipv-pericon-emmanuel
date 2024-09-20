@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://c3l35aa7vg2qc"]
+
+[ext_resource type="PackedScene" uid="uid://83h2lqmsd8wb" path="res://src/entities/Reward.tscn" id="1_20eqc"]
+[ext_resource type="Texture2D" uid="uid://dcixohyel0m0k" path="res://assets/textures/items/Onigiri.png" id="2_k75uv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jcptl"]
+radius = 6.0
+
+[node name="Onigiri" instance=ExtResource("1_20eqc")]
+collectible_type = "life"
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("CircleShape2D_jcptl")
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="1"]
+texture_filter = 1
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_k75uv")
