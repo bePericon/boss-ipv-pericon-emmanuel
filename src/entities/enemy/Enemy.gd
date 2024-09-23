@@ -8,7 +8,7 @@ const JUMP_VELOCITY = -400.0
 @onready var body: Sprite2D = $Body
 var target:Node2D = null
 
-func _physics_process(delta):
+func _physics_process(_delta: float) -> void:
 	if(target and target.name == 'Player'):
 		var space_state = get_world_2d().direct_space_state
 		var result = space_state.intersect_ray(PhysicsRayQueryParameters2D.create(global_position, target.global_position))
@@ -27,7 +27,7 @@ func _on_detection_area_body_exited(body_detected: Node2D) -> void:
 		target = null
 
 
-func take_damage(amount: int) -> void:
+func take_damage(_amount: int) -> void:
 	body_animations.play("hit")
 
 
