@@ -1,9 +1,15 @@
-[gd_scene load_steps=12 format=3 uid="uid://cdq2t7jjs1dc7"]
+[gd_scene load_steps=15 format=3 uid="uid://cdq2t7jjs1dc7"]
 
 [ext_resource type="Script" path="res://src/entities/enemy/Enemy.gd" id="1_btjdg"]
 [ext_resource type="Texture2D" uid="uid://fpbd218nnuvx" path="res://assets/textures/enemies/skeleton/Idle.png" id="2_n6bra"]
 [ext_resource type="Texture2D" uid="uid://dv1arb71f0v3u" path="res://assets/textures/enemies/skeleton/Take Hit.png" id="2_o8sng"]
 [ext_resource type="Script" path="res://src/scripts/HurtBox.gd" id="3_wqxa2"]
+[ext_resource type="Script" path="res://src/scripts/StateMachine.gd" id="5_ket1h"]
+[ext_resource type="Script" path="res://src/entities/enemy/states/EnemyStateIdle.gd" id="6_4qo0m"]
+[ext_resource type="Script" path="res://src/entities/enemy/states/EnemyStateHit.gd" id="7_kopox"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nr8y1"]
+size = Vector2(24.5, 6)
 
 [sub_resource type="Animation" id="Animation_j8fxo"]
 length = 0.001
@@ -58,7 +64,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Body/HurtBox/CollisionShape2D:disabled")
+tracks/4/path = NodePath("HurtBox/CollisionShape2D:disabled")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -122,7 +128,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Body/HurtBox/CollisionShape2D:disabled")
+tracks/4/path = NodePath("HurtBox/CollisionShape2D:disabled")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -187,7 +193,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Body/HurtBox/CollisionShape2D:disabled")
+tracks/4/path = NodePath("HurtBox/CollisionShape2D:disabled")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -207,15 +213,16 @@ _data = {
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l2uku"]
 height = 50.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_osjtv"]
-size = Vector2(22, 51)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_05sjv"]
-size = Vector2(434, 226)
+size = Vector2(510, 370.5)
 
 [node name="Enemy" type="CharacterBody2D"]
 collision_layer = 2
 script = ExtResource("1_btjdg")
+
+[node name="FeetShape" type="CollisionShape2D" parent="."]
+position = Vector2(3.25, 23)
+shape = SubResource("RectangleShape2D_nr8y1")
 
 [node name="BodyAnimations" type="AnimationPlayer" parent="."]
 libraries = {
@@ -228,31 +235,39 @@ texture_filter = 1
 texture = ExtResource("2_o8sng")
 hframes = 4
 
-[node name="HurtBox" type="Area2D" parent="Body"]
+[node name="HurtBox" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 16
 script = ExtResource("3_wqxa2")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Body/HurtBox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 position = Vector2(6, -1)
 shape = SubResource("CapsuleShape2D_l2uku")
 disabled = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-z_index = 1
-position = Vector2(3, 0)
-shape = SubResource("RectangleShape2D_osjtv")
-
 [node name="DetectionArea" type="Area2D" parent="."]
+position = Vector2(0, 24)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
 visible = false
+position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_05sjv")
 
 [node name="RayCast2D" type="RayCast2D" parent="DetectionArea"]
 
-[connection signal="animation_finished" from="BodyAnimations" to="." method="_on_body_animations_animation_finished"]
-[connection signal="area_entered" from="Body/HurtBox" to="." method="_on_hurt_box_area_entered"]
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("default_state")]
+script = ExtResource("5_ket1h")
+default_state = NodePath("EnemyStateIdle")
+
+[node name="EnemyStateIdle" type="Node" parent="StateMachine"]
+script = ExtResource("6_4qo0m")
+
+[node name="EnemyStateHit" type="Node" parent="StateMachine"]
+script = ExtResource("7_kopox")
+
+[connection signal="hurting" from="." to="StateMachine/EnemyStateIdle" method="_on_enemy_hurting"]
+[connection signal="animation_finished" from="BodyAnimations" to="StateMachine/EnemyStateIdle" method="_on_body_animations_animation_finished"]
+[connection signal="animation_finished" from="BodyAnimations" to="StateMachine/EnemyStateHit" method="_on_body_animations_animation_finished"]
+[connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]

@@ -1,12 +1,14 @@
 extends CharacterBody2D
-
+class_name Enemy
 
 const SPEED = 50.0
 const JUMP_VELOCITY = -400.0
 
-@onready var body_animations: AnimationPlayer = $BodyAnimations
+@onready var _body_animations: AnimationPlayer = $BodyAnimations
 @onready var body: Sprite2D = $Body
 var target:Node2D = null
+
+signal hurting(amount)
 
 func _physics_process(_delta: float) -> void:
 	if(target and target.name == 'Player'):
@@ -14,7 +16,7 @@ func _physics_process(_delta: float) -> void:
 		var result = space_state.intersect_ray(PhysicsRayQueryParameters2D.create(global_position, target.global_position))
 		if(result):
 			body.flip_h = (result.position.x - target.global_position.x) > 0
-			body.z_index = 0 if (result.position.y - target.global_position.y) < 0 else 2
+			body.z_index = 0 if (global_position.y - target.global_position.y) < 0 else 2
 
 
 func _on_detection_area_body_entered(body_detected: Node2D) -> void:
@@ -27,10 +29,10 @@ func _on_detection_area_body_exited(body_detected: Node2D) -> void:
 		target = null
 
 
-func take_damage(_amount: int) -> void:
-	body_animations.play("hit")
+func take_damage(amount: int) -> void:
+	hurting.emit(amount)
 
 
-func _on_body_animations_animation_finished(anim_name: StringName) -> void:
-	if anim_name == "hit":
-		body_animations.play("idle")
+func play_animation(animation: String) -> void:
+	if _body_animations.has_animation(animation):
+		_body_animations.play(animation)
