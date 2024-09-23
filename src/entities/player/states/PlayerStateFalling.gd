@@ -1,6 +1,8 @@
 extends PlayerStateBase
 class_name PlayerStateFalling
 
+signal ending
+
 func on_physics_process(delta):
 	player.play_animation("fall")
 	
@@ -16,6 +18,7 @@ func on_physics_process(delta):
 func end():
 	player.jump_control.y = 0
 	player.velocity.y = 0
+	ending.emit()
 
 func handle_gravity(delta):
 	var gravity = player.get_gravity() * delta
