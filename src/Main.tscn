@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://3oxh1huylhow"]
+[gd_scene load_steps=10 format=3 uid="uid://3oxh1huylhow"]
 
+[ext_resource type="Script" path="res://src/TopBorder.gd" id="1_copo7"]
 [ext_resource type="PackedScene" uid="uid://blfqraevuuw2o" path="res://src/entities/player/Player.tscn" id="1_ol61p"]
 [ext_resource type="Texture2D" uid="uid://btvaafor481m1" path="res://assets/textures/floor.png" id="2_0r184"]
 [ext_resource type="PackedScene" uid="uid://c3l35aa7vg2qc" path="res://src/entities/items/Onigiri.tscn" id="3_n32lp"]
@@ -8,31 +9,36 @@
 [ext_resource type="PackedScene" uid="uid://cdq2t7jjs1dc7" path="res://src/entities/enemy/Enemy.tscn" id="6_hqf03"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o8jqq"]
-size = Vector2(815.25, 22)
+size = Vector2(704, 24)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5xu8s"]
-size = Vector2(32, 26)
+size = Vector2(704, 24)
 
 [node name="Main" type="Node"]
 
 [node name="BottomBorder" type="StaticBody2D" parent="."]
+collision_layer = 8
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BottomBorder"]
-position = Vector2(407.5, 234)
+position = Vector2(352, 236)
 shape = SubResource("RectangleShape2D_o8jqq")
 one_way_collision_margin = 0.0
 
 [node name="TopBorder" type="StaticBody2D" parent="."]
 light_mask = 0
 position = Vector2(-17, -135)
+collision_layer = 64
+script = ExtResource("1_copo7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TopBorder"]
-position = Vector2(801, 250)
+position = Vector2(465, 251)
 shape = SubResource("RectangleShape2D_5xu8s")
 
 [node name="LeftBorder" type="StaticBody2D" parent="."]
 texture_filter = 2
 position = Vector2(-34, -270)
+collision_layer = 8
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="LeftBorder"]
 position = Vector2(82, 382)
@@ -44,6 +50,7 @@ polygon = PackedVector2Array(70.072, 63.2809, -70.072, 63.2809, -70.072, -158.20
 [node name="RightBorder" type="StaticBody2D" parent="."]
 texture_filter = 2
 position = Vector2(-68, -540)
+collision_layer = 8
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="RightBorder"]
 position = Vector2(820, 884)
@@ -73,7 +80,8 @@ texture = ExtResource("2_0r184")
 [node name="Entities" type="Node2D" parent="Environment"]
 
 [node name="Player" parent="Environment/Entities" instance=ExtResource("1_ol61p")]
-position = Vector2(568, 160)
+position = Vector2(181, 120)
+collision_mask = 72
 
 [node name="Camera2D" type="Camera2D" parent="Environment/Entities/Player"]
 limit_left = 0
@@ -95,4 +103,6 @@ position = Vector2(344, 168)
 position = Vector2(400, 168)
 
 [node name="Enemy" parent="Environment/Entities" instance=ExtResource("6_hqf03")]
-position = Vector2(568, 144)
+position = Vector2(586, 149)
+
+[connection signal="player_jumping" from="Environment/Entities/Player" to="TopBorder" method="_on_player_player_jumping"]

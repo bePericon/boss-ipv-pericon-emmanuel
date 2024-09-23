@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://blfqraevuuw2o"]
+[gd_scene load_steps=25 format=3 uid="uid://blfqraevuuw2o"]
 
 [ext_resource type="Script" path="res://src/entities/player/Player.gd" id="1_xgotg"]
 [ext_resource type="Texture2D" uid="uid://dlver2u50upju" path="res://assets/textures/player/Run.png" id="2_n00fj"]
@@ -6,10 +6,18 @@
 [ext_resource type="Texture2D" uid="uid://c2x13fs736fa2" path="res://assets/textures/player/Attack1.png" id="4_q6im8"]
 [ext_resource type="Texture2D" uid="uid://cjufunts3b6jx" path="res://assets/textures/player/Jump.png" id="5_5e6jd"]
 [ext_resource type="Texture2D" uid="uid://cin6o04hytvn5" path="res://assets/textures/player/Fall.png" id="6_ccav7"]
-[ext_resource type="Script" path="res://src/HitBox.gd" id="7_og7l0"]
+[ext_resource type="Script" path="res://src/scripts/HitBox.gd" id="7_og7l0"]
+[ext_resource type="PackedScene" uid="uid://cvyg83df737la" path="res://src/scripts/StateMachine.tscn" id="8_hyfy1"]
+[ext_resource type="Script" path="res://src/entities/player/states/PlayerStateIdle.gd" id="9_bsd16"]
+[ext_resource type="Script" path="res://src/entities/player/states/PlayerStateRunning.gd" id="10_47hof"]
+[ext_resource type="Script" path="res://src/entities/player/states/PlayerStateAttacking.gd" id="11_4o78n"]
+[ext_resource type="Script" path="res://src/entities/player/states/PlayerStateCollecting.gd" id="12_62xdn"]
+[ext_resource type="Script" path="res://src/entities/player/states/PlayerStateJumping.gd" id="13_2gc0i"]
+[ext_resource type="Script" path="res://src/entities/player/CollectControl.gd" id="13_5qhq3"]
+[ext_resource type="Script" path="res://src/entities/player/states/PlayerStateFalling.gd" id="14_icypc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vu2q6"]
-size = Vector2(17, 53)
+size = Vector2(16, 4)
 
 [sub_resource type="Animation" id="Animation_clftr"]
 length = 0.001
@@ -439,12 +447,11 @@ height = 82.0
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 1
-collision_mask = 0
+collision_mask = 8
 script = ExtResource("1_xgotg")
 
-[node name="BodyCollision" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(2.5, 1.5)
+[node name="FeetShape" type="CollisionShape2D" parent="."]
+position = Vector2(2, 26)
 shape = SubResource("RectangleShape2D_vu2q6")
 
 [node name="BodyAnimations" type="AnimationPlayer" parent="."]
@@ -470,3 +477,31 @@ position = Vector2(43, -3)
 rotation = 1.57079
 shape = SubResource("CapsuleShape2D_45umm")
 disabled = true
+
+[node name="StateMachine" parent="." node_paths=PackedStringArray("default_state") instance=ExtResource("8_hyfy1")]
+default_state = NodePath("PlayerStateIdle")
+
+[node name="PlayerStateIdle" type="Node" parent="StateMachine"]
+script = ExtResource("9_bsd16")
+
+[node name="PlayerStateRunning" type="Node" parent="StateMachine"]
+script = ExtResource("10_47hof")
+
+[node name="PlayerStateAttacking" type="Node" parent="StateMachine"]
+script = ExtResource("11_4o78n")
+
+[node name="PlayerStateCollecting" type="Node" parent="StateMachine"]
+script = ExtResource("12_62xdn")
+
+[node name="PlayerStateJumping" type="Node" parent="StateMachine"]
+script = ExtResource("13_2gc0i")
+
+[node name="PlayerStateFalling" type="Node" parent="StateMachine"]
+script = ExtResource("14_icypc")
+
+[node name="CollectControl" type="Node" parent="."]
+script = ExtResource("13_5qhq3")
+
+[connection signal="animation_finished" from="BodyAnimations" to="StateMachine/PlayerStateAttacking" method="_on_body_animations_animation_finished"]
+[connection signal="running" from="StateMachine/PlayerStateJumping" to="." method="_on_player_state_jumping_running"]
+[connection signal="ending" from="StateMachine/PlayerStateFalling" to="." method="_on_player_state_falling_ending"]

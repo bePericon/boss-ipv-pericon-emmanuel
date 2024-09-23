@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://src/entities/enemy/Enemy.gd" id="1_btjdg"]
 [ext_resource type="Texture2D" uid="uid://fpbd218nnuvx" path="res://assets/textures/enemies/skeleton/Idle.png" id="2_n6bra"]
 [ext_resource type="Texture2D" uid="uid://dv1arb71f0v3u" path="res://assets/textures/enemies/skeleton/Take Hit.png" id="2_o8sng"]
-[ext_resource type="Script" path="res://src/HurtBox.gd" id="3_wqxa2"]
+[ext_resource type="Script" path="res://src/scripts/HurtBox.gd" id="3_wqxa2"]
 
 [sub_resource type="Animation" id="Animation_j8fxo"]
 length = 0.001
