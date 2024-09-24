@@ -7,7 +7,7 @@ func start():
 	running.emit()
 	player.jump_control.y = player.global_position.y
 
-func on_physics_process(delta):
+func on_physics_process(_delta):
 	player.play_animation("jump")
 	
 	player.velocity.x = Input.get_axis("ui_left", "ui_right") * player.ACCELERATION
