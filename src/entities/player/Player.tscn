@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cjufunts3b6jx" path="res://assets/textures/player/Jump.png" id="5_5e6jd"]
 [ext_resource type="Texture2D" uid="uid://cin6o04hytvn5" path="res://assets/textures/player/Fall.png" id="6_ccav7"]
 [ext_resource type="Script" path="res://src/scripts/HitBox.gd" id="7_og7l0"]
-[ext_resource type="PackedScene" uid="uid://cvyg83df737la" path="res://src/scripts/StateMachine.tscn" id="8_hyfy1"]
+[ext_resource type="Script" path="res://src/scripts/StateMachine.gd" id="9_3mwtj"]
 [ext_resource type="Script" path="res://src/entities/player/states/PlayerStateIdle.gd" id="9_bsd16"]
 [ext_resource type="Script" path="res://src/entities/player/states/PlayerStateRunning.gd" id="10_47hof"]
 [ext_resource type="Script" path="res://src/entities/player/states/PlayerStateAttacking.gd" id="11_4o78n"]
@@ -478,7 +478,8 @@ rotation = 1.57079
 shape = SubResource("CapsuleShape2D_45umm")
 disabled = true
 
-[node name="StateMachine" parent="." node_paths=PackedStringArray("default_state") instance=ExtResource("8_hyfy1")]
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("default_state")]
+script = ExtResource("9_3mwtj")
 default_state = NodePath("PlayerStateIdle")
 
 [node name="PlayerStateIdle" type="Node" parent="StateMachine"]

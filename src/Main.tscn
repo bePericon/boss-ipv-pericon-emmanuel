@@ -1,11 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://3oxh1huylhow"]
+[gd_scene load_steps=11 format=3 uid="uid://3oxh1huylhow"]
 
-[ext_resource type="Script" path="res://src/TopBorder.gd" id="1_copo7"]
+[ext_resource type="Script" path="res://src/scripts/TopBorder.gd" id="1_fw7wy"]
 [ext_resource type="PackedScene" uid="uid://blfqraevuuw2o" path="res://src/entities/player/Player.tscn" id="1_ol61p"]
 [ext_resource type="Texture2D" uid="uid://btvaafor481m1" path="res://assets/textures/floor.png" id="2_0r184"]
 [ext_resource type="PackedScene" uid="uid://c3l35aa7vg2qc" path="res://src/entities/items/Onigiri.tscn" id="3_n32lp"]
 [ext_resource type="PackedScene" uid="uid://s2v1xaqflbpb" path="res://src/entities/items/Coin.tscn" id="4_mbq3b"]
 [ext_resource type="PackedScene" uid="uid://g0si1cv2ejki" path="res://src/entities/items/Sake.tscn" id="5_6aldb"]
+[ext_resource type="PackedScene" uid="uid://chd5dkff5gh7l" path="res://src/entities/enemy/EnemySpawn.tscn" id="5_i4lr1"]
 [ext_resource type="PackedScene" uid="uid://cdq2t7jjs1dc7" path="res://src/entities/enemy/Enemy.tscn" id="6_hqf03"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o8jqq"]
@@ -28,8 +29,8 @@ one_way_collision_margin = 0.0
 [node name="TopBorder" type="StaticBody2D" parent="."]
 light_mask = 0
 position = Vector2(-17, -135)
-collision_layer = 64
-script = ExtResource("1_copo7")
+collision_layer = 192
+script = ExtResource("1_fw7wy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TopBorder"]
 position = Vector2(465, 251)
@@ -90,19 +91,25 @@ limit_right = 800
 limit_bottom = 224
 editor_draw_limits = true
 
-[node name="Reward" parent="Environment/Entities" instance=ExtResource("3_n32lp")]
+[node name="Enemies" type="Node2D" parent="Environment/Entities"]
+
+[node name="Enemy" parent="Environment/Entities/Enemies" instance=ExtResource("6_hqf03")]
+position = Vector2(537, 160)
+
+[node name="EnemySpawn" parent="Environment/Entities/Enemies" instance=ExtResource("5_i4lr1")]
+
+[node name="Items" type="Node2D" parent="Environment/Entities"]
+
+[node name="Reward" parent="Environment/Entities/Items" instance=ExtResource("3_n32lp")]
 z_index = 0
 position = Vector2(280, 168)
 collision_layer = 1
 collision_priority = 1.0
 
-[node name="Coin" parent="Environment/Entities" instance=ExtResource("4_mbq3b")]
+[node name="Coin" parent="Environment/Entities/Items" instance=ExtResource("4_mbq3b")]
 position = Vector2(344, 168)
 
-[node name="Reward2" parent="Environment/Entities" instance=ExtResource("5_6aldb")]
+[node name="Reward2" parent="Environment/Entities/Items" instance=ExtResource("5_6aldb")]
 position = Vector2(400, 168)
-
-[node name="Enemy" parent="Environment/Entities" instance=ExtResource("6_hqf03")]
-position = Vector2(586, 149)
 
 [connection signal="player_jumping" from="Environment/Entities/Player" to="TopBorder" method="_on_player_player_jumping"]
