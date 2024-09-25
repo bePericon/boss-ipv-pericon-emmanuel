@@ -9,7 +9,7 @@ func on_physics_process(delta):
 	player.velocity.x = Input.get_axis("ui_left", "ui_right") * player.ACCELERATION
 	
 	if player_on_initial_floor():
-		state_machine.change_to("PlayerStateIdle")
+		state_machine.change_to(player.states.Idle)
 	else:
 		handle_gravity(delta)
 	

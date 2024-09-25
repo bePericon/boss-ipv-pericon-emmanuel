@@ -1,12 +1,12 @@
 extends Area2D
 class_name HurtBox
 
-func _init() -> void:
-	collision_layer = 0
-	collision_mask = 5
-
+@export var layer:int = 1
+@export var mask:int = 1
 
 func _ready() -> void:
+	collision_layer = layer
+	collision_mask = mask
 	self.connect("area_entered", _on_area_entered)
 
 
@@ -15,6 +15,7 @@ func _on_area_entered(hitbox: Area2D) -> void:
 		return
 	
 	if hitbox is HitBox and owner.has_method("take_damage") and assert_hit(hitbox):
+		print("hay daño")
 		owner.take_damage(hitbox.damage)
 
 

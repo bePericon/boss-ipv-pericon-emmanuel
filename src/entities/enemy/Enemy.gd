@@ -8,6 +8,10 @@ const JUMP_VELOCITY = -400.0
 @onready var body: Sprite2D = $Body
 @onready var movement: Movement = $Movement
 @onready var raycast: RayCast2D = $RayCast2D
+@onready var health: Node = $Health
+@onready var hitbox: HitBox = $Hitbox
+
+@export var strength:int = 1
 
 var target:Node2D = null
 var states:EnemyStatesNames = EnemyStatesNames.new()
@@ -32,6 +36,7 @@ func _on_detection_area_body_exited(body_detected: Node2D) -> void:
 		target = null
 
 func take_damage(amount: int) -> void:
+	health.take_damage(amount)
 	hurting.emit(amount)
 
 func found_target() -> void:
@@ -70,7 +75,8 @@ func stop_movement() -> void:
 	movement.stop_movement()
 
 func is_close_target() -> bool:
-	return (global_position - target.global_position) < Vector2(30,30)
+	return (global_position - target.global_position) < Vector2(40,40)
 
-func attack() -> void:
-	print("Hit on target!")
+func remove() -> void:
+	get_parent().remove_child(self)
+	queue_free()

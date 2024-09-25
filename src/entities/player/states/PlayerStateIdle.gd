@@ -16,11 +16,11 @@ func on_input(_event: InputEvent) -> void:
 	var is_up_pressed = Input.is_action_pressed("ui_up")
 	
 	if is_right_pressed or is_left_pressed or is_down_pressed or is_up_pressed:
-		state_machine.change_to("PlayerStateRunning")
+		state_machine.change_to(player.states.Running)
 	elif Input.is_action_just_pressed("attack_01"):
 		if player.collect_control.exist_object():
-			state_machine.change_to("PlayerStateCollecting")
+			state_machine.change_to(player.states.Collecting)
 		else:
-			state_machine.change_to("PlayerStateAttacking")
+			state_machine.change_to(player.states.Attacking)
 	elif Input.is_action_just_pressed("jump"):  
-		state_machine.change_to("PlayerStateJumping")
+		state_machine.change_to(player.states.Jumping)

@@ -9,7 +9,7 @@ func on_physics_process(_delta: float) -> void:
 		
 		if enemy.is_close_target():
 			enemy.stop_movement()
-			state_machine.change_to(enemy.states.Idle)
+			state_machine.change_to(enemy.states.Attacking)
 		else:
 			enemy.apply_movement()
 

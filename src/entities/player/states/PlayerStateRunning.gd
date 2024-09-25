@@ -21,4 +21,4 @@ func on_input(_event: InputEvent) -> void:
 	var is_up_pressed = Input.is_action_pressed("ui_up")
 	
 	if not is_left_pressed and not is_right_pressed and not is_up_pressed and not is_down_pressed: 
-		state_machine.change_to("PlayerStateIdle")
+		state_machine.change_to(player.states.Idle)
