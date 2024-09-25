@@ -6,5 +6,6 @@ class_name HitBox
 @export var mask:int = 1
 
 func _ready() -> void:
-	collision_layer = layer
-	collision_mask = mask
+	pass
+	#collision_layer = layer
+	#collision_mask = mask

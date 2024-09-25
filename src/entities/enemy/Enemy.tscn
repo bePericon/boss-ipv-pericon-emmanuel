@@ -505,7 +505,7 @@ hframes = 4
 
 [node name="Hitbox" type="Area2D" parent="."]
 collision_layer = 512
-collision_mask = 256
+collision_mask = 0
 script = ExtResource("7_ugrkr")
 layer = 10
 mask = 0
@@ -575,7 +575,7 @@ script = ExtResource("8_10g5d")
 [connection signal="animation_finished" from="BodyAnimations" to="StateMachine/EnemyStateHit" method="_on_body_animations_animation_finished"]
 [connection signal="animation_finished" from="BodyAnimations" to="StateMachine/EnemyStateDead" method="_on_body_animations_animation_finished"]
 [connection signal="animation_finished" from="BodyAnimations" to="StateMachine/EnemyStateAttacking" method="_on_body_animations_animation_finished"]
-[connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
+[connection signal="area_entered" from="HurtBox" to="HurtBox" method="_on_area_entered"]
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
 [connection signal="timeout" from="StateMachine/EnemyStateIdle/IdleTimer" to="StateMachine/EnemyStateIdle" method="_on_idle_timer_timeout"]

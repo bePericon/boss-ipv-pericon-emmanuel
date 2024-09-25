@@ -19,9 +19,9 @@ var states:EnemyStatesNames = EnemyStatesNames.new()
 signal hurting(amount)
 signal found
 
-func initialize(container, turret_pos) -> void:
+func initialize(container, enemy_pos) -> void:
 	container.add_child(self)
-	global_position = turret_pos
+	global_position = enemy_pos
 
 func _ready() -> void:
 	movement.setup(self)

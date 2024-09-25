@@ -24,3 +24,7 @@ func on_input(_event: InputEvent) -> void:
 			state_machine.change_to(player.states.Attacking)
 	elif Input.is_action_just_pressed("jump"):  
 		state_machine.change_to(player.states.Jumping)
+
+
+func _on_player_hurting(amount: Variant) -> void:
+	state_machine.change_to(player.states.Hit)

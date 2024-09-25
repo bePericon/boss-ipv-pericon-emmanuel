@@ -34,3 +34,7 @@ func _on_player_state_jumping_running() -> void:
 
 func _on_player_state_falling_ending() -> void:
 	player_jumping.emit(false)
+
+func remove() -> void:
+	get_parent().remove_child(self)
+	queue_free()

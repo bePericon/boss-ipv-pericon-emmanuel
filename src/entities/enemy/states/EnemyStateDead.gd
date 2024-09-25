@@ -1,5 +1,5 @@
 extends EnemyStateBase
-class_name EnemyStateDie
+class_name EnemyStateDead
 
 func start():
 	enemy.play_animation("dead")
