@@ -1,6 +1,8 @@
 extends EnemyStateBase
 class_name EnemyStateDead
 
+signal dead
+
 func start():
 	enemy.play_animation("dead")
 	enemy.collision_layer = 0

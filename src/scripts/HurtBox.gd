@@ -5,15 +5,15 @@ class_name HurtBox
 @export var mask:int = 1
 
 func _ready() -> void:
-	pass#collision_layer = layer
-	#collision_mask = mask
+	collision_layer = layer
+	collision_mask = mask
 	#self.connect("area_entered", _on_area_entered)
 
 
 func _on_area_entered(hitbox: Area2D) -> void:
-	print("hay daño ", hitbox)
 	if hitbox == null:
 		return
+	
 	if hitbox is HitBox and owner.has_method("take_damage") and assert_hit(hitbox):
 		owner.take_damage(hitbox.damage)
 

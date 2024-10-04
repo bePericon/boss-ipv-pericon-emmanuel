@@ -12,6 +12,7 @@ class_name Player
 @onready var health: Node = $Health
 
 var states:PlayerStatesNames = PlayerStatesNames.new()
+var strength:int = 1
 
 signal player_jumping(is_running)
 signal hurting(amount)
@@ -38,3 +39,6 @@ func _on_player_state_falling_ending() -> void:
 func remove() -> void:
 	get_parent().remove_child(self)
 	queue_free()
+
+func set_strength(number: int) -> void:
+	strength = number

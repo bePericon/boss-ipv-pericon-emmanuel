@@ -8,4 +8,8 @@ func start():
 
 func _on_body_animations_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "dead":
-		pass#player.remove()
+		if player.health.can_revive():
+			player.health.revive()
+			state_machine.change_to(player.states.Idle)
+		else:
+			player.remove()

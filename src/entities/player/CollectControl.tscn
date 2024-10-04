@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d4cgcg2nr5sv"]
+
+[ext_resource type="Script" path="res://src/entities/player/CollectControl.gd" id="1_lf6tn"]
+
+[node name="CollectControl" type="Node" groups=["CollectControl"]]
+script = ExtResource("1_lf6tn")

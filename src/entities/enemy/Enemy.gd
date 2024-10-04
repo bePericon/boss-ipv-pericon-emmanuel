@@ -5,7 +5,7 @@ const SPEED = 50.0
 const JUMP_VELOCITY = -400.0
 
 @onready var _body_animations: AnimationPlayer = $BodyAnimations
-@onready var body: Sprite2D = $Body
+@onready var _body_pivot: Node2D = $BodyPivot
 @onready var movement: Movement = $Movement
 @onready var raycast: RayCast2D = $RayCast2D
 @onready var health: Node = $Health
@@ -60,11 +60,11 @@ func can_see_target() -> bool:
 
 func look_at_target() -> void:
 	#print("enemy.look_at_target: ", "left" if (target.global_position - global_position).x < 0 else "right")
-	body.flip_h = (target.global_position - global_position).x < 0
+	_body_pivot.scale.x = -1 if (target.global_position - global_position).x < 0 else 1
 
 func setting_z_index() -> void:
 	#print("enemy.setting_z_index: ", "back" if (global_position.y - target.global_position.y) < 0 else "front")
-	body.z_index = 0 if (global_position.y - target.global_position.y) < 0 else 2
+	_body_pivot.z_index = 0 if (global_position.y - target.global_position.y) < 0 else 2
 
 func apply_movement() -> void:
 	var direction = target.global_position - global_position
@@ -80,3 +80,6 @@ func is_close_target() -> bool:
 func remove() -> void:
 	get_parent().remove_child(self)
 	queue_free()
+
+func _on_health_dead() -> void:
+	get_tree().call_group("Score", "add", 100.0)
