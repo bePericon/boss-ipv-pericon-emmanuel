@@ -5,19 +5,15 @@ class_name Reward
 
 var is_collected:bool = false
 
-#signal on_collected
-
 func _on_body_entered(body: Node2D) -> void:
 	if not is_collected:
 		is_collected = true
 		body.collect_control.for_collect(self)
 
-
 func collected():
-	#emit_signal("on_collected", collectible_type)
+	get_tree().call_group("CollectControl", "on_collected", collectible_type)
 	print("Collected reward type: ", collectible_type)
 	queue_free()
-
 
 func _on_body_exited(body: Node2D) -> void:
 	is_collected = false

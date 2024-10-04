@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://3oxh1huylhow"]
+[gd_scene load_steps=12 format=3 uid="uid://3oxh1huylhow"]
 
 [ext_resource type="Script" path="res://src/scripts/TopBorder.gd" id="1_fw7wy"]
 [ext_resource type="PackedScene" uid="uid://blfqraevuuw2o" path="res://src/entities/player/Player.tscn" id="1_ol61p"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://g0si1cv2ejki" path="res://src/entities/items/Sake.tscn" id="5_6aldb"]
 [ext_resource type="PackedScene" uid="uid://chd5dkff5gh7l" path="res://src/entities/enemy/EnemySpawn.tscn" id="5_i4lr1"]
 [ext_resource type="PackedScene" uid="uid://cdq2t7jjs1dc7" path="res://src/entities/enemy/Enemy.tscn" id="6_hqf03"]
+[ext_resource type="Script" path="res://src/Score.gd" id="9_3elxf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o8jqq"]
 size = Vector2(704, 24)
@@ -17,52 +18,52 @@ size = Vector2(704, 24)
 
 [node name="Main" type="Node"]
 
-[node name="BottomBorder" type="StaticBody2D" parent="."]
+[node name="Environment" type="Node2D" parent="."]
+
+[node name="Ground" type="Node2D" parent="Environment"]
+
+[node name="BottomBorder" type="StaticBody2D" parent="Environment/Ground"]
 collision_layer = 8
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomBorder"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Ground/BottomBorder"]
 position = Vector2(352, 236)
 shape = SubResource("RectangleShape2D_o8jqq")
 one_way_collision_margin = 0.0
 
-[node name="TopBorder" type="StaticBody2D" parent="."]
+[node name="TopBorder" type="StaticBody2D" parent="Environment/Ground"]
 light_mask = 0
 position = Vector2(-17, -135)
 collision_layer = 192
 script = ExtResource("1_fw7wy")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TopBorder"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Ground/TopBorder"]
 position = Vector2(465, 251)
 shape = SubResource("RectangleShape2D_5xu8s")
 
-[node name="LeftBorder" type="StaticBody2D" parent="."]
+[node name="LeftBorder" type="StaticBody2D" parent="Environment/Ground"]
 texture_filter = 2
 position = Vector2(-34, -270)
 collision_layer = 8
 
-[node name="CollisionShape2D" type="CollisionPolygon2D" parent="LeftBorder"]
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Environment/Ground/LeftBorder"]
 position = Vector2(82, 382)
 rotation = -0.785398
 scale = Vector2(0.96875, 1.01136)
 skew = 0.785398
 polygon = PackedVector2Array(70.072, 63.2809, -70.072, 63.2809, -70.072, -158.202, 70.072, -158.202)
 
-[node name="RightBorder" type="StaticBody2D" parent="."]
+[node name="RightBorder" type="StaticBody2D" parent="Environment/Ground"]
 texture_filter = 2
 position = Vector2(-68, -540)
 collision_layer = 8
 
-[node name="CollisionShape2D" type="CollisionPolygon2D" parent="RightBorder"]
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Environment/Ground/RightBorder"]
 position = Vector2(820, 884)
 rotation = -0.785398
 scale = Vector2(0.96875, 1.01136)
 skew = 0.785398
 polygon = PackedVector2Array(70.072, 55.3708, -70.0719, 55.3708, -70.0719, -166.112, 70.072, -166.112)
-
-[node name="Environment" type="Node2D" parent="."]
-
-[node name="Ground" type="Node2D" parent="Environment"]
 
 [node name="Floor" type="Sprite2D" parent="Environment/Ground"]
 z_index = -1
@@ -100,16 +101,22 @@ position = Vector2(537, 160)
 
 [node name="Items" type="Node2D" parent="Environment/Entities"]
 
-[node name="Reward" parent="Environment/Entities/Items" instance=ExtResource("3_n32lp")]
+[node name="Onigiri" parent="Environment/Entities/Items" instance=ExtResource("3_n32lp")]
 z_index = 0
 position = Vector2(280, 168)
 collision_layer = 1
 collision_priority = 1.0
+collectible_type = "Life"
 
 [node name="Coin" parent="Environment/Entities/Items" instance=ExtResource("4_mbq3b")]
 position = Vector2(344, 168)
+collectible_type = "Armor"
 
-[node name="Reward2" parent="Environment/Entities/Items" instance=ExtResource("5_6aldb")]
+[node name="Sake" parent="Environment/Entities/Items" instance=ExtResource("5_6aldb")]
 position = Vector2(400, 168)
+collectible_type = "Upgrade"
 
-[connection signal="player_jumping" from="Environment/Entities/Player" to="TopBorder" method="_on_player_player_jumping"]
+[node name="Score" type="Node" parent="." groups=["Score"]]
+script = ExtResource("9_3elxf")
+
+[connection signal="player_jumping" from="Environment/Entities/Player" to="Environment/Ground/TopBorder" method="_on_player_player_jumping"]

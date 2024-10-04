@@ -15,7 +15,7 @@ func on_physics_process(_delta):
 	if player_on_floor() and player.velocity.y >= 0:
 		player.velocity.y = -player.JUMP_VELOCITY
 	elif player_on_top() :
-		state_machine.change_to("PlayerStateFalling")
+		state_machine.change_to(player.states.Falling)
 	
 	player.move_and_slide()
 
