@@ -14,18 +14,17 @@ func _ready() -> void:
 
 func take_damage(amount: int) -> void:
 	current_health -= amount
-	print("Take damage - current health: ", current_health)
+	print("Take damage - current health: ", current_health, " | current life: ", current_life)
 	if current_health == 0:
+		current_life -= 1
+		current_health = health_max
 		dead.emit()
 
 func is_dead() -> bool:
-	return current_health == 0
+	return current_life == 0
 
 func can_revive() -> bool:
 	return current_life > 0
-
-func revive() -> void:
-	current_life -= 1
 
 func add() -> void:
 	if current_health < health_max:

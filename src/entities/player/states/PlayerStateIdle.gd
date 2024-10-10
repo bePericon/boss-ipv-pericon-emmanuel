@@ -27,4 +27,9 @@ func on_input(_event: InputEvent) -> void:
 
 
 func _on_player_hurting(amount: Variant) -> void:
-	state_machine.change_to(player.states.Hit)
+	if state_machine.current_state.name == player.states.Idle:
+		state_machine.change_to(player.states.Hit)
+
+
+func _on_health_dead() -> void:
+	state_machine.change_to(player.states.Dead)

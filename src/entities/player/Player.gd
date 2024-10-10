@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name Player
 
 @export var ACCELERATION:float = 200.0
-@export var JUMP_VELOCITY:float = 250.0
+@export var JUMP_VELOCITY:float = 180.0
 @export var jump_control:Vector2 = Vector2.ZERO
 
 @onready var feet_shape: CollisionShape2D = $FeetShape
@@ -31,10 +31,11 @@ func take_damage(amount: int) -> void:
 
 func _on_player_state_jumping_running() -> void:
 	player_jumping.emit(true)
-
+	feet_shape.disabled = true
 
 func _on_player_state_falling_ending() -> void:
 	player_jumping.emit(false)
+	feet_shape.disabled = false
 
 func remove() -> void:
 	get_parent().remove_child(self)

@@ -2,11 +2,10 @@ extends PlayerStateBase
 class_name PlayerStateAttacking
 
 func start():
-	if not player.collect_control.exist_object():
-		player.play_animation("attack_01")
-		#player.attack()
-
+	player.play_animation("attack_01")
 
 func _on_body_animations_animation_finished(anim_name: StringName) -> void:
-	if anim_name == "attack_01":
-		state_machine.change_to(player.states.Idle)
+	if anim_name == "attack_01" and state_machine:
+		if state_machine.current_state.name == player.states.Attacking:
+			print("estoy aca en attacking")
+			state_machine.change_to(player.states.Idle)

@@ -75,7 +75,7 @@ func stop_movement() -> void:
 	movement.stop_movement()
 
 func is_close_target() -> bool:
-	return (global_position - target.global_position) < Vector2(40,40)
+	return (global_position - target.global_position) < Vector2(40,10)
 
 func remove() -> void:
 	get_parent().remove_child(self)
