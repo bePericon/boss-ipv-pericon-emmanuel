@@ -119,8 +119,7 @@ position = Vector2(344, 168)
 collectible_type = "Armor"
 
 [node name="Sake" parent="Environment/Entities/Items" instance=ExtResource("5_6aldb")]
-position = Vector2(400, 168)
-collectible_type = "Upgrade"
+position = Vector2(400, 169)
 
 [node name="Score" type="Node" parent="." groups=["Score"]]
 script = ExtResource("9_3elxf")
