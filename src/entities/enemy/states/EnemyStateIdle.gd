@@ -5,7 +5,7 @@ class_name EnemyStateIdle
 
 func start():
 	enemy.play_animation("idle")
-	if not enemy.health.is_dead():
+	if not enemy.health.is_dead_completly():
 		idle_timer.start()
 
 func _on_enemy_hurting(_amount: Variant) -> void:

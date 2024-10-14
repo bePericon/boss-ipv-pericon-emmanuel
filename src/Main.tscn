@@ -1,5 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://3oxh1huylhow"]
+[gd_scene load_steps=12 format=3 uid="uid://3oxh1huylhow"]
 
+[ext_resource type="PackedScene" uid="uid://cvypfh3nbo6sx" path="res://src/game/ui/GUI.tscn" id="1_3sb46"]
 [ext_resource type="PackedScene" uid="uid://blfqraevuuw2o" path="res://src/entities/player/Player.tscn" id="1_ol61p"]
 [ext_resource type="Texture2D" uid="uid://btvaafor481m1" path="res://assets/textures/floor.png" id="2_0r184"]
 [ext_resource type="PackedScene" uid="uid://c3l35aa7vg2qc" path="res://src/entities/items/Onigiri.tscn" id="3_n32lp"]
@@ -16,6 +17,10 @@ size = Vector2(704, 24)
 size = Vector2(704, 24)
 
 [node name="Main" type="Node"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GUI" parent="CanvasLayer" instance=ExtResource("1_3sb46")]
 
 [node name="Environment" type="Node2D" parent="."]
 

@@ -9,7 +9,6 @@ const JUMP_VELOCITY = -400.0
 @onready var movement: Movement = $Movement
 @onready var raycast: RayCast2D = $RayCast2D
 @onready var health: Node = $Health
-@onready var hitbox: HitBox = $Hitbox
 
 @export var strength:int = 1
 

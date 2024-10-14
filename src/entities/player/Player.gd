@@ -17,9 +17,11 @@ var strength:int = 1
 signal player_jumping(is_running)
 signal hurting(amount)
 
+func _ready() -> void:
+	get_tree().call_group("Stats", "set_current_player", self)
+
 func flip_direction() -> void:
 	_body_pivot.scale.x = -1 if velocity.x < 0 else 1
-
 
 func play_animation(animation: String) -> void:
 	if _body_animations.has_animation(animation):
@@ -43,3 +45,13 @@ func remove() -> void:
 
 func set_strength(number: int) -> void:
 	strength = number
+
+func _on_health_dead() -> void:
+	if health.can_revive():
+		get_tree().call_group("Stats", "setting_hearts")
+
+func _on_health_add_health() -> void:
+	get_tree().call_group("Stats", "show_heart", health.current_health)
+
+func _on_health_update_health(amount: int) -> void:
+	get_tree().call_group("Stats", "hide_heart", health.current_health+1)

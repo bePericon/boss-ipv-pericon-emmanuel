@@ -838,4 +838,7 @@ health_max = 5
 [connection signal="ending" from="StateMachine/PlayerStateFalling" to="." method="_on_player_state_falling_ending"]
 [connection signal="ending" from="StateMachine/PlayerStateHitFalling" to="." method="_on_player_state_falling_ending"]
 [connection signal="timeout" from="CollectControl/UpgradeTimer" to="CollectControl" method="_on_upgrade_timer_timeout"]
+[connection signal="add_health" from="Health" to="." method="_on_health_add_health"]
+[connection signal="dead" from="Health" to="." method="_on_health_dead"]
 [connection signal="dead" from="Health" to="StateMachine/PlayerStateIdle" method="_on_health_dead"]
+[connection signal="update_health" from="Health" to="." method="_on_health_update_health"]

@@ -1,0 +1,95 @@
+[gd_scene load_steps=4 format=3 uid="uid://cvypfh3nbo6sx"]
+
+[ext_resource type="Texture2D" uid="uid://dhw4iortd8d22" path="res://assets/textures/ui/heart_red.png" id="1_siiiu"]
+[ext_resource type="Script" path="res://src/game/ui/GUI.gd" id="1_yswb0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dm2ya"]
+atlas = ExtResource("1_siiiu")
+region = Rect2(254, 254, 484, 387)
+
+[node name="GUI" type="Control" groups=["Stats"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yswb0")
+
+[node name="StatsContainer" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Life" type="Label" parent="StatsContainer"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+offset_left = 10.0
+offset_top = 8.0
+offset_right = 33.0
+offset_bottom = 31.0
+scale = Vector2(0.8, 0.8)
+pivot_offset = Vector2(0, -10)
+text = "3 x"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="StatsContainer"]
+layout_mode = 2
+offset_left = 35.0
+offset_top = 10.0
+offset_right = 519.0
+offset_bottom = 397.0
+scale = Vector2(0.03, 0.03)
+
+[node name="Heart1" type="TextureRect" parent="StatsContainer/HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+texture = SubResource("AtlasTexture_dm2ya")
+
+[node name="Heart2" type="TextureRect" parent="StatsContainer/HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+texture = SubResource("AtlasTexture_dm2ya")
+
+[node name="Heart3" type="TextureRect" parent="StatsContainer/HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+texture = SubResource("AtlasTexture_dm2ya")
+
+[node name="Heart4" type="TextureRect" parent="StatsContainer/HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+texture = SubResource("AtlasTexture_dm2ya")
+
+[node name="Heart5" type="TextureRect" parent="StatsContainer/HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+texture = SubResource("AtlasTexture_dm2ya")
+
+[node name="Heart6" type="TextureRect" parent="StatsContainer/HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+texture = SubResource("AtlasTexture_dm2ya")
+
+[node name="Heart7" type="TextureRect" parent="StatsContainer/HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+texture = SubResource("AtlasTexture_dm2ya")
+
+[node name="Heart8" type="TextureRect" parent="StatsContainer/HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+texture = SubResource("AtlasTexture_dm2ya")
