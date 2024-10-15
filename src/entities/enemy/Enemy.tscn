@@ -18,7 +18,7 @@
 [ext_resource type="Script" path="res://src/entities/Health.gd" id="16_mrr7q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nr8y1"]
-size = Vector2(24.5, 6)
+size = Vector2(39, 9)
 
 [sub_resource type="Animation" id="Animation_j8fxo"]
 length = 0.001
@@ -489,7 +489,7 @@ collision_mask = 10
 script = ExtResource("1_btjdg")
 
 [node name="FeetShape" type="CollisionShape2D" parent="."]
-position = Vector2(3.25, 23)
+position = Vector2(3, 24)
 shape = SubResource("RectangleShape2D_nr8y1")
 disabled = true
 
