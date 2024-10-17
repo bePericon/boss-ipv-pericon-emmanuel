@@ -32,7 +32,7 @@ func _initialize() -> void:
 	#for i in amount:
 		timer.start(wait_timer)
 		var enemy_instance: Enemy = enemy_scene.instantiate()
-		var enemy_pos: Vector2 = Vector2(random.randi_range(global_position.x, global_position.x + extents.x), random.randi_range(global_position.y, global_position.y + extents.y))
+		var enemy_pos: Vector2 = Vector2(random.randf_range(global_position.x, global_position.x + extents.x), random.randf_range(global_position.y, global_position.y + extents.y))
 		enemy_instance.initialize(self, enemy_pos)
 		amount -= 1
 		if amount == 0:

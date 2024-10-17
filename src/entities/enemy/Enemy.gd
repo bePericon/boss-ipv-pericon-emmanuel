@@ -10,8 +10,6 @@ const JUMP_VELOCITY = -400.0
 @onready var raycast: RayCast2D = $RayCast2D
 @onready var health: Node = $Health
 
-@export var strength:int = 1
-
 var target:Node2D = null
 var states:EnemyStatesNames = EnemyStatesNames.new()
 
@@ -67,7 +65,7 @@ func setting_z_index() -> void:
 
 func apply_movement() -> void:
 	var direction = target.global_position - global_position
-	var distance = global_position.distance_to(target.global_position)
+	#var distance = global_position.distance_to(target.global_position)
 	movement.move(direction)
 
 func stop_movement() -> void:

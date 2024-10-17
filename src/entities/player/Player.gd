@@ -7,12 +7,12 @@ class_name Player
 
 @onready var feet_shape: CollisionShape2D = $FeetShape
 @onready var _body_pivot: Node2D = $BodyPivot
+@onready var hit_box: HitBox = $BodyPivot/HitBox
 @onready var _body_animations = $BodyAnimations
 @onready var collect_control: Node = $CollectControl
 @onready var health: Node = $Health
 
 var states:PlayerStatesNames = PlayerStatesNames.new()
-var strength:int = 1
 
 signal player_jumping(is_running)
 signal hurting(amount)
@@ -44,7 +44,7 @@ func remove() -> void:
 	queue_free()
 
 func set_strength(number: int) -> void:
-	strength = number
+	hit_box.damage = number
 
 func _on_health_dead() -> void:
 	if health.can_revive():
@@ -53,5 +53,5 @@ func _on_health_dead() -> void:
 func _on_health_add_health() -> void:
 	get_tree().call_group("Stats", "show_heart", health.current_health)
 
-func _on_health_update_health(amount: int) -> void:
+func _on_health_update_health(_amount: int) -> void:
 	get_tree().call_group("Stats", "hide_heart", health.current_health+1)

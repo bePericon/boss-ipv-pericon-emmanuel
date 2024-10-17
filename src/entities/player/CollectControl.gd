@@ -26,7 +26,7 @@ func on_collected(type):
 			notify_score(130.0)
 		collectibles_types.Upgrade:
 			notify_score(50.0)
-			start_upgrade(10)
+			start_upgrade(10.0)
 
 func notify_score(amount: float) -> void:
 	var score = amount * score_multiplier

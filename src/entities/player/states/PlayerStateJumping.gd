@@ -29,7 +29,7 @@ func player_on_floor() -> bool:
 	return player.global_position.y < 196 and player.global_position.y > 104
 
 
-func _on_player_hurting(amount: Variant) -> void:
+func _on_player_hurting(_amount: Variant) -> void:
 	if state_machine:
 		if state_machine.current_state.name == player.states.Jumping:
 			state_machine.change_to(player.states.HitFalling)

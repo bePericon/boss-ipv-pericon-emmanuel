@@ -18,7 +18,7 @@ func take_damage(amount: int) -> void:
 	current_health -= amount
 	update_health.emit(current_health)
 	print("Take damage - current health: ", current_health, " | current life: ", current_life)
-	if current_health == 0:
+	if current_health <= 0:
 		current_life -= 1
 		current_health = health_max
 		dead.emit()
