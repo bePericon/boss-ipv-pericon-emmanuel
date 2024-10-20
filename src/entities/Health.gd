@@ -9,6 +9,7 @@ var current_health:int = 0
 signal dead
 signal add_health
 signal update_health(amount: int)
+signal dead_completly
 
 func _ready() -> void:
 	current_life = life_max
@@ -22,6 +23,9 @@ func take_damage(amount: int) -> void:
 		current_life -= 1
 		current_health = health_max
 		dead.emit()
+	
+	if current_life == 0:
+		dead_completly.emit(owner)
 
 func is_dead_completly() -> bool:
 	return current_life == 0

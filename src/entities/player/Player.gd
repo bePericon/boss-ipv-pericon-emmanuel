@@ -19,6 +19,7 @@ signal hurting(amount)
 
 func _ready() -> void:
 	get_tree().call_group("Stats", "set_current_player", self)
+	GameState.set_current_player(self)
 
 func flip_direction() -> void:
 	_body_pivot.scale.x = -1 if velocity.x < 0 else 1

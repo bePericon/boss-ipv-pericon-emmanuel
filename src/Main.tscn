@@ -1,9 +1,11 @@
-[gd_scene load_steps=31 format=3 uid="uid://3oxh1huylhow"]
+[gd_scene load_steps=33 format=3 uid="uid://3oxh1huylhow"]
 
 [ext_resource type="PackedScene" uid="uid://cvypfh3nbo6sx" path="res://src/game/ui/GUI.tscn" id="1_3sb46"]
 [ext_resource type="PackedScene" uid="uid://blfqraevuuw2o" path="res://src/entities/player/Player.tscn" id="1_ol61p"]
 [ext_resource type="Texture2D" uid="uid://dre4b1ldufm6j" path="res://assets/textures/backgrounds/5_blue_forest/7.png" id="2_5wrbp"]
+[ext_resource type="PackedScene" uid="uid://c6rybch7nincd" path="res://src/game/ui/GameOver.tscn" id="2_8tygt"]
 [ext_resource type="Texture2D" uid="uid://bgbraygb234a6" path="res://assets/textures/tilesets/tileset_streets_of_fight.png" id="2_dc0ro"]
+[ext_resource type="Script" path="res://src/game/ui/GameOver.gd" id="3_0bvfq"]
 [ext_resource type="Texture2D" uid="uid://bse24xfn1txeh" path="res://assets/textures/backgrounds/8_brown_forest/brown_forest.png" id="3_00r8e"]
 [ext_resource type="Texture2D" uid="uid://bqhvld2gyfpe0" path="res://assets/textures/tilesets/tiles- various.png" id="3_0s042"]
 [ext_resource type="PackedScene" uid="uid://c3l35aa7vg2qc" path="res://src/entities/items/Onigiri.tscn" id="3_n32lp"]
@@ -1733,6 +1735,9 @@ size = Vector2(20, 171)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="GUI" parent="CanvasLayer" instance=ExtResource("1_3sb46")]
+
+[node name="GameOver" parent="CanvasLayer" instance=ExtResource("2_8tygt")]
+script = ExtResource("3_0bvfq")
 
 [node name="BackgroundContainer" type="Node" parent="."]
 
