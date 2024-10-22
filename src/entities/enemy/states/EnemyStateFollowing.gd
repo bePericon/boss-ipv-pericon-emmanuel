@@ -2,7 +2,7 @@ extends EnemyStateBase
 class_name EnemyStateFollowing
 
 func on_physics_process(_delta: float) -> void:
-	if not enemy.health.is_dead():
+	if not enemy.health.is_dead_completly():
 		enemy.play_animation("walk")
 		if enemy.can_see_target():
 			enemy.look_at_target()
@@ -17,7 +17,7 @@ func on_physics_process(_delta: float) -> void:
 			state_machine.change_to(enemy.states.Idle)
 
 
-func _on_enemy_hurting(amount: Variant) -> void:
+func _on_enemy_hurting(_amount: Variant) -> void:
 	state_machine.change_to(enemy.states.Hit)
 
 func _on_health_dead() -> void:

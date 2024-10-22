@@ -9,9 +9,6 @@ const JUMP_VELOCITY = -400.0
 @onready var movement: Movement = $Movement
 @onready var raycast: RayCast2D = $RayCast2D
 @onready var health: Node = $Health
-@onready var hitbox: HitBox = $Hitbox
-
-@export var strength:int = 1
 
 var target:Node2D = null
 var states:EnemyStatesNames = EnemyStatesNames.new()
@@ -68,14 +65,14 @@ func setting_z_index() -> void:
 
 func apply_movement() -> void:
 	var direction = target.global_position - global_position
-	var distance = global_position.distance_to(target.global_position)
+	#var distance = global_position.distance_to(target.global_position)
 	movement.move(direction)
 
 func stop_movement() -> void:
 	movement.stop_movement()
 
 func is_close_target() -> bool:
-	return (global_position - target.global_position) < Vector2(40,40)
+	return (global_position - target.global_position) < Vector2(40,10)
 
 func remove() -> void:
 	get_parent().remove_child(self)

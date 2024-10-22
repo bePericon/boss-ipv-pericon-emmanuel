@@ -11,6 +11,14 @@ func on_physics_process(_delta: float) -> void:
 	
 	#Vertical Movement
 	player.velocity.y = Input.get_axis("ui_up", "ui_down") * player.ACCELERATION
+	
+	if Input.is_action_just_pressed("jump"):  
+		state_machine.change_to(player.states.Jumping)
+	elif Input.is_action_just_pressed("attack_01"):
+		if player.collect_control.exist_object():
+			state_machine.change_to(player.states.Collecting)
+		else:
+			state_machine.change_to(player.states.Attacking)
 
 	player.move_and_slide()
 	

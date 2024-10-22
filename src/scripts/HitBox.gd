@@ -1,9 +1,9 @@
 extends Area2D
 class_name HitBox
 
-@export var damage:int = 1
-@export var layer:int = 1
-@export var mask:int = 1
+@export var damage:int 
+@export var layer:int
+@export var mask:int
 
 func _ready() -> void:
 	collision_layer = layer
