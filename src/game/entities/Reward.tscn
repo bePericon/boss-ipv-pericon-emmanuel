@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://83h2lqmsd8wb"]
 
-[ext_resource type="Script" path="res://src/entities/Reward.gd" id="1_d347u"]
+[ext_resource type="Script" path="res://src/game/entities/Reward.gd" id="1_d347u"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xwfge"]
 

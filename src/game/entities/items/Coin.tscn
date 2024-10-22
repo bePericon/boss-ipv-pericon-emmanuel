@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://s2v1xaqflbpb"]
 
-[ext_resource type="PackedScene" uid="uid://83h2lqmsd8wb" path="res://src/entities/Reward.tscn" id="1_6aleh"]
+[ext_resource type="PackedScene" uid="uid://83h2lqmsd8wb" path="res://src/game/entities/Reward.tscn" id="1_6aleh"]
 [ext_resource type="Texture2D" uid="uid://c408ooejext81" path="res://assets/textures/items/coin.png" id="2_j2h4g"]
 [ext_resource type="Texture2D" uid="uid://bg5jeidn8m3uu" path="res://assets/textures/effects/all_fire_bullet_pixel_16x16_yellow.png" id="3_xpftx"]
 

@@ -1,27 +1,28 @@
-[gd_scene load_steps=33 format=3 uid="uid://3oxh1huylhow"]
+[gd_scene load_steps=34 format=3 uid="uid://3oxh1huylhow"]
 
-[ext_resource type="PackedScene" uid="uid://cvypfh3nbo6sx" path="res://src/game/ui/GUI.tscn" id="1_3sb46"]
-[ext_resource type="PackedScene" uid="uid://blfqraevuuw2o" path="res://src/entities/player/Player.tscn" id="1_ol61p"]
-[ext_resource type="Texture2D" uid="uid://dre4b1ldufm6j" path="res://assets/textures/backgrounds/5_blue_forest/7.png" id="2_5wrbp"]
-[ext_resource type="PackedScene" uid="uid://c6rybch7nincd" path="res://src/game/ui/GameOver.tscn" id="2_8tygt"]
-[ext_resource type="Texture2D" uid="uid://bgbraygb234a6" path="res://assets/textures/tilesets/tileset_streets_of_fight.png" id="2_dc0ro"]
-[ext_resource type="Script" path="res://src/game/ui/GameOver.gd" id="3_0bvfq"]
-[ext_resource type="Texture2D" uid="uid://bse24xfn1txeh" path="res://assets/textures/backgrounds/8_brown_forest/brown_forest.png" id="3_00r8e"]
-[ext_resource type="Texture2D" uid="uid://bqhvld2gyfpe0" path="res://assets/textures/tilesets/tiles- various.png" id="3_0s042"]
-[ext_resource type="PackedScene" uid="uid://c3l35aa7vg2qc" path="res://src/entities/items/Onigiri.tscn" id="3_n32lp"]
-[ext_resource type="PackedScene" uid="uid://s2v1xaqflbpb" path="res://src/entities/items/Coin.tscn" id="4_mbq3b"]
-[ext_resource type="Texture2D" uid="uid://dtvxiljy43p31" path="res://assets/textures/tilesets/japanese_wall_set.png" id="4_ue4f6"]
-[ext_resource type="PackedScene" uid="uid://g0si1cv2ejki" path="res://src/entities/items/Sake.tscn" id="5_6aldb"]
-[ext_resource type="PackedScene" uid="uid://chd5dkff5gh7l" path="res://src/entities/enemy/EnemySpawn.tscn" id="5_i4lr1"]
-[ext_resource type="PackedScene" uid="uid://cdq2t7jjs1dc7" path="res://src/entities/enemy/Enemy.tscn" id="6_hqf03"]
-[ext_resource type="Texture2D" uid="uid://c50greyxayg5j" path="res://assets/textures/tilesets/48x48 trees.png" id="7_ndhrd"]
-[ext_resource type="Texture2D" uid="uid://baav14ucvhj4e" path="res://assets/textures/world/TREE 15_ORANGE.png" id="8_xes4c"]
-[ext_resource type="Script" path="res://src/Score.gd" id="9_3elxf"]
-[ext_resource type="Texture2D" uid="uid://degnfmwvyx2kc" path="res://assets/textures/world/Bush 9_YELLOW.png" id="9_4xkpk"]
-[ext_resource type="Texture2D" uid="uid://7hjtxlciw8bp" path="res://assets/textures/world/Bush 14_RED.png" id="10_qlmvv"]
+[ext_resource type="Script" path="res://src/game/levels/LevelDefault.gd" id="1_ahya5"]
+[ext_resource type="PackedScene" uid="uid://cvypfh3nbo6sx" path="res://src/game/ui/GUI.tscn" id="2_gx2oe"]
+[ext_resource type="PackedScene" uid="uid://c6rybch7nincd" path="res://src/game/ui/GameOver.tscn" id="3_1es4l"]
+[ext_resource type="Script" path="res://src/game/ui/GameOver.gd" id="4_byjrm"]
+[ext_resource type="Texture2D" uid="uid://dre4b1ldufm6j" path="res://assets/textures/backgrounds/5_blue_forest/7.png" id="5_oo8ih"]
+[ext_resource type="Texture2D" uid="uid://bse24xfn1txeh" path="res://assets/textures/backgrounds/8_brown_forest/brown_forest.png" id="6_bb3e4"]
+[ext_resource type="Texture2D" uid="uid://bgbraygb234a6" path="res://assets/textures/tilesets/tileset_streets_of_fight.png" id="7_1r6as"]
+[ext_resource type="Texture2D" uid="uid://bqhvld2gyfpe0" path="res://assets/textures/tilesets/tiles- various.png" id="8_fjbkc"]
+[ext_resource type="Texture2D" uid="uid://dtvxiljy43p31" path="res://assets/textures/tilesets/japanese_wall_set.png" id="9_orpom"]
+[ext_resource type="Texture2D" uid="uid://c50greyxayg5j" path="res://assets/textures/tilesets/48x48 trees.png" id="10_ri2x3"]
+[ext_resource type="Texture2D" uid="uid://baav14ucvhj4e" path="res://assets/textures/world/TREE 15_ORANGE.png" id="11_bi5wx"]
+[ext_resource type="Texture2D" uid="uid://degnfmwvyx2kc" path="res://assets/textures/world/Bush 9_YELLOW.png" id="12_vrn7h"]
+[ext_resource type="Texture2D" uid="uid://7hjtxlciw8bp" path="res://assets/textures/world/Bush 14_RED.png" id="13_a11ao"]
+[ext_resource type="PackedScene" uid="uid://blfqraevuuw2o" path="res://src/game/entities/player/Player.tscn" id="14_ytept"]
+[ext_resource type="PackedScene" uid="uid://cdq2t7jjs1dc7" path="res://src/game/entities/enemy/Enemy.tscn" id="15_bn0oa"]
+[ext_resource type="PackedScene" uid="uid://chd5dkff5gh7l" path="res://src/game/entities/enemy/EnemySpawn.tscn" id="16_563o2"]
+[ext_resource type="PackedScene" uid="uid://c3l35aa7vg2qc" path="res://src/game/entities/items/Onigiri.tscn" id="17_3v8mf"]
+[ext_resource type="PackedScene" uid="uid://s2v1xaqflbpb" path="res://src/game/entities/items/Coin.tscn" id="18_htkvx"]
+[ext_resource type="PackedScene" uid="uid://g0si1cv2ejki" path="res://src/game/entities/items/Sake.tscn" id="19_tis1q"]
+[ext_resource type="Script" path="res://src/Score.gd" id="20_08ijv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h6gkf"]
-texture = ExtResource("2_dc0ro")
+texture = ExtResource("7_1r6as")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -541,7 +542,7 @@ texture = ExtResource("2_dc0ro")
 9:22/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w2x0s"]
-texture = ExtResource("3_0s042")
+texture = ExtResource("8_fjbkc")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -975,7 +976,7 @@ texture = ExtResource("3_0s042")
 13:31/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pxm7y"]
-texture = ExtResource("4_ue4f6")
+texture = ExtResource("9_orpom")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -1111,7 +1112,7 @@ sources/3 = SubResource("TileSetAtlasSource_w2x0s")
 sources/4 = SubResource("TileSetAtlasSource_pxm7y")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gkxiy"]
-texture = ExtResource("7_ndhrd")
+texture = ExtResource("10_ri2x3")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -1150,7 +1151,7 @@ texture = ExtResource("7_ndhrd")
 sources/0 = SubResource("TileSetAtlasSource_gkxiy")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eqcl7"]
-texture = ExtResource("3_0s042")
+texture = ExtResource("8_fjbkc")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -1584,7 +1585,7 @@ texture = ExtResource("3_0s042")
 13:31/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_70u5x"]
-texture = ExtResource("4_ue4f6")
+texture = ExtResource("9_orpom")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -1730,14 +1731,15 @@ size = Vector2(4800, 24)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f2ghk"]
 size = Vector2(20, 171)
 
-[node name="Main" type="Node"]
+[node name="Level01" type="Node"]
+script = ExtResource("1_ahya5")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="GUI" parent="CanvasLayer" instance=ExtResource("1_3sb46")]
+[node name="GUI" parent="CanvasLayer" instance=ExtResource("2_gx2oe")]
 
-[node name="GameOver" parent="CanvasLayer" instance=ExtResource("2_8tygt")]
-script = ExtResource("3_0bvfq")
+[node name="GameOver" parent="CanvasLayer" instance=ExtResource("3_1es4l")]
+script = ExtResource("4_byjrm")
 
 [node name="BackgroundContainer" type="Node" parent="."]
 
@@ -1752,13 +1754,13 @@ visible = false
 texture_filter = 1
 position = Vector2(170, 45)
 scale = Vector2(0.6, 0.6)
-texture = ExtResource("2_5wrbp")
+texture = ExtResource("5_oo8ih")
 
 [node name="Sprite2D2" type="Sprite2D" parent="BackgroundContainer/ParallaxBackground/ParallaxLayer"]
 texture_filter = 1
 position = Vector2(163.2, 45)
 scale = Vector2(1.2, 1.2)
-texture = ExtResource("3_00r8e")
+texture = ExtResource("6_bb3e4")
 
 [node name="Environment" type="Node2D" parent="."]
 
@@ -1840,21 +1842,21 @@ z_index = -1
 texture_filter = 1
 position = Vector2(512, -8)
 scale = Vector2(4, 4)
-texture = ExtResource("8_xes4c")
+texture = ExtResource("11_bi5wx")
 
 [node name="TreeOrange2" type="Sprite2D" parent="Environment/Ground/Trees"]
 z_index = -1
 texture_filter = 1
 position = Vector2(1185, -6)
 scale = Vector2(4, 4)
-texture = ExtResource("8_xes4c")
+texture = ExtResource("11_bi5wx")
 
 [node name="TreeOrange3" type="Sprite2D" parent="Environment/Ground/Trees"]
 z_index = -1
 texture_filter = 1
 position = Vector2(1524, -7)
 scale = Vector2(4, 4)
-texture = ExtResource("8_xes4c")
+texture = ExtResource("11_bi5wx")
 flip_h = true
 
 [node name="TreeOrange4" type="Sprite2D" parent="Environment/Ground/Trees"]
@@ -1862,14 +1864,14 @@ z_index = -1
 texture_filter = 1
 position = Vector2(2230, -10)
 scale = Vector2(4, 4)
-texture = ExtResource("8_xes4c")
+texture = ExtResource("11_bi5wx")
 
 [node name="TreeOrange5" type="Sprite2D" parent="Environment/Ground/Trees"]
 z_index = -1
 texture_filter = 1
 position = Vector2(2698, -9)
 scale = Vector2(4, 4)
-texture = ExtResource("8_xes4c")
+texture = ExtResource("11_bi5wx")
 flip_h = true
 
 [node name="TreeOrange6" type="Sprite2D" parent="Environment/Ground/Trees"]
@@ -1877,7 +1879,7 @@ z_index = -1
 texture_filter = 1
 position = Vector2(4067, -10)
 scale = Vector2(4, 4)
-texture = ExtResource("8_xes4c")
+texture = ExtResource("11_bi5wx")
 flip_h = true
 
 [node name="TreeOrange7" type="Sprite2D" parent="Environment/Ground/Trees"]
@@ -1885,7 +1887,7 @@ z_index = -1
 texture_filter = 1
 position = Vector2(3560, -7)
 scale = Vector2(4, 4)
-texture = ExtResource("8_xes4c")
+texture = ExtResource("11_bi5wx")
 
 [node name="Bushes" type="Node" parent="Environment/Ground"]
 
@@ -1894,108 +1896,108 @@ z_index = 5
 texture_filter = 1
 position = Vector2(2685, 208)
 scale = Vector2(1.21429, 1.29167)
-texture = ExtResource("9_4xkpk")
+texture = ExtResource("12_vrn7h")
 
 [node name="BushYellow2" type="Sprite2D" parent="Environment/Ground/Bushes"]
 z_index = 5
 texture_filter = 1
 position = Vector2(2246, 208)
 scale = Vector2(1.21429, 1.29167)
-texture = ExtResource("9_4xkpk")
+texture = ExtResource("12_vrn7h")
 flip_h = true
 
 [node name="BushRed" type="Sprite2D" parent="Environment/Ground/Bushes"]
 texture_filter = 1
 position = Vector2(2685, 116)
-texture = ExtResource("10_qlmvv")
+texture = ExtResource("13_a11ao")
 
 [node name="BushRed2" type="Sprite2D" parent="Environment/Ground/Bushes"]
 texture_filter = 1
 position = Vector2(2243, 117)
 scale = Vector2(0.805556, 0.916667)
-texture = ExtResource("10_qlmvv")
+texture = ExtResource("13_a11ao")
 
 [node name="BushRed3" type="Sprite2D" parent="Environment/Ground/Bushes"]
 texture_filter = 1
 position = Vector2(2774, 117)
-texture = ExtResource("10_qlmvv")
+texture = ExtResource("13_a11ao")
 
 [node name="BushRed4" type="Sprite2D" parent="Environment/Ground/Bushes"]
 texture_filter = 1
 position = Vector2(3501, 118)
-texture = ExtResource("10_qlmvv")
+texture = ExtResource("13_a11ao")
 
 [node name="BushRed5" type="Sprite2D" parent="Environment/Ground/Bushes"]
 texture_filter = 1
 position = Vector2(4382, 119)
-texture = ExtResource("10_qlmvv")
+texture = ExtResource("13_a11ao")
 
 [node name="BushRed6" type="Sprite2D" parent="Environment/Ground/Bushes"]
 texture_filter = 1
 position = Vector2(556, 119)
-texture = ExtResource("10_qlmvv")
+texture = ExtResource("13_a11ao")
 
 [node name="BushRed7" type="Sprite2D" parent="Environment/Ground/Bushes"]
 z_index = 5
 texture_filter = 1
 position = Vector2(362, 225)
-texture = ExtResource("10_qlmvv")
+texture = ExtResource("13_a11ao")
 
 [node name="BushRed8" type="Sprite2D" parent="Environment/Ground/Bushes"]
 z_index = 5
 texture_filter = 1
 position = Vector2(422, 233)
-texture = ExtResource("10_qlmvv")
+texture = ExtResource("13_a11ao")
 
 [node name="BushRed9" type="Sprite2D" parent="Environment/Ground/Bushes"]
 z_index = 5
 texture_filter = 1
 position = Vector2(393, 223)
 scale = Vector2(0.788889, 0.866667)
-texture = ExtResource("10_qlmvv")
+texture = ExtResource("13_a11ao")
 
 [node name="BushRed10" type="Sprite2D" parent="Environment/Ground/Bushes"]
 texture_filter = 1
 position = Vector2(925, 121)
 scale = Vector2(0.744444, 0.8)
-texture = ExtResource("10_qlmvv")
+texture = ExtResource("13_a11ao")
 
 [node name="BushRed11" type="Sprite2D" parent="Environment/Ground/Bushes"]
 texture_filter = 1
 position = Vector2(1577, 122)
 scale = Vector2(0.744444, 0.8)
-texture = ExtResource("10_qlmvv")
+texture = ExtResource("13_a11ao")
 
 [node name="BushRed12" type="Sprite2D" parent="Environment/Ground/Bushes"]
 texture_filter = 1
 position = Vector2(1613, 118)
 scale = Vector2(1.03889, 1.06667)
-texture = ExtResource("10_qlmvv")
+texture = ExtResource("13_a11ao")
 
 [node name="BushRed13" type="Sprite2D" parent="Environment/Ground/Bushes"]
 z_index = 4
 texture_filter = 1
 position = Vector2(1896, 229)
 scale = Vector2(1.03889, 1.06667)
-texture = ExtResource("10_qlmvv")
+texture = ExtResource("13_a11ao")
 
 [node name="BushRed14" type="Sprite2D" parent="Environment/Ground/Bushes"]
 z_index = 5
 texture_filter = 1
 position = Vector2(3407, 226)
 scale = Vector2(1.03889, 1.06667)
-texture = ExtResource("10_qlmvv")
+texture = ExtResource("13_a11ao")
 
 [node name="BushRed15" type="Sprite2D" parent="Environment/Ground/Bushes"]
 z_index = 5
 texture_filter = 1
 position = Vector2(3899, 210)
 scale = Vector2(1.03889, 1.06667)
-texture = ExtResource("10_qlmvv")
+texture = ExtResource("13_a11ao")
 
 [node name="Entities" type="Node2D" parent="Environment"]
 
-[node name="Player" parent="Environment/Entities" instance=ExtResource("1_ol61p")]
+[node name="Player" parent="Environment/Entities" instance=ExtResource("14_ytept")]
 position = Vector2(181, 120)
 collision_mask = 72
 
@@ -2008,38 +2010,38 @@ editor_draw_limits = true
 
 [node name="Enemies" type="Node2D" parent="Environment/Entities"]
 
-[node name="Enemy" parent="Environment/Entities/Enemies" instance=ExtResource("6_hqf03")]
+[node name="Enemy" parent="Environment/Entities/Enemies" instance=ExtResource("15_bn0oa")]
 position = Vector2(434, 151)
 
-[node name="EnemySpawn1" parent="Environment/Entities/Enemies" instance=ExtResource("5_i4lr1")]
+[node name="EnemySpawn1" parent="Environment/Entities/Enemies" instance=ExtResource("16_563o2")]
 position = Vector2(691, 134)
 amount = 2
 wait_timer = 3.0
 extents = Vector2(100, 80)
 
-[node name="EnemySpawn2" parent="Environment/Entities/Enemies" instance=ExtResource("5_i4lr1")]
+[node name="EnemySpawn2" parent="Environment/Entities/Enemies" instance=ExtResource("16_563o2")]
 position = Vector2(1283, 140)
 amount = 2
 
-[node name="EnemySpawn3" parent="Environment/Entities/Enemies" instance=ExtResource("5_i4lr1")]
+[node name="EnemySpawn3" parent="Environment/Entities/Enemies" instance=ExtResource("16_563o2")]
 position = Vector2(1846, 138)
 amount = 3
 wait_timer = 10.0
 extents = Vector2(150, 80)
 
-[node name="EnemySpawn4" parent="Environment/Entities/Enemies" instance=ExtResource("5_i4lr1")]
+[node name="EnemySpawn4" parent="Environment/Entities/Enemies" instance=ExtResource("16_563o2")]
 position = Vector2(2710, 142)
 amount = 2
 wait_timer = 15.0
 extents = Vector2(150, 50)
 
-[node name="EnemySpawn5" parent="Environment/Entities/Enemies" instance=ExtResource("5_i4lr1")]
+[node name="EnemySpawn5" parent="Environment/Entities/Enemies" instance=ExtResource("16_563o2")]
 position = Vector2(3548, 145)
 amount = 3
 wait_timer = 15.0
 extents = Vector2(150, 50)
 
-[node name="EnemySpawn6" parent="Environment/Entities/Enemies" instance=ExtResource("5_i4lr1")]
+[node name="EnemySpawn6" parent="Environment/Entities/Enemies" instance=ExtResource("16_563o2")]
 position = Vector2(4443, 148)
 amount = 2
 wait_timer = 15.0
@@ -2047,37 +2049,37 @@ extents = Vector2(150, 50)
 
 [node name="Objects" type="Node2D" parent="Environment/Entities"]
 
-[node name="Onigiri" parent="Environment/Entities/Objects" instance=ExtResource("3_n32lp")]
+[node name="Onigiri" parent="Environment/Entities/Objects" instance=ExtResource("17_3v8mf")]
 z_index = 0
 position = Vector2(1923, 137)
 collision_layer = 1
 collision_priority = 1.0
 collectible_type = "Life"
 
-[node name="Onigiri2" parent="Environment/Entities/Objects" instance=ExtResource("3_n32lp")]
+[node name="Onigiri2" parent="Environment/Entities/Objects" instance=ExtResource("17_3v8mf")]
 z_index = 0
 position = Vector2(3837, 194)
 collision_layer = 1
 collision_priority = 1.0
 collectible_type = "Life"
 
-[node name="Coin" parent="Environment/Entities/Objects" instance=ExtResource("4_mbq3b")]
+[node name="Coin" parent="Environment/Entities/Objects" instance=ExtResource("18_htkvx")]
 position = Vector2(460, 186)
 collectible_type = "Armor"
 
-[node name="Coin2" parent="Environment/Entities/Objects" instance=ExtResource("4_mbq3b")]
+[node name="Coin2" parent="Environment/Entities/Objects" instance=ExtResource("18_htkvx")]
 position = Vector2(4752, 196)
 collectible_type = "Armor"
 
-[node name="Sake" parent="Environment/Entities/Objects" instance=ExtResource("5_6aldb")]
+[node name="Sake" parent="Environment/Entities/Objects" instance=ExtResource("19_tis1q")]
 position = Vector2(1293, 214)
 collectible_type = "Upgrade"
 
-[node name="Sake2" parent="Environment/Entities/Objects" instance=ExtResource("5_6aldb")]
+[node name="Sake2" parent="Environment/Entities/Objects" instance=ExtResource("19_tis1q")]
 position = Vector2(2715, 212)
 collectible_type = "Upgrade"
 
 [node name="Score" type="Node" parent="." groups=["Score"]]
-script = ExtResource("9_3elxf")
+script = ExtResource("20_08ijv")
 
 [connection signal="player_jumping" from="Environment/Entities/Player" to="Environment/Ground/Limits/TopBorder" method="_on_player_player_jumping"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8s84xirak1vy"
-path="res://.godot/imported/gray_square.png-3b030d2ba2cfaa27e0f7df04de0e1d37.ctex"
+uid="uid://bavpgub2vqr5h"
+path="res://.godot/imported/kokoro.png-c8b7462c4983ce84f20c0dfa070dfc0b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/gray_square.png"
-dest_files=["res://.godot/imported/gray_square.png-3b030d2ba2cfaa27e0f7df04de0e1d37.ctex"]
+source_file="res://assets/textures/kokoro.png"
+dest_files=["res://.godot/imported/kokoro.png-c8b7462c4983ce84f20c0dfa070dfc0b.ctex"]
 
 [params]
 

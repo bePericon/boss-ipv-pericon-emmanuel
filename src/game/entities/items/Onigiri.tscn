@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://c3l35aa7vg2qc"]
 
-[ext_resource type="PackedScene" uid="uid://83h2lqmsd8wb" path="res://src/entities/Reward.tscn" id="1_20eqc"]
+[ext_resource type="PackedScene" uid="uid://83h2lqmsd8wb" path="res://src/game/entities/Reward.tscn" id="1_20eqc"]
 [ext_resource type="Texture2D" uid="uid://dcixohyel0m0k" path="res://assets/textures/items/Onigiri.png" id="2_k75uv"]
 [ext_resource type="Texture2D" uid="uid://d32ftxer1xwwc" path="res://assets/textures/effects/all_fire_bullet_pixel_16x16_blue.png" id="3_x081k"]
 

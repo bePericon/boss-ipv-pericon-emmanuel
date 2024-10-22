@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://chd5dkff5gh7l"]
 
-[ext_resource type="Script" path="res://src/entities/enemy/EnemySpawn.gd" id="1_h56sa"]
-[ext_resource type="PackedScene" uid="uid://cdq2t7jjs1dc7" path="res://src/entities/enemy/Enemy.tscn" id="2_ifsru"]
+[ext_resource type="Script" path="res://src/game/entities/enemy/EnemySpawn.gd" id="1_h56sa"]
+[ext_resource type="PackedScene" uid="uid://cdq2t7jjs1dc7" path="res://src/game/entities/enemy/Enemy.tscn" id="2_ifsru"]
 
 [node name="EnemySpawn" type="Marker2D"]
 position = Vector2(671, 147)
