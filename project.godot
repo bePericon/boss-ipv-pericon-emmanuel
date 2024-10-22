@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="entrega-boss-pericon-emmanuel"
-run/main_scene="res://src/Main.tscn"
+run/main_scene="res://src/screens/InitialMenu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+GameState="*res://src/game/singletons/GameState.gd"
 
 [display]
 
