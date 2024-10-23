@@ -1,10 +1,11 @@
-[gd_scene load_steps=34 format=3 uid="uid://3oxh1huylhow"]
+[gd_scene load_steps=35 format=3 uid="uid://3oxh1huylhow"]
 
 [ext_resource type="Script" path="res://src/game/levels/LevelDefault.gd" id="1_ahya5"]
 [ext_resource type="PackedScene" uid="uid://cvypfh3nbo6sx" path="res://src/game/ui/GUI.tscn" id="2_gx2oe"]
 [ext_resource type="PackedScene" uid="uid://c6rybch7nincd" path="res://src/game/ui/GameOver.tscn" id="3_1es4l"]
 [ext_resource type="Script" path="res://src/game/ui/GameOver.gd" id="4_byjrm"]
 [ext_resource type="Texture2D" uid="uid://dre4b1ldufm6j" path="res://assets/textures/backgrounds/5_blue_forest/7.png" id="5_oo8ih"]
+[ext_resource type="PackedScene" uid="uid://pkkgmwlhxq1s" path="res://src/game/ui/Pause.tscn" id="5_s43jn"]
 [ext_resource type="Texture2D" uid="uid://bse24xfn1txeh" path="res://assets/textures/backgrounds/8_brown_forest/brown_forest.png" id="6_bb3e4"]
 [ext_resource type="Texture2D" uid="uid://bgbraygb234a6" path="res://assets/textures/tilesets/tileset_streets_of_fight.png" id="7_1r6as"]
 [ext_resource type="Texture2D" uid="uid://bqhvld2gyfpe0" path="res://assets/textures/tilesets/tiles- various.png" id="8_fjbkc"]
@@ -1740,6 +1741,8 @@ script = ExtResource("1_ahya5")
 
 [node name="GameOver" parent="CanvasLayer" instance=ExtResource("3_1es4l")]
 script = ExtResource("4_byjrm")
+
+[node name="Pause" parent="CanvasLayer" instance=ExtResource("5_s43jn")]
 
 [node name="BackgroundContainer" type="Node" parent="."]
 

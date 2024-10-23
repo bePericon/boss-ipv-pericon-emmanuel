@@ -1,7 +1,7 @@
 extends Node
 
 @export var levels: Array[PackedScene]
-@export var main_menu_path: String
+@export var initial_menu_path: String
 
 @onready var current_level_container: Node = $CurrentLevelContainer
 
@@ -33,7 +33,7 @@ func _setup_level(id: int) -> void:
 func _return_called() -> void:
 	GameState.weapons_available = []
 	get_tree().paused = false
-	get_tree().change_scene(main_menu_path)
+	get_tree().change_scene(initial_menu_path)
 
 
 # Callback de reinicio del nivel.

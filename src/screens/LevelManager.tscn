@@ -6,5 +6,6 @@
 [node name="LevelManager" type="Node"]
 script = ExtResource("1_waurd")
 levels = Array[PackedScene]([ExtResource("2_nkwoo")])
+initial_menu_path = "res://src/screens/InitialMenu.tscn"
 
 [node name="CurrentLevelContainer" type="Node" parent="."]

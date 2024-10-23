@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dh5i0ho46fyy1" path="res://assets/textures/game_over_01.png" id="2_ojf5p"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yjl7a"]
-bg_color = Color(0, 0, 0, 0.745098)
+bg_color = Color(0.0862745, 0.0862745, 0.0862745, 0.784314)
 
 [node name="GameOver" type="Control"]
 layout_mode = 3

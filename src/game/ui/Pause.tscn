@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://pkkgmwlhxq1s"]
+
+[ext_resource type="Script" path="res://src/game/ui/Pause.gd" id="1_3v3x5"]
+[ext_resource type="FontFile" uid="uid://bwkk85s6e8x3" path="res://assets/fonts/tinypixel.otf" id="1_a2etf"]
+[ext_resource type="Texture2D" uid="uid://cyv1y1tmpnohw" path="res://assets/textures/pause-japanese-scroll.png" id="1_empdc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_smkbj"]
+
+[node name="Pause" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_3v3x5")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 280.0
+offset_bottom = 184.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_smkbj")
+
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 123.28
+offset_top = 30.0
+offset_right = 415.28
+offset_bottom = 360.0
+grow_horizontal = 2
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("1_empdc")
+stretch_mode = 2
+
+[node name="Label" type="Label" parent="Panel"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 35.0
+offset_bottom = 65.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.0862745, 0.0862745, 0.0862745, 1)
+theme_override_fonts/font = ExtResource("1_a2etf")
+theme_override_font_sizes/font_size = 14
+text = "Pause"
+horizontal_alignment = 1
+vertical_alignment = 1
