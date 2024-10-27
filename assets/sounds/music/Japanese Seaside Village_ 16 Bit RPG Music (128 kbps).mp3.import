@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dpkoynq4ho81l"
+path="res://.godot/imported/Japanese Seaside Village_ 16 Bit RPG Music (128 kbps).mp3-724a9d8dd890838576ec4659ec0b7691.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/music/Japanese Seaside Village_ 16 Bit RPG Music (128 kbps).mp3"
+dest_files=["res://.godot/imported/Japanese Seaside Village_ 16 Bit RPG Music (128 kbps).mp3-724a9d8dd890838576ec4659ec0b7691.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

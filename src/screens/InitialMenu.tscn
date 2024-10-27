@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://upuhfy3wucqe"]
+[gd_scene load_steps=12 format=3 uid="uid://upuhfy3wucqe"]
 
 [ext_resource type="Script" path="res://src/screens/InitialMenu.gd" id="1_uh3xb"]
 [ext_resource type="PackedScene" uid="uid://ddn0gc3sfyppy" path="res://src/screens/LevelManager.tscn" id="2_0nk4s"]
@@ -7,6 +7,7 @@
 [ext_resource type="FontFile" uid="uid://bwkk85s6e8x3" path="res://assets/fonts/tinypixel.otf" id="4_0s2nw"]
 [ext_resource type="Script" path="res://src/screens/InitialControlButtons.gd" id="5_qdy2m"]
 [ext_resource type="Texture2D" uid="uid://bjilypdpqsnwp" path="res://assets/textures/selector_samurai.png" id="6_a83w2"]
+[ext_resource type="AudioStream" uid="uid://dbk8b0f5bhr36" path="res://assets/sounds/music/8bit_Japanese traditional music (No copyright) _Mysterious Kyouto_ (128 kbps).mp3" id="8_gklqa"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yhfya"]
 bg_color = Color(0.0862745, 0.0862745, 0.0862745, 0.784314)
@@ -149,5 +150,18 @@ text = "© 1992
 All rights reserved"
 horizontal_alignment = 1
 
+[node name="AudioMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_gklqa")
+volume_db = -30.0
+autoplay = true
+parameters/looping = false
+
+[node name="SelectFx" type="AudioStreamPlayer2D" parent="."]
+volume_db = -10.0
+
+[node name="ConfirmationFx" type="AudioStreamPlayer2D" parent="."]
+volume_db = -10.0
+
 [connection signal="pressed" from="Control/Panel/Control/ButtonsContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="Control/Panel/Control/ButtonsContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="finished" from="ConfirmationFx" to="." method="_on_confirmation_fx_finished"]

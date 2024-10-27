@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://by6e2udhbov4c"
+path="res://.godot/imported/Press Play 👾 (16-Bit Arcade No Copyright Music) (128 kbps).mp3-1f4f98ee08ff8525cc5f8ab84e5ecea6.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/music/Press Play 👾 (16-Bit Arcade No Copyright Music) (128 kbps).mp3"
+dest_files=["res://.godot/imported/Press Play 👾 (16-Bit Arcade No Copyright Music) (128 kbps).mp3-1f4f98ee08ff8525cc5f8ab84e5ecea6.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://3oxh1huylhow"]
+[gd_scene load_steps=36 format=3 uid="uid://3oxh1huylhow"]
 
 [ext_resource type="Script" path="res://src/game/levels/LevelDefault.gd" id="1_ahya5"]
 [ext_resource type="PackedScene" uid="uid://cvypfh3nbo6sx" path="res://src/game/ui/GUI.tscn" id="2_gx2oe"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://s2v1xaqflbpb" path="res://src/game/entities/items/Coin.tscn" id="18_htkvx"]
 [ext_resource type="PackedScene" uid="uid://g0si1cv2ejki" path="res://src/game/entities/items/Sake.tscn" id="19_tis1q"]
 [ext_resource type="Script" path="res://src/Score.gd" id="20_08ijv"]
+[ext_resource type="AudioStream" uid="uid://by6e2udhbov4c" path="res://assets/sounds/music/Press Play 👾 (16-Bit Arcade No Copyright Music) (128 kbps).mp3" id="22_e3osx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h6gkf"]
 texture = ExtResource("7_1r6as")
@@ -2084,5 +2085,11 @@ collectible_type = "Upgrade"
 
 [node name="Score" type="Node" parent="." groups=["Score"]]
 script = ExtResource("20_08ijv")
+
+[node name="AudioMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("22_e3osx")
+volume_db = -20.0
+pitch_scale = 0.8
+autoplay = true
 
 [connection signal="player_jumping" from="Environment/Entities/Player" to="Environment/Ground/Limits/TopBorder" method="_on_player_player_jumping"]
