@@ -1,9 +1,11 @@
 extends PlayerStateBase
 class_name PlayerStateFallingAttacking
 
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
+
 func start():
-	print("estoy aca en falling attacking")
 	player.play_animation("attack_01")
+	audio_stream_player.play()
 
 func on_physics_process(delta):
 	player.velocity.x = Input.get_axis("ui_left", "ui_right") * player.ACCELERATION

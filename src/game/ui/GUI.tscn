@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cvypfh3nbo6sx"]
+[gd_scene load_steps=5 format=3 uid="uid://cvypfh3nbo6sx"]
 
 [ext_resource type="Texture2D" uid="uid://dhw4iortd8d22" path="res://assets/textures/ui/heart_red.png" id="1_siiiu"]
 [ext_resource type="Script" path="res://src/game/ui/GUI.gd" id="1_yswb0"]
+[ext_resource type="FontFile" uid="uid://bwkk85s6e8x3" path="res://assets/fonts/tinypixel.otf" id="2_p8snh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dm2ya"]
 atlas = ExtResource("1_siiiu")
@@ -34,15 +35,19 @@ offset_right = 33.0
 offset_bottom = 31.0
 scale = Vector2(0.8, 0.8)
 pivot_offset = Vector2(0, -10)
-text = "3 x"
+theme_override_colors/font_color = Color(0.894118, 0.839216, 0.105882, 1)
+theme_override_colors/font_shadow_color = Color(0.0862745, 0.0862745, 0.0862745, 0.784314)
+theme_override_fonts/font = ExtResource("2_p8snh")
+theme_override_font_sizes/font_size = 20
+text = "0 x "
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="StatsContainer"]
 layout_mode = 2
-offset_left = 35.0
+offset_left = 40.0
 offset_top = 10.0
-offset_right = 519.0
+offset_right = 524.0
 offset_bottom = 397.0
 scale = Vector2(0.03, 0.03)
 
@@ -93,3 +98,29 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 2
 texture = SubResource("AtlasTexture_dm2ya")
+
+[node name="Score" type="Label" parent="StatsContainer"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 0
+offset_left = 252.0
+offset_top = 8.0
+offset_right = 310.0
+offset_bottom = 31.0
+theme_override_colors/font_color = Color(0.894118, 0.839216, 0.105882, 1)
+theme_override_colors/font_shadow_color = Color(0.0862745, 0.0862745, 0.0862745, 0.784314)
+theme_override_fonts/font = ExtResource("2_p8snh")
+text = "00000"
+
+[node name="LabelScore" type="Label" parent="StatsContainer"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 221.0
+offset_top = 8.0
+offset_right = 251.0
+offset_bottom = 31.0
+theme_override_colors/font_color = Color(0.894118, 0.839216, 0.105882, 1)
+theme_override_colors/font_shadow_color = Color(0.0862745, 0.0862745, 0.0862745, 0.784314)
+theme_override_fonts/font = ExtResource("2_p8snh")
+theme_override_font_sizes/font_size = 8
+text = "SCORE"

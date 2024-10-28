@@ -4,11 +4,6 @@ extends Node
 @onready var select_fx: AudioStreamPlayer2D = $SelectFx
 @onready var confirmation_fx: AudioStreamPlayer2D = $ConfirmationFx
 
-
-func _ready() -> void:
-	select_fx.stream = preload("res://assets/sounds/fx/select_001.ogg")
-	confirmation_fx.stream = preload("res://assets/sounds/fx/confirmation_003.ogg")
-
 func _on_play_button_pressed() -> void:
 	confirmation_fx.play()
 

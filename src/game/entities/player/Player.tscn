@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://blfqraevuuw2o"]
+[gd_scene load_steps=42 format=3 uid="uid://blfqraevuuw2o"]
 
 [ext_resource type="Script" path="res://src/game/entities/player/Player.gd" id="1_xgotg"]
 [ext_resource type="Texture2D" uid="uid://dlver2u50upju" path="res://assets/textures/player/Run.png" id="2_n00fj"]
@@ -18,13 +18,17 @@
 [ext_resource type="Script" path="res://src/game/entities/player/states/PlayerStateCollecting.gd" id="12_62xdn"]
 [ext_resource type="Script" path="res://src/game/entities/player/states/PlayerStateJumping.gd" id="13_2gc0i"]
 [ext_resource type="Script" path="res://src/game/entities/player/states/PlayerStateFalling.gd" id="14_icypc"]
+[ext_resource type="AudioStream" uid="uid://ci0ne8r155okh" path="res://assets/sounds/fx/player/sword-slash-and-swing-sound.ogg" id="16_6w8as"]
 [ext_resource type="Script" path="res://src/game/entities/player/states/PlayerStateHit.gd" id="17_ktvv7"]
+[ext_resource type="AudioStream" uid="uid://cdxxdf0vocjgw" path="res://assets/sounds/fx/item-collect.mp3" id="18_0f2he"]
 [ext_resource type="Script" path="res://src/game/entities/player/states/PlayerStateDead.gd" id="18_po34p"]
 [ext_resource type="PackedScene" uid="uid://d4cgcg2nr5sv" path="res://src/game/entities/player/CollectControl.tscn" id="20_gchsh"]
 [ext_resource type="Script" path="res://src/game/entities/player/states/PlayerStateHitFalling.gd" id="20_wqv22"]
+[ext_resource type="AudioStream" uid="uid://ds4ghikue44bd" path="res://assets/sounds/fx/player/hurt-sound.ogg" id="20_x73yr"]
 [ext_resource type="Script" path="res://src/game/entities/Health.gd" id="21_3g3nj"]
 [ext_resource type="Script" path="res://src/game/entities/player/states/PlayerStateJumpingAttacking.gd" id="21_jf7qm"]
 [ext_resource type="Script" path="res://src/game/entities/player/states/PlayerStateFallingAttacking.gd" id="22_cohfw"]
+[ext_resource type="AudioStream" uid="uid://buuxh675lcjpt" path="res://assets/sounds/fx/player/death-sound.ogg" id="23_056n5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vu2q6"]
 size = Vector2(16, 4)
@@ -935,8 +939,17 @@ script = ExtResource("10_47hof")
 [node name="PlayerStateAttacking" type="Node" parent="StateMachine"]
 script = ExtResource("11_4o78n")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="StateMachine/PlayerStateAttacking"]
+stream = ExtResource("16_6w8as")
+pitch_scale = 2.0
+bus = &"Player"
+
 [node name="PlayerStateCollecting" type="Node" parent="StateMachine"]
 script = ExtResource("12_62xdn")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="StateMachine/PlayerStateCollecting"]
+stream = ExtResource("18_0f2he")
+bus = &"Player"
 
 [node name="PlayerStateJumping" type="Node" parent="StateMachine"]
 script = ExtResource("13_2gc0i")
@@ -947,8 +960,16 @@ script = ExtResource("14_icypc")
 [node name="PlayerStateHit" type="Node" parent="StateMachine"]
 script = ExtResource("17_ktvv7")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="StateMachine/PlayerStateHit"]
+stream = ExtResource("20_x73yr")
+bus = &"Player"
+
 [node name="PlayerStateDead" type="Node" parent="StateMachine"]
 script = ExtResource("18_po34p")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="StateMachine/PlayerStateDead"]
+stream = ExtResource("23_056n5")
+bus = &"Player"
 
 [node name="PlayerStateHitFalling" type="Node" parent="StateMachine"]
 script = ExtResource("20_wqv22")
@@ -956,8 +977,18 @@ script = ExtResource("20_wqv22")
 [node name="PlayerStateJumpingAttacking" type="Node" parent="StateMachine"]
 script = ExtResource("21_jf7qm")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="StateMachine/PlayerStateJumpingAttacking"]
+stream = ExtResource("16_6w8as")
+pitch_scale = 2.0
+bus = &"Player"
+
 [node name="PlayerStateFallingAttacking" type="Node" parent="StateMachine"]
 script = ExtResource("22_cohfw")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="StateMachine/PlayerStateFallingAttacking"]
+stream = ExtResource("16_6w8as")
+pitch_scale = 2.0
+bus = &"Player"
 
 [node name="CollectControl" parent="." instance=ExtResource("20_gchsh")]
 

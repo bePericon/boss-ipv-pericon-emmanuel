@@ -15,8 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://degnfmwvyx2kc" path="res://assets/textures/world/Bush 9_YELLOW.png" id="12_vrn7h"]
 [ext_resource type="Texture2D" uid="uid://7hjtxlciw8bp" path="res://assets/textures/world/Bush 14_RED.png" id="13_a11ao"]
 [ext_resource type="PackedScene" uid="uid://blfqraevuuw2o" path="res://src/game/entities/player/Player.tscn" id="14_ytept"]
-[ext_resource type="PackedScene" uid="uid://cdq2t7jjs1dc7" path="res://src/game/entities/enemy/Enemy.tscn" id="15_bn0oa"]
-[ext_resource type="PackedScene" uid="uid://chd5dkff5gh7l" path="res://src/game/entities/enemy/EnemySpawn.tscn" id="16_563o2"]
+[ext_resource type="PackedScene" uid="uid://cdq2t7jjs1dc7" path="res://src/game/entities/enemies/Enemy.tscn" id="15_bn0oa"]
+[ext_resource type="PackedScene" uid="uid://chd5dkff5gh7l" path="res://src/game/entities/enemies/EnemySpawn.tscn" id="16_563o2"]
 [ext_resource type="PackedScene" uid="uid://c3l35aa7vg2qc" path="res://src/game/entities/items/Onigiri.tscn" id="17_3v8mf"]
 [ext_resource type="PackedScene" uid="uid://s2v1xaqflbpb" path="res://src/game/entities/items/Coin.tscn" id="18_htkvx"]
 [ext_resource type="PackedScene" uid="uid://g0si1cv2ejki" path="res://src/game/entities/items/Sake.tscn" id="19_tis1q"]
@@ -2088,8 +2088,9 @@ script = ExtResource("20_08ijv")
 
 [node name="AudioMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("22_e3osx")
-volume_db = -20.0
 pitch_scale = 0.8
 autoplay = true
+bus = &"Music"
 
 [connection signal="player_jumping" from="Environment/Entities/Player" to="Environment/Ground/Limits/TopBorder" method="_on_player_player_jumping"]
+[connection signal="updated_score" from="Score" to="CanvasLayer/GUI" method="_on_score_updated_score"]
