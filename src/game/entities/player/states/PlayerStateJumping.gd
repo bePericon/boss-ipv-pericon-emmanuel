@@ -11,6 +11,8 @@ func on_physics_process(_delta):
 	player.play_animation("jump")
 	
 	player.velocity.x = Input.get_axis("ui_left", "ui_right") * player.ACCELERATION
+	if Input.get_axis("ui_left", "ui_right") != 0:
+		player.flip_direction()
 	
 	if Input.is_action_just_pressed("attack_01"):
 		state_machine.change_to(player.states.JumpingAttacking)

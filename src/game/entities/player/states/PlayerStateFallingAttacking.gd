@@ -9,6 +9,8 @@ func start():
 
 func on_physics_process(delta):
 	player.velocity.x = Input.get_axis("ui_left", "ui_right") * player.ACCELERATION
+	if Input.get_axis("ui_left", "ui_right") != 0:
+		player.flip_direction()
 	
 	handle_gravity(delta)
 	player.move_and_slide()

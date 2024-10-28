@@ -31,7 +31,7 @@ func setting_hearts() -> void:
 		show_heart(x+1)
  
 func setting_lifes() -> void:
-	life.text = str(current_player.health.current_life) + " x"
+	life.text = "x " + str(current_player.health.current_life)
 
 func show_heart(number: int) -> void:
 	self.get("heart_"+ str(number)).show()
