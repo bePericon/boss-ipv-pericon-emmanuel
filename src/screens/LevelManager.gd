@@ -25,8 +25,8 @@ func _setup_level(id: int) -> void:
 		var level_instance: GameLevel = levels[id].instantiate()
 		current_level_container.add_child(level_instance)
 		#level_instance.connect("return_requested", self, "_return_called")
-		#level_instance.connect("restart_requested", self, "_restart_called")
-		#level_instance.connect("next_level_requested", self, "_next_called")
+		level_instance.connect("restart_requested",Callable(self, "_restart_called"))
+		level_instance.connect("next_level_requested", Callable(self, "_next_called"))
 
 
 # Callback de regreso al MainMenu.
@@ -38,7 +38,6 @@ func _return_called() -> void:
 
 # Callback de reinicio del nivel.
 func _restart_called() -> void:
-	GameState.weapons_available = []
 	_setup_level(level)
 
 

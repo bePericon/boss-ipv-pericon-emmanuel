@@ -167,5 +167,6 @@ stream = ExtResource("10_430wo")
 bus = &"Fx"
 
 [connection signal="pressed" from="Control/Panel/Control/ButtonsContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Control/Panel/Control/ButtonsContainer/PlayButton" to="Control/Panel/Control" method="_on_play_button_pressed"]
 [connection signal="pressed" from="Control/Panel/Control/ButtonsContainer/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="finished" from="ConfirmationFx" to="." method="_on_confirmation_fx_finished"]

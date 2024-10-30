@@ -20,3 +20,7 @@ func _physics_process(delta: float) -> void:
 		options_selector.hide()
 		play_selector.show()
 		play_button.add_theme_color_override("font_focus_color", Color("#e4d61b"))
+
+
+func _on_play_button_pressed() -> void:
+	play_button.disabled = true

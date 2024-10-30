@@ -996,8 +996,8 @@ bus = &"Player"
 
 [node name="Health" type="Node" parent="."]
 script = ExtResource("21_3g3nj")
-life_max = 3
-health_max = 5
+life_max = 2
+health_max = 3
 
 [connection signal="hurting" from="." to="StateMachine/PlayerStateIdle" method="_on_player_hurting"]
 [connection signal="hurting" from="." to="StateMachine/PlayerStateJumping" method="_on_player_hurting"]
@@ -1014,4 +1014,5 @@ health_max = 5
 [connection signal="add_health" from="Health" to="." method="_on_health_add_health"]
 [connection signal="dead" from="Health" to="." method="_on_health_dead"]
 [connection signal="dead" from="Health" to="StateMachine/PlayerStateIdle" method="_on_health_dead"]
+[connection signal="dead_completly" from="Health" to="." method="_on_health_dead_completly"]
 [connection signal="update_health" from="Health" to="." method="_on_health_update_health"]

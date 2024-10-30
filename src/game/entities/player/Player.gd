@@ -16,6 +16,7 @@ var states:PlayerStatesNames = PlayerStatesNames.new()
 
 signal player_jumping(is_running)
 signal hurting(amount)
+signal death
 
 func _ready() -> void:
 	get_tree().call_group("Stats", "set_current_player", self)
@@ -56,3 +57,6 @@ func _on_health_add_health() -> void:
 
 func _on_health_update_health(_amount: int) -> void:
 	get_tree().call_group("Stats", "hide_heart", health.current_health+1)
+
+func _on_health_dead_completly(player: Node2D) -> void:
+	death.emit()

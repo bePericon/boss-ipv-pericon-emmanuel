@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://c6rybch7nincd"]
+[gd_scene load_steps=5 format=3 uid="uid://c6rybch7nincd"]
 
 [ext_resource type="FontFile" uid="uid://bwkk85s6e8x3" path="res://assets/fonts/tinypixel.otf" id="1_qkdve"]
 [ext_resource type="Texture2D" uid="uid://dh5i0ho46fyy1" path="res://assets/textures/game_over_01.png" id="2_ojf5p"]
+[ext_resource type="AudioStream" uid="uid://dh6t71a348yns" path="res://assets/sounds/music/game-over-sound.ogg" id="3_q4ct2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yjl7a"]
 bg_color = Color(0.0862745, 0.0862745, 0.0862745, 0.784314)
@@ -51,3 +52,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_ojf5p")
+
+[node name="AudioMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_q4ct2")
+bus = &"Music"
