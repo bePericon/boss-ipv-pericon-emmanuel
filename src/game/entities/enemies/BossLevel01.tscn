@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqk07s86gaedv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ep2p"]
+
+[node name="Boss" type="CharacterBody2D"]
+
+[node name="FeetShape" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7ep2p")
+
+[node name="BodyAnimation" type="AnimationPlayer" parent="."]
+
+[node name="BodyPivot" type="Node2D" parent="."]
+
+[node name="Body" type="Sprite2D" parent="BodyPivot"]

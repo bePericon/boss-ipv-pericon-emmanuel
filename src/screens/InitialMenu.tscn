@@ -1,0 +1,172 @@
+[gd_scene load_steps=14 format=3 uid="uid://upuhfy3wucqe"]
+
+[ext_resource type="Script" path="res://src/screens/InitialMenu.gd" id="1_uh3xb"]
+[ext_resource type="PackedScene" uid="uid://ddn0gc3sfyppy" path="res://src/screens/LevelManager.tscn" id="2_0nk4s"]
+[ext_resource type="Texture2D" uid="uid://bavpgub2vqr5h" path="res://assets/textures/kokoro.png" id="2_cvxl2"]
+[ext_resource type="Texture2D" uid="uid://rpwutl2pn1q1" path="res://assets/textures/the_legend_of_akakawa.png" id="3_3hixy"]
+[ext_resource type="FontFile" uid="uid://bwkk85s6e8x3" path="res://assets/fonts/tinypixel.otf" id="4_0s2nw"]
+[ext_resource type="Script" path="res://src/screens/InitialControlButtons.gd" id="5_qdy2m"]
+[ext_resource type="Texture2D" uid="uid://bjilypdpqsnwp" path="res://assets/textures/selector_samurai.png" id="6_a83w2"]
+[ext_resource type="AudioStream" uid="uid://dbk8b0f5bhr36" path="res://assets/sounds/music/8bit_Japanese traditional music (No copyright) _Mysterious Kyouto_ (128 kbps).mp3" id="8_gklqa"]
+[ext_resource type="AudioStream" uid="uid://47evtrkkbe7j" path="res://assets/sounds/fx/menu/select_001.ogg" id="9_vtbry"]
+[ext_resource type="AudioStream" uid="uid://b4radfyusa746" path="res://assets/sounds/fx/menu/confirmation_003.ogg" id="10_430wo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yhfya"]
+bg_color = Color(0.0862745, 0.0862745, 0.0862745, 0.784314)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uuhkq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nqd1f"]
+
+[node name="InitialMenu" type="Node"]
+script = ExtResource("1_uh3xb")
+level_manager_scene = ExtResource("2_0nk4s")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yhfya")
+
+[node name="Title" type="TextureRect" parent="Control/Panel"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 68.0
+offset_top = 20.0
+offset_right = 103.0
+offset_bottom = -105.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_cvxl2")
+
+[node name="Subtitle" type="TextureRect" parent="Control/Panel"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = 50.0
+offset_right = 298.0
+offset_bottom = -70.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_3hixy")
+
+[node name="Control" type="Control" parent="Control/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -99.5
+offset_top = 3.0
+offset_right = 100.5
+offset_bottom = 67.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5_qdy2m")
+
+[node name="ButtonsContainer" type="VBoxContainer" parent="Control/Panel/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -43.0
+offset_top = -32.0
+offset_right = 43.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayButton" type="Button" parent="Control/Panel/Control/ButtonsContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(0.717647, 0.717647, 0.717647, 1)
+theme_override_fonts/font = ExtResource("4_0s2nw")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/focus = SubResource("StyleBoxEmpty_uuhkq")
+text = "Play"
+flat = true
+alignment = 0
+expand_icon = true
+
+[node name="OptionsButton" type="Button" parent="Control/Panel/Control/ButtonsContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(0.717647, 0.717647, 0.717647, 1)
+theme_override_fonts/font = ExtResource("4_0s2nw")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nqd1f")
+text = "Options"
+flat = true
+alignment = 0
+expand_icon = true
+
+[node name="PlaySelector" type="Sprite2D" parent="Control/Panel/Control/ButtonsContainer"]
+texture_filter = 1
+position = Vector2(-19.5, 13.4)
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("6_a83w2")
+
+[node name="OptionsSelector" type="Sprite2D" parent="Control/Panel/Control/ButtonsContainer"]
+texture_filter = 1
+position = Vector2(-19.5, 47.4)
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("6_a83w2")
+
+[node name="Label" type="Label" parent="Control/Panel"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -29.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.720467, 0.720468, 0.720467, 1)
+theme_override_fonts/font = ExtResource("4_0s2nw")
+theme_override_font_sizes/font_size = 10
+text = "© 1992
+All rights reserved"
+horizontal_alignment = 1
+
+[node name="AudioMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_gklqa")
+autoplay = true
+bus = &"Music"
+parameters/looping = false
+
+[node name="SelectFx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_vtbry")
+bus = &"Fx"
+
+[node name="ConfirmationFx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_430wo")
+bus = &"Fx"
+
+[connection signal="pressed" from="Control/Panel/Control/ButtonsContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Control/Panel/Control/ButtonsContainer/PlayButton" to="Control/Panel/Control" method="_on_play_button_pressed"]
+[connection signal="pressed" from="Control/Panel/Control/ButtonsContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="finished" from="ConfirmationFx" to="." method="_on_confirmation_fx_finished"]
