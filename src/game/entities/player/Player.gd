@@ -18,9 +18,19 @@ signal player_jumping(is_running)
 signal hurting(amount)
 signal death
 
+var last_shadow_position:Vector2
+var jumping:bool
+
 func _ready() -> void:
 	get_tree().call_group("Stats", "set_current_player", self)
 	GameState.set_current_player(self)
+	last_shadow_position = feet_shape.global_position
+
+func _physics_process(delta: float) -> void:
+	#print("feet_shape global: ", feet_shape.global_position)
+	#print("shadow_position: ", last_shadow_position)
+	if jumping:
+		feet_shape.global_position = Vector2(feet_shape.global_position.x, last_shadow_position.y +0.5)
 
 func flip_direction() -> void:
 	_body_pivot.scale.x = -1 if velocity.x < 0 else 1
@@ -35,11 +45,13 @@ func take_damage(amount: int) -> void:
 
 func _on_player_state_jumping_running() -> void:
 	player_jumping.emit(true)
-	feet_shape.disabled = true
+	jumping = true
+	#feet_shape.disabled = true
 
 func _on_player_state_falling_ending() -> void:
 	player_jumping.emit(false)
-	feet_shape.disabled = false
+	jumping = false
+	#feet_shape.disabled = false
 
 func remove() -> void:
 	get_parent().remove_child(self)

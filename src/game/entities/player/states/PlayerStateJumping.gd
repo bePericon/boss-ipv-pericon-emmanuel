@@ -6,6 +6,7 @@ signal running()
 func start():
 	running.emit()
 	player.jump_control.y = player.global_position.y
+	player.last_shadow_position = player.feet_shape.global_position
 
 func on_physics_process(_delta):
 	player.play_animation("jump")
