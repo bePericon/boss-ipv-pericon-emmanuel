@@ -1,10 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://cvypfh3nbo6sx"]
+[gd_scene load_steps=15 format=3 uid="uid://cvypfh3nbo6sx"]
 
 [ext_resource type="Texture2D" uid="uid://dhw4iortd8d22" path="res://assets/textures/ui/heart_red.png" id="1_siiiu"]
 [ext_resource type="Script" path="res://src/game/ui/GUI.gd" id="1_yswb0"]
 [ext_resource type="Texture2D" uid="uid://ca0kg7fgbbphb" path="res://assets/textures/player/Idle.png" id="2_inj36"]
 [ext_resource type="FontFile" uid="uid://bwkk85s6e8x3" path="res://assets/fonts/tinypixel.otf" id="2_p8snh"]
 [ext_resource type="Texture2D" uid="uid://dd5s63bty0nbk" path="res://assets/textures/player/player_frame.png" id="3_cocbw"]
+[ext_resource type="Shader" path="res://src/game/ui/FlickerEffect.gdshader" id="6_6ei2n"]
+[ext_resource type="Texture2D" uid="uid://cyv1y1tmpnohw" path="res://assets/textures/pause-japanese-scroll.png" id="6_ji7av"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ou0g0"]
 atlas = ExtResource("2_inj36")
@@ -17,6 +19,47 @@ region = Rect2(104, 216, 224, 200)
 [sub_resource type="AtlasTexture" id="AtlasTexture_dm2ya"]
 atlas = ExtResource("1_siiiu")
 region = Rect2(254, 254, 484, 387)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k4ecw"]
+shader = ExtResource("6_6ei2n")
+shader_parameter/hit_opacity = 1.0
+
+[sub_resource type="Animation" id="Animation_4lrjf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:material:shader_parameter/hit_opacity")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_xjhye"]
+resource_name = "continue"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:material:shader_parameter/hit_opacity")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.366667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_olb8s"]
+_data = {
+"RESET": SubResource("Animation_4lrjf"),
+"continue": SubResource("Animation_xjhye")
+}
 
 [node name="GUI" type="Control" groups=["Stats"]]
 layout_mode = 3
@@ -151,3 +194,40 @@ theme_override_colors/font_shadow_color = Color(0.0862745, 0.0862745, 0.0862745,
 theme_override_fonts/font = ExtResource("2_p8snh")
 theme_override_font_sizes/font_size = 8
 text = "SCORE"
+
+[node name="ContinueContainer" type="Control" parent="."]
+visible = false
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="Sprite2D" parent="ContinueContainer"]
+modulate = Color(0, 0.756863, 0.247059, 1)
+texture_filter = 1
+material = SubResource("ShaderMaterial_k4ecw")
+position = Vector2(279, 56)
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("6_ji7av")
+
+[node name="LabelContinue" type="Label" parent="ContinueContainer"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 255.0
+offset_top = 50.0
+offset_right = 307.0
+offset_bottom = 62.0
+theme_override_colors/font_color = Color(0.0862745, 0.0862745, 0.0862745, 1)
+theme_override_fonts/font = ExtResource("2_p8snh")
+theme_override_font_sizes/font_size = 10
+text = "Continue"
+horizontal_alignment = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ContinueContainer"]
+libraries = {
+"": SubResource("AnimationLibrary_olb8s")
+}
+autoplay = "continue"

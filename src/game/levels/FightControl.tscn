@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dosdsvxe3qejk"]
+
+[ext_resource type="Script" path="res://src/game/levels/FightControl.gd" id="1_7mebn"]
+[ext_resource type="PackedScene" uid="uid://0uuaysvmijny" path="res://src/game/levels/FightZone.tscn" id="2_x6nxl"]
+
+[node name="FightControl" type="Node2D" groups=["FightControl"]]
+script = ExtResource("1_7mebn")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="FightZone" parent="." instance=ExtResource("2_x6nxl")]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

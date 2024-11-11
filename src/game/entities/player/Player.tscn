@@ -1,7 +1,7 @@
 [gd_scene load_steps=45 format=3 uid="uid://blfqraevuuw2o"]
 
 [ext_resource type="Script" path="res://src/game/entities/player/Player.gd" id="1_xgotg"]
-[ext_resource type="Texture2D" uid="uid://cyv1y1tmpnohw" path="res://assets/textures/pause-japanese-scroll.png" id="2_edk32"]
+[ext_resource type="Texture2D" uid="uid://cipoxtle668y3" path="res://icon.svg" id="2_4eagt"]
 [ext_resource type="Texture2D" uid="uid://dlver2u50upju" path="res://assets/textures/player/Run.png" id="2_n00fj"]
 [ext_resource type="Texture2D" uid="uid://ca0kg7fgbbphb" path="res://assets/textures/player/Idle.png" id="2_yk6t6"]
 [ext_resource type="Texture2D" uid="uid://g022ld4wy1ff" path="res://assets/textures/effects/blood_hit.png" id="3_6uawk"]
@@ -88,7 +88,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("BodyPivot/HitBox/CollisionShape2D:disabled")
+tracks/4/path = NodePath("BodyPivot/HitBox/CollisionHit:disabled")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -100,7 +100,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("BodyPivot/HitBox/CollisionShape2D:position")
+tracks/5/path = NodePath("BodyPivot/HitBox/CollisionHit:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -112,7 +112,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("BodyPivot/HurtBox/CollisionShape2D:disabled")
+tracks/6/path = NodePath("BodyPivot/HurtBox/CollisionHurt:disabled")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -124,7 +124,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("BodyPivot/HurtBox/CollisionShape2D:position")
+tracks/7/path = NodePath("BodyPivot/HurtBox/CollisionHurt:position")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -136,7 +136,7 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("BodyPivot/HurtBox/CollisionShape2D/Blood:texture")
+tracks/8/path = NodePath("BodyPivot/HurtBox/CollisionHurt/Blood:texture")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -148,7 +148,7 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("BodyPivot/HurtBox/CollisionShape2D/Blood:hframes")
+tracks/9/path = NodePath("BodyPivot/HurtBox/CollisionHurt/Blood:hframes")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -160,7 +160,7 @@ tracks/9/keys = {
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("BodyPivot/HurtBox/CollisionShape2D/Blood:vframes")
+tracks/10/path = NodePath("BodyPivot/HurtBox/CollisionHurt/Blood:vframes")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
@@ -172,7 +172,7 @@ tracks/10/keys = {
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("BodyPivot/HurtBox/CollisionShape2D/Blood:frame")
+tracks/11/path = NodePath("BodyPivot/HurtBox/CollisionHurt/Blood:frame")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
@@ -184,7 +184,7 @@ tracks/11/keys = {
 tracks/12/type = "value"
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/path = NodePath("BodyPivot/HurtBox/CollisionShape2D/Blood:visible")
+tracks/12/path = NodePath("BodyPivot/HurtBox/CollisionHurt/Blood:visible")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
@@ -249,7 +249,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("BodyPivot/HitBox/CollisionShape2D:disabled")
+tracks/4/path = NodePath("BodyPivot/HitBox/CollisionHit:disabled")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -261,7 +261,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("BodyPivot/HitBox/CollisionShape2D:position")
+tracks/5/path = NodePath("BodyPivot/HitBox/CollisionHit:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -273,7 +273,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("BodyPivot/HurtBox/CollisionShape2D:disabled")
+tracks/6/path = NodePath("BodyPivot/HurtBox/CollisionHurt:disabled")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -338,7 +338,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("BodyPivot/HurtBox/CollisionShape2D:disabled")
+tracks/4/path = NodePath("BodyPivot/HurtBox/CollisionHurt:disabled")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -402,7 +402,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("BodyPivot/HitBox/CollisionShape2D:disabled")
+tracks/4/path = NodePath("BodyPivot/HitBox/CollisionHit:disabled")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -414,26 +414,14 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("BodyPivot/HurtBox/CollisionShape2D:position")
+tracks/5/path = NodePath("BodyPivot/HurtBox/CollisionHurt:disabled")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.166667),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(9, -1), Vector2(9, -1)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("BodyPivot/HurtBox/CollisionShape2D:disabled")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.166667),
+"times": PackedFloat32Array(0, 0.18),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [false, false]
+"values": [true, true]
 }
 
 [sub_resource type="Animation" id="Animation_s82ae"]
@@ -490,7 +478,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("BodyPivot/HurtBox/CollisionShape2D:position")
+tracks/4/path = NodePath("BodyPivot/HurtBox/CollisionHurt:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -502,7 +490,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("BodyPivot/HurtBox/CollisionShape2D:disabled")
+tracks/5/path = NodePath("BodyPivot/HurtBox/CollisionHurt:disabled")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -514,7 +502,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("BodyPivot/HurtBox/CollisionShape2D/Blood:texture")
+tracks/6/path = NodePath("BodyPivot/HurtBox/CollisionHurt/Blood:texture")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -526,7 +514,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("BodyPivot/HurtBox/CollisionShape2D/Blood:hframes")
+tracks/7/path = NodePath("BodyPivot/HurtBox/CollisionHurt/Blood:hframes")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -538,7 +526,7 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("BodyPivot/HurtBox/CollisionShape2D/Blood:vframes")
+tracks/8/path = NodePath("BodyPivot/HurtBox/CollisionHurt/Blood:vframes")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -550,7 +538,7 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("BodyPivot/HurtBox/CollisionShape2D/Blood:frame")
+tracks/9/path = NodePath("BodyPivot/HurtBox/CollisionHurt/Blood:frame")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -562,7 +550,7 @@ tracks/9/keys = {
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("BodyPivot/HurtBox/CollisionShape2D/Blood:visible")
+tracks/10/path = NodePath("BodyPivot/HurtBox/CollisionHurt/Blood:visible")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
@@ -628,7 +616,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("BodyPivot/HitBox/CollisionShape2D:disabled")
+tracks/4/path = NodePath("BodyPivot/HitBox/CollisionHit:disabled")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -640,7 +628,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("BodyPivot/HurtBox/CollisionShape2D:position")
+tracks/5/path = NodePath("BodyPivot/HurtBox/CollisionHurt:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -652,7 +640,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("BodyPivot/HurtBox/CollisionShape2D:disabled")
+tracks/6/path = NodePath("BodyPivot/HurtBox/CollisionHurt:disabled")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -664,7 +652,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("BodyPivot/HurtBox/CollisionShape2D/Blood:visible")
+tracks/7/path = NodePath("BodyPivot/HurtBox/CollisionHurt/Blood:visible")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -728,7 +716,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("BodyPivot/HitBox/CollisionShape2D:disabled")
+tracks/4/path = NodePath("BodyPivot/HitBox/CollisionHit:disabled")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -740,26 +728,14 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("BodyPivot/HurtBox/CollisionShape2D:position")
+tracks/5/path = NodePath("BodyPivot/HurtBox/CollisionHurt:disabled")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0, 0.16),
 "transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(7, 0), Vector2(7, 0)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("BodyPivot/HurtBox/CollisionShape2D:disabled")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.16),
-"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [false, false]
+"values": [true, true]
 }
 
 [sub_resource type="Animation" id="Animation_dwy52"]
@@ -818,7 +794,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("BodyPivot/HitBox/CollisionShape2D:disabled")
+tracks/4/path = NodePath("BodyPivot/HitBox/CollisionHit:disabled")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -830,7 +806,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("BodyPivot/HurtBox/CollisionShape2D:position")
+tracks/5/path = NodePath("BodyPivot/HurtBox/CollisionHurt:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -842,7 +818,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("BodyPivot/HurtBox/CollisionShape2D:disabled")
+tracks/6/path = NodePath("BodyPivot/HurtBox/CollisionHurt:disabled")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -873,7 +849,7 @@ radius = 8.0
 height = 48.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hec1t"]
-size = Vector2(171, 5)
+size = Vector2(171, 4.5)
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 1
@@ -886,9 +862,9 @@ position = Vector2(2, 26)
 shape = SubResource("RectangleShape2D_vu2q6")
 
 [node name="Sprite2D" type="Sprite2D" parent="FeetShape"]
-position = Vector2(0.4375, 0.46875)
-scale = Vector2(0.03125, 0.0214015)
-texture = ExtResource("2_edk32")
+position = Vector2(-0.125, 5.66244e-07)
+scale = Vector2(0.126953, 0.03125)
+texture = ExtResource("2_4eagt")
 
 [node name="BodyAnimations" type="AnimationPlayer" parent="."]
 libraries = {
@@ -910,7 +886,7 @@ script = ExtResource("7_og7l0")
 damage = 1
 layer = 5
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BodyPivot/HitBox"]
+[node name="CollisionHit" type="CollisionShape2D" parent="BodyPivot/HitBox"]
 position = Vector2(43, -3)
 rotation = 1.57079
 shape = SubResource("CapsuleShape2D_45umm")
@@ -923,11 +899,11 @@ script = ExtResource("8_015al")
 layer = 9
 mask = 10
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BodyPivot/HurtBox"]
+[node name="CollisionHurt" type="CollisionShape2D" parent="BodyPivot/HurtBox"]
 position = Vector2(7, 0)
 shape = SubResource("CapsuleShape2D_1kick")
 
-[node name="Blood" type="Sprite2D" parent="BodyPivot/HurtBox/CollisionShape2D"]
+[node name="Blood" type="Sprite2D" parent="BodyPivot/HurtBox/CollisionHurt"]
 position = Vector2(-23, -29)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("3_6uawk")
@@ -1014,7 +990,7 @@ position = Vector2(2, 26)
 script = ExtResource("31_f1m17")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AlertFightZone"]
-position = Vector2(74.5, 0)
+position = Vector2(74.5, 0.25)
 shape = SubResource("RectangleShape2D_hec1t")
 
 [connection signal="hurting" from="." to="StateMachine/PlayerStateIdle" method="_on_player_hurting"]

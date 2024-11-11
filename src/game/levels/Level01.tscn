@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://3oxh1huylhow"]
+[gd_scene load_steps=41 format=3 uid="uid://3oxh1huylhow"]
 
 [ext_resource type="Script" path="res://src/game/levels/LevelDefault.gd" id="1_ahya5"]
 [ext_resource type="PackedScene" uid="uid://cvypfh3nbo6sx" path="res://src/game/ui/GUI.tscn" id="2_gx2oe"]
@@ -25,6 +25,7 @@
 [ext_resource type="Script" path="res://src/Score.gd" id="20_08ijv"]
 [ext_resource type="AudioStream" uid="uid://by6e2udhbov4c" path="res://assets/sounds/music/Press Play 👾 (16-Bit Arcade No Copyright Music) (128 kbps).mp3" id="22_e3osx"]
 [ext_resource type="Script" path="res://src/game/levels/FightControl.gd" id="24_5cr7h"]
+[ext_resource type="PackedScene" uid="uid://0uuaysvmijny" path="res://src/game/levels/FightZone.tscn" id="26_aqvc7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h6gkf"]
 texture = ExtResource("7_1r6as")
@@ -1739,20 +1740,10 @@ size = Vector2(20, 171)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vf6ie"]
 size = Vector2(47, 214)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wstt2"]
-size = Vector2(20, 224)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wvf3m"]
-size = Vector2(9, 224)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2hh67"]
-size = Vector2(20, 224)
-
 [node name="Level01" type="Node"]
 script = ExtResource("1_ahya5")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="GUI" parent="CanvasLayer" instance=ExtResource("2_gx2oe")]
 
@@ -1913,14 +1904,69 @@ texture = ExtResource("11_bi5wx")
 
 [node name="Bushes" type="Node" parent="Environment/Ground"]
 
-[node name="BushYellow" type="Sprite2D" parent="Environment/Ground/Bushes"]
+[node name="Before" type="Node" parent="Environment/Ground/Bushes"]
+
+[node name="BushRed" type="Sprite2D" parent="Environment/Ground/Bushes/Before"]
+z_index = -1
+texture_filter = 1
+position = Vector2(2685, 116)
+texture = ExtResource("13_a11ao")
+
+[node name="BushRed2" type="Sprite2D" parent="Environment/Ground/Bushes/Before"]
+z_index = -1
+texture_filter = 1
+position = Vector2(2243, 117)
+scale = Vector2(0.805556, 0.916667)
+texture = ExtResource("13_a11ao")
+
+[node name="BushRed3" type="Sprite2D" parent="Environment/Ground/Bushes/Before"]
+z_index = -1
+texture_filter = 1
+position = Vector2(2774, 117)
+texture = ExtResource("13_a11ao")
+
+[node name="BushRed4" type="Sprite2D" parent="Environment/Ground/Bushes/Before"]
+z_index = -1
+texture_filter = 1
+position = Vector2(3501, 118)
+texture = ExtResource("13_a11ao")
+
+[node name="BushRed5" type="Sprite2D" parent="Environment/Ground/Bushes/Before"]
+z_index = -1
+texture_filter = 1
+position = Vector2(4382, 119)
+texture = ExtResource("13_a11ao")
+
+[node name="BushRed6" type="Sprite2D" parent="Environment/Ground/Bushes/Before"]
+z_index = -1
+texture_filter = 1
+position = Vector2(556, 119)
+texture = ExtResource("13_a11ao")
+
+[node name="BushRed10" type="Sprite2D" parent="Environment/Ground/Bushes/Before"]
+z_index = -1
+texture_filter = 1
+position = Vector2(925, 121)
+scale = Vector2(0.744444, 0.8)
+texture = ExtResource("13_a11ao")
+
+[node name="BushRed11" type="Sprite2D" parent="Environment/Ground/Bushes/Before"]
+z_index = -1
+texture_filter = 1
+position = Vector2(1577, 122)
+scale = Vector2(0.744444, 0.8)
+texture = ExtResource("13_a11ao")
+
+[node name="After" type="Node" parent="Environment/Ground/Bushes"]
+
+[node name="BushYellow" type="Sprite2D" parent="Environment/Ground/Bushes/After"]
 z_index = 5
 texture_filter = 1
 position = Vector2(2685, 208)
 scale = Vector2(1.21429, 1.29167)
 texture = ExtResource("12_vrn7h")
 
-[node name="BushYellow2" type="Sprite2D" parent="Environment/Ground/Bushes"]
+[node name="BushYellow2" type="Sprite2D" parent="Environment/Ground/Bushes/After"]
 z_index = 5
 texture_filter = 1
 position = Vector2(2246, 208)
@@ -1928,89 +1974,47 @@ scale = Vector2(1.21429, 1.29167)
 texture = ExtResource("12_vrn7h")
 flip_h = true
 
-[node name="BushRed" type="Sprite2D" parent="Environment/Ground/Bushes"]
-texture_filter = 1
-position = Vector2(2685, 116)
-texture = ExtResource("13_a11ao")
-
-[node name="BushRed2" type="Sprite2D" parent="Environment/Ground/Bushes"]
-texture_filter = 1
-position = Vector2(2243, 117)
-scale = Vector2(0.805556, 0.916667)
-texture = ExtResource("13_a11ao")
-
-[node name="BushRed3" type="Sprite2D" parent="Environment/Ground/Bushes"]
-texture_filter = 1
-position = Vector2(2774, 117)
-texture = ExtResource("13_a11ao")
-
-[node name="BushRed4" type="Sprite2D" parent="Environment/Ground/Bushes"]
-texture_filter = 1
-position = Vector2(3501, 118)
-texture = ExtResource("13_a11ao")
-
-[node name="BushRed5" type="Sprite2D" parent="Environment/Ground/Bushes"]
-texture_filter = 1
-position = Vector2(4382, 119)
-texture = ExtResource("13_a11ao")
-
-[node name="BushRed6" type="Sprite2D" parent="Environment/Ground/Bushes"]
-texture_filter = 1
-position = Vector2(556, 119)
-texture = ExtResource("13_a11ao")
-
-[node name="BushRed7" type="Sprite2D" parent="Environment/Ground/Bushes"]
+[node name="BushRed7" type="Sprite2D" parent="Environment/Ground/Bushes/After"]
 z_index = 5
 texture_filter = 1
 position = Vector2(362, 225)
 texture = ExtResource("13_a11ao")
 
-[node name="BushRed8" type="Sprite2D" parent="Environment/Ground/Bushes"]
+[node name="BushRed8" type="Sprite2D" parent="Environment/Ground/Bushes/After"]
 z_index = 5
 texture_filter = 1
 position = Vector2(422, 233)
 texture = ExtResource("13_a11ao")
 
-[node name="BushRed9" type="Sprite2D" parent="Environment/Ground/Bushes"]
+[node name="BushRed9" type="Sprite2D" parent="Environment/Ground/Bushes/After"]
 z_index = 5
 texture_filter = 1
 position = Vector2(393, 223)
 scale = Vector2(0.788889, 0.866667)
 texture = ExtResource("13_a11ao")
 
-[node name="BushRed10" type="Sprite2D" parent="Environment/Ground/Bushes"]
+[node name="BushRed12" type="Sprite2D" parent="Environment/Ground/Bushes/After"]
+z_index = 5
 texture_filter = 1
-position = Vector2(925, 121)
-scale = Vector2(0.744444, 0.8)
-texture = ExtResource("13_a11ao")
-
-[node name="BushRed11" type="Sprite2D" parent="Environment/Ground/Bushes"]
-texture_filter = 1
-position = Vector2(1577, 122)
-scale = Vector2(0.744444, 0.8)
-texture = ExtResource("13_a11ao")
-
-[node name="BushRed12" type="Sprite2D" parent="Environment/Ground/Bushes"]
-texture_filter = 1
-position = Vector2(1613, 118)
+position = Vector2(1619, 219)
 scale = Vector2(1.03889, 1.06667)
 texture = ExtResource("13_a11ao")
 
-[node name="BushRed13" type="Sprite2D" parent="Environment/Ground/Bushes"]
-z_index = 4
+[node name="BushRed13" type="Sprite2D" parent="Environment/Ground/Bushes/After"]
+z_index = 5
 texture_filter = 1
 position = Vector2(1896, 229)
 scale = Vector2(1.03889, 1.06667)
 texture = ExtResource("13_a11ao")
 
-[node name="BushRed14" type="Sprite2D" parent="Environment/Ground/Bushes"]
+[node name="BushRed14" type="Sprite2D" parent="Environment/Ground/Bushes/After"]
 z_index = 5
 texture_filter = 1
 position = Vector2(3407, 226)
 scale = Vector2(1.03889, 1.06667)
 texture = ExtResource("13_a11ao")
 
-[node name="BushRed15" type="Sprite2D" parent="Environment/Ground/Bushes"]
+[node name="BushRed15" type="Sprite2D" parent="Environment/Ground/Bushes/After"]
 z_index = 5
 texture_filter = 1
 position = Vector2(3899, 210)
@@ -2023,7 +2027,7 @@ texture = ExtResource("13_a11ao")
 position = Vector2(21, 163)
 collision_mask = 72
 
-[node name="Camera2D" type="Camera2D" parent="Environment/Entities/Player"]
+[node name="Camera2D" type="Camera2D" parent="Environment/Entities/Player" groups=["Camera"]]
 limit_left = 0
 limit_top = 0
 limit_right = 4800
@@ -2034,42 +2038,68 @@ script = ExtResource("17_b81kw")
 
 [node name="Enemies" type="Node2D" parent="Environment/Entities"]
 
-[node name="Enemy" parent="Environment/Entities/Enemies" instance=ExtResource("15_bn0oa")]
-position = Vector2(434, 151)
+[node name="Skeleton" parent="Environment/Entities/Enemies" instance=ExtResource("15_bn0oa")]
+position = Vector2(259, 130)
+zone = 1
 
-[node name="EnemySpawn1" parent="Environment/Entities/Enemies" instance=ExtResource("16_563o2")]
-position = Vector2(691, 134)
-amount = 2
-wait_timer = 3.0
+[node name="Skeleton2" parent="Environment/Entities/Enemies" instance=ExtResource("15_bn0oa")]
+position = Vector2(398, 181)
+zone = 1
+
+[node name="Skeleton3" parent="Environment/Entities/Enemies" instance=ExtResource("15_bn0oa")]
+position = Vector2(556, 128)
+zone = 1
+
+[node name="Skeleton4" parent="Environment/Entities/Enemies" instance=ExtResource("15_bn0oa")]
+position = Vector2(582, 189)
+zone = 1
+
+[node name="Skeleton5" parent="Environment/Entities/Enemies" instance=ExtResource("15_bn0oa")]
+position = Vector2(1204, 123)
+zone = 2
+
+[node name="Skeleton6" parent="Environment/Entities/Enemies" instance=ExtResource("15_bn0oa")]
+position = Vector2(1245, 184)
+zone = 2
+
+[node name="EnemySpawn" parent="Environment/Entities/Enemies" instance=ExtResource("16_563o2")]
+position = Vector2(1510, 134)
+zone = 2
+wait_timer = 2.0
 extents = Vector2(100, 80)
 
+[node name="Skeleton7" parent="Environment/Entities/Enemies" instance=ExtResource("15_bn0oa")]
+position = Vector2(2367, 151)
+zone = 3
+
+[node name="Skeleton8" parent="Environment/Entities/Enemies" instance=ExtResource("15_bn0oa")]
+position = Vector2(2694, 140)
+zone = 3
+
 [node name="EnemySpawn2" parent="Environment/Entities/Enemies" instance=ExtResource("16_563o2")]
-position = Vector2(1283, 140)
+position = Vector2(2797, 133)
+zone = 3
 amount = 2
+wait_timer = 2.0
+extents = Vector2(30, 80)
+
+[node name="Skeleton9" parent="Environment/Entities/Enemies" instance=ExtResource("15_bn0oa")]
+position = Vector2(3224, 152)
+
+[node name="Skeleton10" parent="Environment/Entities/Enemies" instance=ExtResource("15_bn0oa")]
+position = Vector2(3632, 152)
+zone = 4
+
+[node name="Skeleton11" parent="Environment/Entities/Enemies" instance=ExtResource("15_bn0oa")]
+position = Vector2(3729, 175)
+zone = 4
 
 [node name="EnemySpawn3" parent="Environment/Entities/Enemies" instance=ExtResource("16_563o2")]
-position = Vector2(1846, 138)
+position = Vector2(3859, 134)
+zone = 4
 amount = 3
-wait_timer = 10.0
-extents = Vector2(150, 80)
-
-[node name="EnemySpawn4" parent="Environment/Entities/Enemies" instance=ExtResource("16_563o2")]
-position = Vector2(2710, 142)
-amount = 2
-wait_timer = 15.0
-extents = Vector2(150, 50)
-
-[node name="EnemySpawn5" parent="Environment/Entities/Enemies" instance=ExtResource("16_563o2")]
-position = Vector2(3548, 145)
-amount = 3
-wait_timer = 15.0
-extents = Vector2(150, 50)
-
-[node name="EnemySpawn6" parent="Environment/Entities/Enemies" instance=ExtResource("16_563o2")]
-position = Vector2(4443, 148)
-amount = 2
-wait_timer = 15.0
-extents = Vector2(150, 50)
+wait_timer = 4.0
+extents = Vector2(100, 80)
 
 [node name="Objects" type="Node2D" parent="Environment/Entities"]
 
@@ -2119,35 +2149,26 @@ collision_layer = 0
 position = Vector2(4823.5, 176)
 shape = SubResource("RectangleShape2D_vf6ie")
 
-[node name="FightControl" type="Node2D" parent="."]
+[node name="FightControl" type="Node2D" parent="." groups=["FightControl"]]
 script = ExtResource("24_5cr7h")
 
-[node name="FightZone" type="Area2D" parent="FightControl"]
+[node name="FightZone" parent="FightControl" instance=ExtResource("26_aqvc7")]
+enemies_in_zone = 4
 
-[node name="InitialLimit" type="StaticBody2D" parent="FightControl/FightZone"]
-position = Vector2(160, 0)
-collision_layer = 0
+[node name="FightZone2" parent="FightControl" instance=ExtResource("26_aqvc7")]
+position = Vector2(1073, 0)
+enemies_in_zone = 7
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FightControl/FightZone/InitialLimit"]
-position = Vector2(-10, 112)
-shape = SubResource("RectangleShape2D_wstt2")
+[node name="FightZone3" parent="FightControl" instance=ExtResource("26_aqvc7")]
+position = Vector2(2289, 0)
+enemies_in_zone = 4
 
-[node name="EndZone" type="CollisionShape2D" parent="FightControl/FightZone"]
-position = Vector2(484.5, 112)
-shape = SubResource("RectangleShape2D_wvf3m")
-
-[node name="EndLimit" type="StaticBody2D" parent="FightControl/FightZone"]
-position = Vector2(480, 0)
-collision_layer = 8
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FightControl/FightZone/EndLimit"]
-position = Vector2(10, 112)
-shape = SubResource("RectangleShape2D_2hh67")
+[node name="FightZone4" parent="FightControl" instance=ExtResource("26_aqvc7")]
+position = Vector2(3437, 0)
+enemies_in_zone = 5
 
 [connection signal="restart_selected" from="CanvasLayer/Winner" to="." method="_on_restart_requested"]
 [connection signal="death" from="Environment/Entities/Player" to="." method="_on_player_death"]
 [connection signal="player_jumping" from="Environment/Entities/Player" to="Environment/Ground/Limits/TopBorder" method="_on_player_player_jumping"]
 [connection signal="updated_score" from="Score" to="CanvasLayer/GUI" method="_on_score_updated_score"]
 [connection signal="body_entered" from="FinishArea" to="." method="_on_finish_area_body_entered"]
-[connection signal="area_entered" from="FightControl/FightZone" to="Environment/Entities/Player/Camera2D" method="_on_fight_zone_area_entered"]
-[connection signal="area_entered" from="FightControl/FightZone" to="FightControl" method="_on_fight_zone_area_entered"]

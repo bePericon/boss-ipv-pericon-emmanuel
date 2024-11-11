@@ -482,7 +482,7 @@ height = 70.0
 height = 50.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pn0jp"]
-radius = 272.92
+radius = 320.0
 
 [node name="Skeleton" type="CharacterBody2D"]
 collision_layer = 2
@@ -537,11 +537,11 @@ position = Vector2(0, 24)
 target_position = Vector2(0, 0)
 
 [node name="DetectionArea" type="Area2D" parent="."]
-visible = false
 position = Vector2(0, 24)
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+visible = false
 position = Vector2(0, -24)
 shape = SubResource("CircleShape2D_pn0jp")
 

@@ -15,6 +15,9 @@ var current_player: Player
 
 @onready var score: Label = %Score
 
+@onready var timer_continue: Timer = %TimerContinue
+@onready var continue_container: Control = $ContinueContainer
+
 func set_current_player(player: Player) -> void:
 	current_player = player
 	setting_lifes()
@@ -53,3 +56,11 @@ func _on_score_updated_score(amount: Variant) -> void:
 			score.text = "0" + new_score
 		5:
 			score.text = new_score
+
+
+func show_continue() -> void:
+	continue_container.show()
+
+
+func hide_continue() -> void:
+	continue_container.hide()

@@ -10,6 +10,8 @@ const JUMP_VELOCITY = -400.0
 @onready var raycast: RayCast2D = $RayCast2D
 @onready var health: Node = $Health
 
+@export var zone:int
+
 var target:Node2D = null
 var states:EnemyStatesNames = EnemyStatesNames.new()
 
@@ -80,3 +82,4 @@ func remove() -> void:
 
 func _on_health_dead() -> void:
 	get_tree().call_group("Score", "add", 100.0)
+	get_tree().call_group("FightControl", "enemy_dead", zone)

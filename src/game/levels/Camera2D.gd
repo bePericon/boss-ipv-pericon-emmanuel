@@ -1,9 +1,9 @@
 extends Camera2D
 
-signal close_initial_limit
+func disable_limits(lim_left: int) -> void:
+	limit_left = lim_left
+	limit_right = lim_left +320
 
-func _on_fight_zone_area_entered(area: Area2D) -> void:
-	if area.name == "AlertFightZone":
-		limit_left = 160
-		limit_right = 160 + 320
-		close_initial_limit.emit()
+func enable_limits() -> void:
+	print("Enabled camera")
+	limit_right = 4800
