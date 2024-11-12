@@ -15,7 +15,6 @@ var current_player: Player
 
 @onready var score: Label = %Score
 
-@onready var timer_continue: Timer = %TimerContinue
 @onready var continue_container: Control = $ContinueContainer
 
 func set_current_player(player: Player) -> void:

@@ -1,7 +1,6 @@
-[gd_scene load_steps=45 format=3 uid="uid://blfqraevuuw2o"]
+[gd_scene load_steps=44 format=3 uid="uid://blfqraevuuw2o"]
 
 [ext_resource type="Script" path="res://src/game/entities/player/Player.gd" id="1_xgotg"]
-[ext_resource type="Texture2D" uid="uid://cipoxtle668y3" path="res://icon.svg" id="2_4eagt"]
 [ext_resource type="Texture2D" uid="uid://dlver2u50upju" path="res://assets/textures/player/Run.png" id="2_n00fj"]
 [ext_resource type="Texture2D" uid="uid://ca0kg7fgbbphb" path="res://assets/textures/player/Idle.png" id="2_yk6t6"]
 [ext_resource type="Texture2D" uid="uid://g022ld4wy1ff" path="res://assets/textures/effects/blood_hit.png" id="3_6uawk"]
@@ -860,11 +859,6 @@ ACCELERATION = 150.0
 [node name="FeetShape" type="CollisionShape2D" parent="."]
 position = Vector2(2, 26)
 shape = SubResource("RectangleShape2D_vu2q6")
-
-[node name="Sprite2D" type="Sprite2D" parent="FeetShape"]
-position = Vector2(-0.125, 5.66244e-07)
-scale = Vector2(0.126953, 0.03125)
-texture = ExtResource("2_4eagt")
 
 [node name="BodyAnimations" type="AnimationPlayer" parent="."]
 libraries = {

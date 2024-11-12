@@ -9,7 +9,7 @@ var current_health:int = 0
 signal dead
 signal add_health
 signal update_health(amount: int)
-signal dead_completly(player: Node2D)
+signal dead_completly(body: Node2D)
 
 func _ready() -> void:
 	current_life = life_max

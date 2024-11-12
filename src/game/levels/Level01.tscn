@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://3oxh1huylhow"]
+[gd_scene load_steps=42 format=3 uid="uid://3oxh1huylhow"]
 
 [ext_resource type="Script" path="res://src/game/levels/LevelDefault.gd" id="1_ahya5"]
 [ext_resource type="PackedScene" uid="uid://cvypfh3nbo6sx" path="res://src/game/ui/GUI.tscn" id="2_gx2oe"]
@@ -22,6 +22,7 @@
 [ext_resource type="Script" path="res://src/game/levels/Camera2D.gd" id="17_b81kw"]
 [ext_resource type="PackedScene" uid="uid://s2v1xaqflbpb" path="res://src/game/entities/items/Coin.tscn" id="18_htkvx"]
 [ext_resource type="PackedScene" uid="uid://g0si1cv2ejki" path="res://src/game/entities/items/Sake.tscn" id="19_tis1q"]
+[ext_resource type="PackedScene" uid="uid://bmvk888sldjsn" path="res://src/game/entities/enemies/SkeletonBoss.tscn" id="20_3b70y"]
 [ext_resource type="Script" path="res://src/Score.gd" id="20_08ijv"]
 [ext_resource type="AudioStream" uid="uid://by6e2udhbov4c" path="res://assets/sounds/music/Press Play 👾 (16-Bit Arcade No Copyright Music) (128 kbps).mp3" id="22_e3osx"]
 [ext_resource type="Script" path="res://src/game/levels/FightControl.gd" id="24_5cr7h"]
@@ -2024,7 +2025,7 @@ texture = ExtResource("13_a11ao")
 [node name="Entities" type="Node2D" parent="Environment"]
 
 [node name="Player" parent="Environment/Entities" instance=ExtResource("14_ytept")]
-position = Vector2(21, 163)
+position = Vector2(23, 164)
 collision_mask = 72
 
 [node name="Camera2D" type="Camera2D" parent="Environment/Entities/Player" groups=["Camera"]]
@@ -2101,6 +2102,9 @@ amount = 3
 wait_timer = 4.0
 extents = Vector2(100, 80)
 
+[node name="SkeletonBoss" parent="Environment/Entities/Enemies" instance=ExtResource("20_3b70y")]
+position = Vector2(4913, 131)
+
 [node name="Objects" type="Node2D" parent="Environment/Entities"]
 
 [node name="Onigiri" parent="Environment/Entities/Objects" instance=ExtResource("17_3v8mf")]
@@ -2122,7 +2126,7 @@ position = Vector2(460, 186)
 collectible_type = "Armor"
 
 [node name="Coin2" parent="Environment/Entities/Objects" instance=ExtResource("18_htkvx")]
-position = Vector2(4752, 196)
+position = Vector2(4754, 176)
 collectible_type = "Armor"
 
 [node name="Sake" parent="Environment/Entities/Objects" instance=ExtResource("19_tis1q")]
@@ -2166,6 +2170,11 @@ enemies_in_zone = 4
 [node name="FightZone4" parent="FightControl" instance=ExtResource("26_aqvc7")]
 position = Vector2(3437, 0)
 enemies_in_zone = 5
+
+[node name="FightZone5" parent="FightControl" instance=ExtResource("26_aqvc7")]
+position = Vector2(4299, 0)
+enemies_in_zone = 1
+is_boss_zone = true
 
 [connection signal="restart_selected" from="CanvasLayer/Winner" to="." method="_on_restart_requested"]
 [connection signal="death" from="Environment/Entities/Player" to="." method="_on_player_death"]

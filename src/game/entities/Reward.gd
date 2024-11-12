@@ -6,7 +6,7 @@ class_name Reward
 var is_collected:bool = false
 
 func _on_body_entered(body: Node2D) -> void:
-	if not is_collected:
+	if not is_collected and body.name == "Player":
 		is_collected = true
 		body.collect_control.for_collect(self)
 
@@ -16,5 +16,6 @@ func collected():
 	queue_free()
 
 func _on_body_exited(body: Node2D) -> void:
-	is_collected = false
-	body.collect_control.clear_for_collect()
+	if body.name == "Player":
+		is_collected = false
+		body.collect_control.clear_for_collect()

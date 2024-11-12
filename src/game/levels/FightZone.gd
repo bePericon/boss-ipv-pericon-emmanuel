@@ -7,8 +7,11 @@ class_name FightZone
 @onready var end_zone: CollisionShape2D = $EndZone
 
 @export var enemies_in_zone:int
+@export var is_boss_zone:bool
 
 var finished_zone:bool = false
+var played_boss_audio:bool = false
+
 
 func _process(_delta: float) -> void:
 	if not finished_zone and not have_enemies():
@@ -23,7 +26,7 @@ func enable_initial_limit() -> void:
 
 func disable_end_limit() -> void:
 	end_limit.collision_layer = 0
-	get_parent().remove_child(end_zone)
+	remove_child(end_zone)
 	queue_free()
 	
 func enemy_dead() -> void:
@@ -35,6 +38,9 @@ func have_enemies() -> bool:
 
 func _on_area_entered(area: Area2D) -> void:
 	if area.name == "AlertFightZone":
+		if is_boss_zone and not played_boss_audio:
+			played_boss_audio = true
+			get_parent().play_boss_audio()
 		enable_initial_limit()
 		get_tree().call_group("Camera", "disable_limits", global_position.x + 160)
 

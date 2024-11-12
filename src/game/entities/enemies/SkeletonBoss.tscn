@@ -1,25 +1,25 @@
-[gd_scene load_steps=29 format=3 uid="uid://cdq2t7jjs1dc7"]
+[gd_scene load_steps=29 format=3 uid="uid://bmvk888sldjsn"]
 
-[ext_resource type="Script" path="res://src/game/entities/enemies/Enemy.gd" id="1_5oqjj"]
-[ext_resource type="Texture2D" uid="uid://dv1arb71f0v3u" path="res://assets/textures/enemies/skeleton/Take Hit.png" id="2_8c8s6"]
-[ext_resource type="Texture2D" uid="uid://d38o62xmvclfx" path="res://assets/textures/enemies/skeleton/Attack.png" id="3_m888f"]
-[ext_resource type="Texture2D" uid="uid://jdf8j336ufx2" path="res://assets/textures/enemies/skeleton/Death.png" id="4_xiily"]
-[ext_resource type="Texture2D" uid="uid://fpbd218nnuvx" path="res://assets/textures/enemies/skeleton/Idle.png" id="5_ht8wq"]
-[ext_resource type="Texture2D" uid="uid://bldjhmqmnnnor" path="res://assets/textures/enemies/skeleton/Walk.png" id="6_htkfp"]
-[ext_resource type="Script" path="res://src/game/scripts/HitBox.gd" id="7_7j8do"]
-[ext_resource type="Script" path="res://src/game/scripts/HurtBox.gd" id="8_g3fqv"]
-[ext_resource type="Script" path="res://src/game/scripts/StateMachine.gd" id="9_mds7m"]
-[ext_resource type="Script" path="res://src/game/entities/enemies/states/EnemyStateIdle.gd" id="10_pds20"]
-[ext_resource type="Script" path="res://src/game/entities/enemies/states/EnemyStateHit.gd" id="11_c7jok"]
-[ext_resource type="AudioStream" uid="uid://cf5dtoukkigx6" path="res://assets/sounds/fx/enemies/skeleton-hurt-sound.mp3" id="12_j8ncq"]
-[ext_resource type="Script" path="res://src/game/entities/enemies/states/EnemyStateFollowing.gd" id="13_h8iu7"]
-[ext_resource type="Script" path="res://src/game/entities/enemies/states/EnemyStateDead.gd" id="14_00voe"]
-[ext_resource type="Script" path="res://src/game/entities/enemies/states/EnemyStateAttacking.gd" id="15_op8ng"]
-[ext_resource type="Script" path="res://src/game/scripts/Movement.gd" id="16_u5wc4"]
-[ext_resource type="Script" path="res://src/game/entities/Health.gd" id="17_m3qfq"]
+[ext_resource type="Script" path="res://src/game/entities/enemies/SkeletonBoss.gd" id="1_31tw1"]
+[ext_resource type="Texture2D" uid="uid://dv1arb71f0v3u" path="res://assets/textures/enemies/skeleton/Take Hit.png" id="1_a84c8"]
+[ext_resource type="Texture2D" uid="uid://d38o62xmvclfx" path="res://assets/textures/enemies/skeleton/Attack.png" id="2_c4gtm"]
+[ext_resource type="Texture2D" uid="uid://jdf8j336ufx2" path="res://assets/textures/enemies/skeleton/Death.png" id="3_uw1t1"]
+[ext_resource type="Texture2D" uid="uid://fpbd218nnuvx" path="res://assets/textures/enemies/skeleton/Idle.png" id="4_7c8rm"]
+[ext_resource type="Texture2D" uid="uid://bldjhmqmnnnor" path="res://assets/textures/enemies/skeleton/Walk.png" id="5_6qa2k"]
+[ext_resource type="Script" path="res://src/game/scripts/HitBox.gd" id="6_yxh3t"]
+[ext_resource type="Script" path="res://src/game/scripts/HurtBox.gd" id="7_tshhr"]
+[ext_resource type="Script" path="res://src/game/scripts/Movement.gd" id="8_4558c"]
+[ext_resource type="Script" path="res://src/game/entities/Health.gd" id="9_4x0q5"]
+[ext_resource type="Script" path="res://src/game/scripts/StateMachine.gd" id="11_nht7n"]
+[ext_resource type="Script" path="res://src/game/entities/enemies/states/SkeletonBoss/SkeletonBossStateIdle.gd" id="12_bssmh"]
+[ext_resource type="Script" path="res://src/game/entities/enemies/states/SkeletonBoss/SkeletonBossStateHit.gd" id="13_178lk"]
+[ext_resource type="AudioStream" uid="uid://cf5dtoukkigx6" path="res://assets/sounds/fx/enemies/skeleton-hurt-sound.mp3" id="14_glcr3"]
+[ext_resource type="Script" path="res://src/game/entities/enemies/states/SkeletonBoss/SkeletonBossStateFollowing.gd" id="15_b4c6d"]
+[ext_resource type="Script" path="res://src/game/entities/enemies/states/SkeletonBoss/SkeletonBossStateDead.gd" id="15_i5742"]
+[ext_resource type="Script" path="res://src/game/entities/enemies/states/SkeletonBoss/SkeletonBossStateAttacking.gd" id="16_tus64"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nr8y1"]
-size = Vector2(39, 9)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ghw0l"]
+size = Vector2(50, 11)
 
 [sub_resource type="Animation" id="Animation_j8fxo"]
 length = 0.001
@@ -69,7 +69,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_8c8s6")]
+"values": [ExtResource("1_a84c8")]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -109,7 +109,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("3_m888f")]
+"values": [ExtResource("2_c4gtm")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -172,7 +172,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("4_xiily")]
+"values": [ExtResource("3_uw1t1")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -248,7 +248,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_8c8s6")]
+"values": [ExtResource("1_a84c8")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -325,7 +325,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("5_ht8wq")]
+"values": [ExtResource("4_7c8rm")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -401,7 +401,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("6_htkfp")]
+"values": [ExtResource("5_6qa2k")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -474,25 +474,24 @@ _data = {
 "walk": SubResource("Animation_2b2k3")
 }
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gj5pq"]
-radius = 13.0
-height = 70.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ve5au"]
+radius = 50.0
+height = 154.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l2uku"]
-height = 50.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y7117"]
+radius = 7.0
+height = 36.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_pn0jp"]
-radius = 320.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_y13mr"]
+radius = 460.053
 
-[node name="Skeleton" type="CharacterBody2D"]
-collision_layer = 2
-collision_mask = 10
-script = ExtResource("1_5oqjj")
+[node name="SkeletonBoss" type="CharacterBody2D"]
+script = ExtResource("1_31tw1")
+zone = 5
 
 [node name="FeetShape" type="CollisionShape2D" parent="."]
-position = Vector2(3, 24)
-shape = SubResource("RectangleShape2D_nr8y1")
-disabled = true
+position = Vector2(7, 46.5)
+shape = SubResource("RectangleShape2D_ghw0l")
 
 [node name="BodyAnimations" type="AnimationPlayer" parent="."]
 libraries = {
@@ -503,38 +502,45 @@ autoplay = "idle"
 [node name="BodyPivot" type="Node2D" parent="."]
 
 [node name="Body" type="Sprite2D" parent="BodyPivot"]
+modulate = Color(1, 0.933333, 0, 1)
 texture_filter = 1
-texture = ExtResource("2_8c8s6")
+scale = Vector2(2, 2)
+texture = ExtResource("1_a84c8")
 hframes = 4
 
 [node name="Hitbox" type="Area2D" parent="BodyPivot"]
 collision_layer = 512
 collision_mask = 0
-script = ExtResource("7_7j8do")
+script = ExtResource("6_yxh3t")
 damage = 1
 layer = 10
 
 [node name="HitCollision" type="CollisionShape2D" parent="BodyPivot/Hitbox"]
-position = Vector2(37, -3)
+position = Vector2(69, 2)
 rotation = 1.57079
-shape = SubResource("CapsuleShape2D_gj5pq")
+shape = SubResource("CapsuleShape2D_ve5au")
 disabled = true
 
 [node name="HurtBox" type="Area2D" parent="BodyPivot"]
 collision_layer = 0
 collision_mask = 16
-script = ExtResource("8_g3fqv")
+script = ExtResource("7_tshhr")
 layer = 0
 mask = 5
 
 [node name="HurtCollision" type="CollisionShape2D" parent="BodyPivot/HurtBox"]
-position = Vector2(6, -1)
-shape = SubResource("CapsuleShape2D_l2uku")
+position = Vector2(2, 4)
+shape = SubResource("CapsuleShape2D_y7117")
 disabled = true
 
-[node name="RayCast2D" type="RayCast2D" parent="."]
-position = Vector2(0, 24)
-target_position = Vector2(0, 0)
+[node name="Movement" type="Node" parent="."]
+script = ExtResource("8_4558c")
+speed = 30.0
+
+[node name="Health" type="Node" parent="."]
+script = ExtResource("9_4x0q5")
+life_max = 2
+health_max = 8
 
 [node name="DetectionArea" type="Area2D" parent="."]
 position = Vector2(0, 24)
@@ -543,54 +549,45 @@ collision_layer = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
 visible = false
 position = Vector2(0, -24)
-shape = SubResource("CircleShape2D_pn0jp")
+shape = SubResource("CircleShape2D_y13mr")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("default_state")]
-script = ExtResource("9_mds7m")
-default_state = NodePath("EnemyStateIdle")
+script = ExtResource("11_nht7n")
+default_state = NodePath("SkeletonBossStateIdle")
 
-[node name="EnemyStateIdle" type="Node" parent="StateMachine"]
-script = ExtResource("10_pds20")
+[node name="SkeletonBossStateIdle" type="Node" parent="StateMachine"]
+script = ExtResource("12_bssmh")
 
-[node name="IdleTimer" type="Timer" parent="StateMachine/EnemyStateIdle"]
+[node name="IdleTimer" type="Timer" parent="StateMachine/SkeletonBossStateIdle"]
 wait_time = 2.0
 
-[node name="EnemyStateHit" type="Node" parent="StateMachine"]
-script = ExtResource("11_c7jok")
+[node name="SkeletonBossStateHit" type="Node" parent="StateMachine"]
+script = ExtResource("13_178lk")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="StateMachine/EnemyStateHit"]
-stream = ExtResource("12_j8ncq")
-bus = &"Enemies"
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="StateMachine/SkeletonBossStateHit"]
+stream = ExtResource("14_glcr3")
+volume_db = 4.0
+pitch_scale = 0.8
+bus = &"Boss"
 
-[node name="EnemyStateFollowing" type="Node" parent="StateMachine"]
-script = ExtResource("13_h8iu7")
+[node name="SkeletonBossStateFollowing" type="Node" parent="StateMachine"]
+script = ExtResource("15_b4c6d")
 
-[node name="EnemyStateDead" type="Node" parent="StateMachine"]
-script = ExtResource("14_00voe")
+[node name="SkeletonBossStateDead" type="Node" parent="StateMachine"]
+script = ExtResource("15_i5742")
 
-[node name="EnemyStateAttacking" type="Node" parent="StateMachine"]
-script = ExtResource("15_op8ng")
+[node name="SkeletonBossStateAttacking" type="Node" parent="StateMachine"]
+script = ExtResource("16_tus64")
 
-[node name="Movement" type="Node" parent="."]
-script = ExtResource("16_u5wc4")
-speed = 40.0
-
-[node name="Health" type="Node" parent="."]
-script = ExtResource("17_m3qfq")
-life_max = 1
-health_max = 3
-
-[connection signal="found" from="." to="StateMachine/EnemyStateIdle" method="_on_enemy_found"]
-[connection signal="hurting" from="." to="StateMachine/EnemyStateIdle" method="_on_enemy_hurting"]
-[connection signal="hurting" from="." to="StateMachine/EnemyStateFollowing" method="_on_enemy_hurting"]
-[connection signal="animation_finished" from="BodyAnimations" to="StateMachine/EnemyStateHit" method="_on_body_animations_animation_finished"]
-[connection signal="animation_finished" from="BodyAnimations" to="StateMachine/EnemyStateDead" method="_on_body_animations_animation_finished"]
-[connection signal="animation_finished" from="BodyAnimations" to="StateMachine/EnemyStateAttacking" method="_on_body_animations_animation_finished"]
+[connection signal="found" from="." to="StateMachine/SkeletonBossStateIdle" method="_on_skeleton_boss_found"]
+[connection signal="hurting" from="." to="StateMachine/SkeletonBossStateIdle" method="_on_skeleton_boss_hurting"]
+[connection signal="animation_finished" from="BodyAnimations" to="StateMachine/SkeletonBossStateHit" method="_on_body_animations_animation_finished"]
+[connection signal="animation_finished" from="BodyAnimations" to="StateMachine/SkeletonBossStateDead" method="_on_body_animations_animation_finished"]
+[connection signal="animation_finished" from="BodyAnimations" to="StateMachine/SkeletonBossStateAttacking" method="_on_body_animations_animation_finished"]
 [connection signal="area_entered" from="BodyPivot/HurtBox" to="BodyPivot/HurtBox" method="_on_area_entered"]
+[connection signal="dead" from="Health" to="." method="_on_health_dead"]
+[connection signal="dead" from="Health" to="StateMachine/SkeletonBossStateIdle" method="_on_health_dead"]
+[connection signal="dead_completly" from="Health" to="." method="_on_health_dead_completly"]
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
-[connection signal="timeout" from="StateMachine/EnemyStateIdle/IdleTimer" to="StateMachine/EnemyStateIdle" method="_on_idle_timer_timeout"]
-[connection signal="dead" from="Health" to="." method="_on_health_dead"]
-[connection signal="dead" from="Health" to="StateMachine/EnemyStateIdle" method="_on_health_dead"]
-[connection signal="dead" from="Health" to="StateMachine/EnemyStateFollowing" method="_on_health_dead"]
-[connection signal="dead" from="Health" to="StateMachine/EnemyStateAttacking" method="_on_health_dead"]
+[connection signal="timeout" from="StateMachine/SkeletonBossStateIdle/IdleTimer" to="StateMachine/SkeletonBossStateIdle" method="_on_idle_timer_timeout"]

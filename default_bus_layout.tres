@@ -1,4 +1,13 @@
-[gd_resource type="AudioBusLayout" format=3 uid="uid://bc2p1uvk1sy6r"]
+[gd_resource type="AudioBusLayout" load_steps=3 format=3 uid="uid://bc2p1uvk1sy6r"]
+
+[sub_resource type="AudioEffectEQ6" id="AudioEffectEQ6_iu7ds"]
+resource_name = "EQ6"
+band_db/320_hz = 10.0
+band_db/3200_hz = 20.0
+
+[sub_resource type="AudioEffectEQ10" id="AudioEffectEQ10_ugka1"]
+resource_name = "EQ10"
+band_db/1000_hz = 10.0
 
 [resource]
 bus/1/name = &"Music"
@@ -25,3 +34,13 @@ bus/4/mute = false
 bus/4/bypass_fx = false
 bus/4/volume_db = -4.25003
 bus/4/send = &"Fx"
+bus/5/name = &"Boss"
+bus/5/solo = false
+bus/5/mute = false
+bus/5/bypass_fx = false
+bus/5/volume_db = 0.0672607
+bus/5/send = &"Fx"
+bus/5/effect/0/effect = SubResource("AudioEffectEQ6_iu7ds")
+bus/5/effect/0/enabled = true
+bus/5/effect/1/effect = SubResource("AudioEffectEQ10_ugka1")
+bus/5/effect/1/enabled = true
