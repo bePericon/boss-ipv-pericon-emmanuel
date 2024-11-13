@@ -22,7 +22,7 @@ var last_shadow_position:Vector2
 var jumping:bool
 
 func _ready() -> void:
-	get_tree().call_group("Stats", "set_current_player", self)
+	get_tree().call_group("GUI", "set_current_player", self)
 	GameState.set_current_player(self)
 	last_shadow_position = feet_shape.global_position
 
@@ -62,13 +62,13 @@ func set_strength(number: int) -> void:
 
 func _on_health_dead() -> void:
 	if health.can_revive():
-		get_tree().call_group("Stats", "setting_hearts")
+		get_tree().call_group("GUI", "setting_hearts")
 
 func _on_health_add_health() -> void:
-	get_tree().call_group("Stats", "show_heart", health.current_health)
+	get_tree().call_group("GUI", "show_heart", health.current_health)
 
 func _on_health_update_health(_amount: int) -> void:
-	get_tree().call_group("Stats", "hide_heart", health.current_health+1)
+	get_tree().call_group("GUI", "hide_heart", health.current_health+1)
 
 func _on_health_dead_completly(player: Node2D) -> void:
 	death.emit()

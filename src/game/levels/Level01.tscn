@@ -2137,6 +2137,10 @@ collectible_type = "Upgrade"
 position = Vector2(2715, 212)
 collectible_type = "Upgrade"
 
+[node name="Sake3" parent="Environment/Entities/Objects" instance=ExtResource("19_tis1q")]
+position = Vector2(68, 207)
+collectible_type = "Upgrade"
+
 [node name="Score" type="Node" parent="." groups=["Score"]]
 script = ExtResource("20_08ijv")
 

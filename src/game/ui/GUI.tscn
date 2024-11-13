@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cvypfh3nbo6sx"]
+[gd_scene load_steps=16 format=3 uid="uid://cvypfh3nbo6sx"]
 
 [ext_resource type="Texture2D" uid="uid://dhw4iortd8d22" path="res://assets/textures/ui/heart_red.png" id="1_siiiu"]
 [ext_resource type="Script" path="res://src/game/ui/GUI.gd" id="1_yswb0"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dd5s63bty0nbk" path="res://assets/textures/player/player_frame.png" id="3_cocbw"]
 [ext_resource type="Shader" path="res://src/game/ui/FlickerEffect.gdshader" id="6_6ei2n"]
 [ext_resource type="Texture2D" uid="uid://cyv1y1tmpnohw" path="res://assets/textures/pause-japanese-scroll.png" id="6_ji7av"]
+[ext_resource type="AudioStream" uid="uid://cjh0iq5m6r4vy" path="res://assets/sounds/fx/menu/continue.mp3" id="8_pv3nw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ou0g0"]
 atlas = ExtResource("2_inj36")
@@ -61,7 +62,7 @@ _data = {
 "continue": SubResource("Animation_xjhye")
 }
 
-[node name="GUI" type="Control" groups=["Stats"]]
+[node name="GUI" type="Control" groups=["GUI"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -79,6 +80,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Player" type="TextureRect" parent="StatsContainer"]
+unique_name_in_owner = true
 texture_filter = 1
 layout_mode = 0
 offset_left = 15.0
@@ -88,6 +90,7 @@ offset_bottom = 36.0
 texture = SubResource("AtlasTexture_ou0g0")
 
 [node name="Frame" type="TextureRect" parent="StatsContainer"]
+unique_name_in_owner = true
 texture_filter = 1
 layout_mode = 0
 offset_left = 4.0
@@ -183,6 +186,7 @@ theme_override_fonts/font = ExtResource("2_p8snh")
 text = "00000"
 
 [node name="LabelScore" type="Label" parent="StatsContainer"]
+unique_name_in_owner = true
 texture_filter = 1
 layout_mode = 0
 offset_left = 221.0
@@ -231,3 +235,12 @@ libraries = {
 "": SubResource("AnimationLibrary_olb8s")
 }
 autoplay = "continue"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="ContinueContainer"]
+stream = ExtResource("8_pv3nw")
+pitch_scale = 0.6
+bus = &"Continue"
+
+[node name="Timer" type="Timer" parent="ContinueContainer"]
+
+[connection signal="timeout" from="ContinueContainer/Timer" to="." method="_on_timer_timeout"]

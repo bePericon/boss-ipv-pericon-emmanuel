@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://src/game/ui/Winner.gd" id="1_advx0"]
 [ext_resource type="FontFile" uid="uid://bwkk85s6e8x3" path="res://assets/fonts/tinypixel.otf" id="1_tcb15"]
-[ext_resource type="AudioStream" uid="uid://denvurjnnacci" path="res://assets/sounds/music/winner-sound.ogg" id="2_dub0u"]
+[ext_resource type="AudioStream" uid="uid://cydd5bsna7801" path="res://assets/sounds/music/winner-sound.mp3" id="3_nebmx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8svd7"]
 bg_color = Color(0.0862745, 0.0862745, 0.0862745, 0.784314)
@@ -52,7 +52,8 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_dooy2")
 text = "Restart"
 
 [node name="AudioMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_dub0u")
+stream = ExtResource("3_nebmx")
+volume_db = 15.0
 bus = &"Music"
 
 [connection signal="pressed" from="Panel/RestartButton" to="." method="_on_restart_button_pressed"]
