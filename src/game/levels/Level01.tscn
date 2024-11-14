@@ -1741,7 +1741,7 @@ size = Vector2(20, 171)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vf6ie"]
 size = Vector2(47, 214)
 
-[node name="Level01" type="Node"]
+[node name="Level01" type="Node" groups=["Level"]]
 script = ExtResource("1_ahya5")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -2135,10 +2135,6 @@ collectible_type = "Upgrade"
 
 [node name="Sake2" parent="Environment/Entities/Objects" instance=ExtResource("19_tis1q")]
 position = Vector2(2715, 212)
-collectible_type = "Upgrade"
-
-[node name="Sake3" parent="Environment/Entities/Objects" instance=ExtResource("19_tis1q")]
-position = Vector2(68, 207)
 collectible_type = "Upgrade"
 
 [node name="Score" type="Node" parent="." groups=["Score"]]

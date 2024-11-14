@@ -34,7 +34,12 @@ func _on_finish_area_body_entered(body: Node2D) -> void:
 			audio_music.stop()
 		GameState.winner()
 
-
 func _on_player_death() -> void:
 	if audio_music:
 		audio_music.stop()
+
+func slow_music() -> void:
+	audio_music.pitch_scale = 0.8
+
+func fast_music() -> void:
+	audio_music.pitch_scale = 1
