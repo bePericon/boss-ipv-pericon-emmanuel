@@ -30,7 +30,7 @@ func _physics_process(delta: float) -> void:
 	#print("feet_shape global: ", feet_shape.global_position)
 	#print("shadow_position: ", last_shadow_position)
 	if jumping:
-		feet_shape.global_position = Vector2(feet_shape.global_position.x, last_shadow_position.y +0.5)
+		feet_shape.global_position = Vector2(feet_shape.global_position.x, last_shadow_position.y)
 
 func flip_direction() -> void:
 	_body_pivot.scale.x = -1 if velocity.x < 0 else 1

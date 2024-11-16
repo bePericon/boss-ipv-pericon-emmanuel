@@ -6,7 +6,10 @@ signal running()
 func start():
 	running.emit()
 	player.jump_control.y = player.global_position.y
-	player.last_shadow_position = player.feet_shape.global_position
+	if  player.feet_shape.global_position.y -3 <= 0:
+		player.last_shadow_position = Vector2(player.feet_shape.global_position.x, player.feet_shape.global_position.y -4)
+	else:
+		player.last_shadow_position = player.feet_shape.global_position
 
 func on_physics_process(_delta):
 	player.play_animation("jump")
@@ -26,6 +29,7 @@ func on_physics_process(_delta):
 	player.move_and_slide()
 
 func player_on_top() -> bool:
+	print("boool: ", player.jump_control.y - player.global_position.y > 100, " velocity: ", player.velocity.y >= 0)
 	return player.jump_control.y - player.global_position.y > 100
 
 func player_on_floor() -> bool:
