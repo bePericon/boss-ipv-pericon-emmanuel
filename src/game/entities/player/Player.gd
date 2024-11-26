@@ -60,6 +60,13 @@ func remove() -> void:
 func set_strength(number: int) -> void:
 	hit_box.damage = number
 
+
+func setting_upgrade() -> void:
+		modulate =  Color("#24ff00")
+
+func unsetting_upgrade() -> void:
+		modulate =  Color("#ffffff")
+
 func _on_health_dead() -> void:
 	if health.can_revive():
 		get_tree().call_group("GUI", "setting_hearts")

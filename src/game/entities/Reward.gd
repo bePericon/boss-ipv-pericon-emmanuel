@@ -2,8 +2,12 @@ extends Area2D
 class_name Reward
 
 @export var collectible_type:String
+@onready var flash_sprite: Sprite2D = $FlashSprite
 
 var is_collected:bool = false
+
+func _physics_process(_delta: float) -> void:
+	flash_sprite.visible = is_collected
 
 func _on_body_entered(body: Node2D) -> void:
 	if not is_collected and body.name == "Player":

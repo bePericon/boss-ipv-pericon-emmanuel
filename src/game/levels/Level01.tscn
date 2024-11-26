@@ -2025,7 +2025,7 @@ texture = ExtResource("13_a11ao")
 [node name="Entities" type="Node2D" parent="Environment"]
 
 [node name="Player" parent="Environment/Entities" instance=ExtResource("14_ytept")]
-position = Vector2(23, 164)
+position = Vector2(57, 165)
 collision_mask = 72
 
 [node name="Camera2D" type="Camera2D" parent="Environment/Entities/Player" groups=["Camera"]]

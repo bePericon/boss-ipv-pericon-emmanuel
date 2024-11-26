@@ -25,6 +25,9 @@ func initialize(container, enemy_pos) -> void:
 func _ready() -> void:
 	movement.setup(self)
 
+func _physics_process(_delta: float) -> void:
+	setting_z_index()
+
 func _on_detection_area_body_entered(body_detected: Node2D) -> void:
 	if target == null and body_detected.name == 'Player':
 		target = body_detected
@@ -62,8 +65,9 @@ func look_at_target() -> void:
 	_body_pivot.scale.x = -1 if (target.global_position - global_position).x < 0 else 1
 
 func setting_z_index() -> void:
-	#print("enemy.setting_z_index: ", "back" if (global_position.y - target.global_position.y) < 0 else "front")
-	_body_pivot.z_index = 0 if (global_position.y - target.global_position.y) < 0 else 2
+	if target:
+		#print("enemy.setting_z_index: ", "back" if (global_position.y - target.global_position.y) < 0 else "front")
+		_body_pivot.z_index = 0 if (global_position.y - target.global_position.y) < 0 else 2
 
 func apply_movement() -> void:
 	var direction = target.global_position - global_position
@@ -74,7 +78,8 @@ func stop_movement() -> void:
 	movement.stop_movement()
 
 func is_close_target() -> bool:
-	return (global_position - target.global_position) < Vector2(40,10)
+	var vector = (global_position - target.global_position)
+	return Vector2(abs(vector.x), abs(vector.y)) < Vector2(40,10)
 
 func remove() -> void:
 	get_parent().remove_child(self)
