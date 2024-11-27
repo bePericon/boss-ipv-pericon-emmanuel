@@ -2025,7 +2025,7 @@ texture = ExtResource("13_a11ao")
 [node name="Entities" type="Node2D" parent="Environment"]
 
 [node name="Player" parent="Environment/Entities" instance=ExtResource("14_ytept")]
-position = Vector2(44, 155)
+position = Vector2(53, 162)
 collision_mask = 72
 
 [node name="Camera2D" type="Camera2D" parent="Environment/Entities/Player" groups=["Camera"]]
@@ -2039,77 +2039,114 @@ script = ExtResource("17_b81kw")
 
 [node name="Enemies" type="Node2D" parent="Environment/Entities"]
 
-[node name="Skeleton" parent="Environment/Entities/Enemies" instance=ExtResource("15_bn0oa")]
+[node name="Zone1" type="Node" parent="Environment/Entities/Enemies"]
+
+[node name="Skeleton" parent="Environment/Entities/Enemies/Zone1" instance=ExtResource("15_bn0oa")]
 position = Vector2(259, 130)
 zone = 1
 
-[node name="Skeleton2" parent="Environment/Entities/Enemies" instance=ExtResource("15_bn0oa")]
+[node name="Skeleton2" parent="Environment/Entities/Enemies/Zone1" instance=ExtResource("15_bn0oa")]
 position = Vector2(398, 181)
 zone = 1
 
-[node name="Skeleton3" parent="Environment/Entities/Enemies" instance=ExtResource("15_bn0oa")]
+[node name="Skeleton3" parent="Environment/Entities/Enemies/Zone1" instance=ExtResource("15_bn0oa")]
 position = Vector2(556, 128)
 zone = 1
 
-[node name="Skeleton4" parent="Environment/Entities/Enemies" instance=ExtResource("15_bn0oa")]
+[node name="Skeleton4" parent="Environment/Entities/Enemies/Zone1" instance=ExtResource("15_bn0oa")]
 position = Vector2(582, 189)
 zone = 1
 
-[node name="Skeleton5" parent="Environment/Entities/Enemies" instance=ExtResource("15_bn0oa")]
+[node name="Zone2" type="Node" parent="Environment/Entities/Enemies"]
+
+[node name="Skeleton5" parent="Environment/Entities/Enemies/Zone2" instance=ExtResource("15_bn0oa")]
 position = Vector2(1204, 123)
 zone = 2
 
-[node name="Skeleton6" parent="Environment/Entities/Enemies" instance=ExtResource("15_bn0oa")]
+[node name="Skeleton6" parent="Environment/Entities/Enemies/Zone2" instance=ExtResource("15_bn0oa")]
 position = Vector2(1245, 184)
 zone = 2
 
-[node name="EnemySpawn" parent="Environment/Entities/Enemies" instance=ExtResource("16_563o2")]
+[node name="Skeleton7" parent="Environment/Entities/Enemies/Zone2" instance=ExtResource("15_bn0oa")]
+position = Vector2(1388, 133)
+zone = 2
+
+[node name="Skeleton8" parent="Environment/Entities/Enemies/Zone2" instance=ExtResource("15_bn0oa")]
+position = Vector2(1447, 178)
+zone = 2
+
+[node name="EnemySpawn" parent="Environment/Entities/Enemies/Zone2" instance=ExtResource("16_563o2")]
 position = Vector2(1510, 134)
 zone = 2
 wait_timer = 2.0
 extents = Vector2(100, 80)
 
-[node name="Skeleton7" parent="Environment/Entities/Enemies" instance=ExtResource("15_bn0oa")]
-position = Vector2(2367, 151)
+[node name="Zone3" type="Node" parent="Environment/Entities/Enemies"]
+
+[node name="Skeleton7" parent="Environment/Entities/Enemies/Zone3" instance=ExtResource("15_bn0oa")]
+position = Vector2(2329, 165)
 zone = 3
 
-[node name="Skeleton8" parent="Environment/Entities/Enemies" instance=ExtResource("15_bn0oa")]
+[node name="Skeleton8" parent="Environment/Entities/Enemies/Zone3" instance=ExtResource("15_bn0oa")]
 position = Vector2(2694, 140)
 zone = 3
 
-[node name="EnemySpawn2" parent="Environment/Entities/Enemies" instance=ExtResource("16_563o2")]
+[node name="Skeleton9" parent="Environment/Entities/Enemies/Zone3" instance=ExtResource("15_bn0oa")]
+position = Vector2(2402, 111)
+zone = 3
+
+[node name="Skeleton10" parent="Environment/Entities/Enemies/Zone3" instance=ExtResource("15_bn0oa")]
+position = Vector2(2865, 183)
+zone = 3
+
+[node name="Skeleton11" parent="Environment/Entities/Enemies/Zone3" instance=ExtResource("15_bn0oa")]
+position = Vector2(2571, 117)
+zone = 3
+
+[node name="Skeleton12" parent="Environment/Entities/Enemies/Zone3" instance=ExtResource("15_bn0oa")]
+position = Vector2(2501, 125)
+zone = 3
+
+[node name="EnemySpawn2" parent="Environment/Entities/Enemies/Zone3" instance=ExtResource("16_563o2")]
 position = Vector2(2797, 133)
 zone = 3
-amount = 2
+amount = 3
 wait_timer = 2.0
 extents = Vector2(30, 80)
 
-[node name="Skeleton9" parent="Environment/Entities/Enemies" instance=ExtResource("15_bn0oa")]
-position = Vector2(3224, 152)
+[node name="Zone4" type="Node" parent="Environment/Entities/Enemies"]
 
-[node name="Skeleton10" parent="Environment/Entities/Enemies" instance=ExtResource("15_bn0oa")]
-position = Vector2(3632, 152)
+[node name="Skeleton10" parent="Environment/Entities/Enemies/Zone4" instance=ExtResource("15_bn0oa")]
+position = Vector2(3541, 139)
 zone = 4
 
-[node name="Skeleton11" parent="Environment/Entities/Enemies" instance=ExtResource("15_bn0oa")]
-position = Vector2(3729, 175)
+[node name="Skeleton11" parent="Environment/Entities/Enemies/Zone4" instance=ExtResource("15_bn0oa")]
+position = Vector2(3611, 183)
 zone = 4
 
-[node name="EnemySpawn3" parent="Environment/Entities/Enemies" instance=ExtResource("16_563o2")]
+[node name="Skeleton12" parent="Environment/Entities/Enemies/Zone4" instance=ExtResource("15_bn0oa")]
+position = Vector2(3810, 120)
+zone = 4
+
+[node name="Skeleton13" parent="Environment/Entities/Enemies/Zone4" instance=ExtResource("15_bn0oa")]
+position = Vector2(3669, 175)
+zone = 4
+
+[node name="EnemySpawn3" parent="Environment/Entities/Enemies/Zone4" instance=ExtResource("16_563o2")]
 position = Vector2(3859, 134)
 zone = 4
-amount = 3
+amount = 4
 wait_timer = 4.0
 extents = Vector2(100, 80)
 
 [node name="SkeletonBoss" parent="Environment/Entities/Enemies" instance=ExtResource("20_3b70y")]
-position = Vector2(4913, 131)
+position = Vector2(4874, 144)
 
 [node name="Objects" type="Node2D" parent="Environment/Entities"]
 
 [node name="Onigiri" parent="Environment/Entities/Objects" instance=ExtResource("17_3v8mf")]
 z_index = 0
-position = Vector2(1923, 137)
+position = Vector2(1917, 204)
 collision_layer = 1
 collision_priority = 1.0
 collectible_type = "Life"
@@ -2126,15 +2163,15 @@ position = Vector2(460, 186)
 collectible_type = "Armor"
 
 [node name="Coin2" parent="Environment/Entities/Objects" instance=ExtResource("18_htkvx")]
-position = Vector2(4754, 176)
+position = Vector2(4643, 200)
+collectible_type = "Armor"
+
+[node name="Coin3" parent="Environment/Entities/Objects" instance=ExtResource("18_htkvx")]
+position = Vector2(4670, 200)
 collectible_type = "Armor"
 
 [node name="Sake" parent="Environment/Entities/Objects" instance=ExtResource("19_tis1q")]
 position = Vector2(1293, 214)
-collectible_type = "Upgrade"
-
-[node name="Sake2" parent="Environment/Entities/Objects" instance=ExtResource("19_tis1q")]
-position = Vector2(2715, 212)
 collectible_type = "Upgrade"
 
 [node name="Score" type="Node" parent="." groups=["Score"]]
@@ -2161,15 +2198,15 @@ enemies_in_zone = 4
 
 [node name="FightZone2" parent="FightControl" instance=ExtResource("26_aqvc7")]
 position = Vector2(1073, 0)
-enemies_in_zone = 7
+enemies_in_zone = 9
 
 [node name="FightZone3" parent="FightControl" instance=ExtResource("26_aqvc7")]
 position = Vector2(2289, 0)
-enemies_in_zone = 4
+enemies_in_zone = 8
 
 [node name="FightZone4" parent="FightControl" instance=ExtResource("26_aqvc7")]
 position = Vector2(3437, 0)
-enemies_in_zone = 5
+enemies_in_zone = 8
 
 [node name="FightZone5" parent="FightControl" instance=ExtResource("26_aqvc7")]
 position = Vector2(4299, 0)

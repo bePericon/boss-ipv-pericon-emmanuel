@@ -49,7 +49,8 @@ func show_heart(number: int) -> void:
 	self.get("heart_"+ str(number)).show()
 
 func hide_heart(number: int) -> void:
-	self.get("heart_"+ str(number)).hide()
+	if self.get("heart_"+ str(number)):
+		self.get("heart_"+ str(number)).hide()
 
 
 func _on_score_updated_score(amount: Variant) -> void:
