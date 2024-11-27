@@ -3,7 +3,6 @@ extends Node
 
 var buffer_collect: Node2D = null
 var collectibles_types:CollectibleTypes = CollectibleTypes.new()
-var score_multiplier:float = 1.0
 
 func exist_object() -> bool:
 	return true if buffer_collect else false
@@ -26,22 +25,24 @@ func on_collected(type):
 			notify_score(130.0)
 		collectibles_types.Upgrade:
 			notify_score(50.0)
-			start_upgrade(10.0)
+			start_upgrade(15.0)
 
 func notify_score(amount: float) -> void:
-	var score = amount * score_multiplier
-	get_tree().call_group("Score", "add", score)
+	get_tree().call_group("Score", "add", amount)
 
 func start_upgrade(time: float) -> void:
 	owner.set_strength(3)
-	score_multiplier += 0.3
-	get_tree().call_group("Score", "add_multiplier", 0.3)
-	print("Start upgrade: ", time, " seconds")
+	owner.setting_upgrade()
+	get_tree().call_group("Score", "set_multiplier", 2.0)
+	get_tree().call_group("GUI", "start_upgrade")
+	get_tree().call_group("Level", "fast_music")
 	upgrade_timer.start(time)
+	print("Start upgrade: ", time, " seconds")
 
 func _on_upgrade_timer_timeout() -> void:
 	owner.set_strength(1)
-	score_multiplier = 1
+	owner.unsetting_upgrade()
 	get_tree().call_group("Score", "set_multiplier", 1.0)
+	get_tree().call_group("GUI", "end_upgrade")
+	get_tree().call_group("Level", "slow_music")
 	print("Finished upgrade")
-	upgrade_timer.stop()

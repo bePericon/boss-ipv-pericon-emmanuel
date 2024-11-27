@@ -1,5 +1,5 @@
-extends EnemyStateBase
-class_name EnemyStateFollowing
+extends SkeletonBossStateBase
+class_name SkeletonBossStateFollowing
 
 func on_physics_process(_delta: float) -> void:
 	if not enemy.health.is_dead_completly():
@@ -14,10 +14,3 @@ func on_physics_process(_delta: float) -> void:
 				enemy.apply_movement()
 		else:
 			state_machine.change_to(enemy.states.Idle)
-
-
-func _on_enemy_hurting(_amount: Variant) -> void:
-	state_machine.change_to(enemy.states.Hit)
-
-func _on_health_dead() -> void:
-	state_machine.change_to(enemy.states.Dead)

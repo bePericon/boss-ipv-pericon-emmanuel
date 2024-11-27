@@ -2,7 +2,6 @@ extends Node
 class_name Movement
 
 @export var speed:float = 32.0
-@export var max_speed:float = 32.0
 
 var character: CharacterBody2D
 

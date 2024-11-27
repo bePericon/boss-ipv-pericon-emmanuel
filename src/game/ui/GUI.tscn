@@ -1,10 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://cvypfh3nbo6sx"]
+[gd_scene load_steps=16 format=3 uid="uid://cvypfh3nbo6sx"]
 
 [ext_resource type="Texture2D" uid="uid://dhw4iortd8d22" path="res://assets/textures/ui/heart_red.png" id="1_siiiu"]
 [ext_resource type="Script" path="res://src/game/ui/GUI.gd" id="1_yswb0"]
 [ext_resource type="Texture2D" uid="uid://ca0kg7fgbbphb" path="res://assets/textures/player/Idle.png" id="2_inj36"]
 [ext_resource type="FontFile" uid="uid://bwkk85s6e8x3" path="res://assets/fonts/tinypixel.otf" id="2_p8snh"]
 [ext_resource type="Texture2D" uid="uid://dd5s63bty0nbk" path="res://assets/textures/player/player_frame.png" id="3_cocbw"]
+[ext_resource type="Shader" path="res://src/game/ui/FlickerEffect.gdshader" id="6_6ei2n"]
+[ext_resource type="Texture2D" uid="uid://cyv1y1tmpnohw" path="res://assets/textures/pause-japanese-scroll.png" id="6_ji7av"]
+[ext_resource type="AudioStream" uid="uid://cjh0iq5m6r4vy" path="res://assets/sounds/fx/menu/continue.mp3" id="8_pv3nw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ou0g0"]
 atlas = ExtResource("2_inj36")
@@ -18,7 +21,48 @@ region = Rect2(104, 216, 224, 200)
 atlas = ExtResource("1_siiiu")
 region = Rect2(254, 254, 484, 387)
 
-[node name="GUI" type="Control" groups=["Stats"]]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k4ecw"]
+shader = ExtResource("6_6ei2n")
+shader_parameter/hit_opacity = 1.0
+
+[sub_resource type="Animation" id="Animation_4lrjf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:material:shader_parameter/hit_opacity")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_xjhye"]
+resource_name = "continue"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:material:shader_parameter/hit_opacity")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.366667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_olb8s"]
+_data = {
+"RESET": SubResource("Animation_4lrjf"),
+"continue": SubResource("Animation_xjhye")
+}
+
+[node name="GUI" type="Control" groups=["GUI"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -36,6 +80,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Player" type="TextureRect" parent="StatsContainer"]
+unique_name_in_owner = true
 texture_filter = 1
 layout_mode = 0
 offset_left = 15.0
@@ -45,6 +90,7 @@ offset_bottom = 36.0
 texture = SubResource("AtlasTexture_ou0g0")
 
 [node name="Frame" type="TextureRect" parent="StatsContainer"]
+unique_name_in_owner = true
 texture_filter = 1
 layout_mode = 0
 offset_left = 4.0
@@ -140,6 +186,7 @@ theme_override_fonts/font = ExtResource("2_p8snh")
 text = "00000"
 
 [node name="LabelScore" type="Label" parent="StatsContainer"]
+unique_name_in_owner = true
 texture_filter = 1
 layout_mode = 0
 offset_left = 221.0
@@ -151,3 +198,49 @@ theme_override_colors/font_shadow_color = Color(0.0862745, 0.0862745, 0.0862745,
 theme_override_fonts/font = ExtResource("2_p8snh")
 theme_override_font_sizes/font_size = 8
 text = "SCORE"
+
+[node name="ContinueContainer" type="Control" parent="."]
+visible = false
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="Sprite2D" parent="ContinueContainer"]
+modulate = Color(0, 0.756863, 0.247059, 1)
+texture_filter = 1
+material = SubResource("ShaderMaterial_k4ecw")
+position = Vector2(279, 56)
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("6_ji7av")
+
+[node name="LabelContinue" type="Label" parent="ContinueContainer"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 255.0
+offset_top = 50.0
+offset_right = 307.0
+offset_bottom = 62.0
+theme_override_colors/font_color = Color(0.0862745, 0.0862745, 0.0862745, 1)
+theme_override_fonts/font = ExtResource("2_p8snh")
+theme_override_font_sizes/font_size = 10
+text = "Continue"
+horizontal_alignment = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ContinueContainer"]
+libraries = {
+"": SubResource("AnimationLibrary_olb8s")
+}
+autoplay = "continue"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="ContinueContainer"]
+stream = ExtResource("8_pv3nw")
+pitch_scale = 0.6
+bus = &"Continue"
+
+[node name="Timer" type="Timer" parent="ContinueContainer"]
+
+[connection signal="timeout" from="ContinueContainer/Timer" to="." method="_on_timer_timeout"]

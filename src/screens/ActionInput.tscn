@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://bme65tsuywyb0"]
+
+[ext_resource type="FontFile" uid="uid://bwkk85s6e8x3" path="res://assets/fonts/tinypixel.otf" id="1_dyy1y"]
+[ext_resource type="Script" path="res://src/screens/ActionInput.gd" id="1_poc7b"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hli66"]
+bg_color = Color(0.25098, 0.25098, 0.25098, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="ActionInput" type="PanelContainer"]
+texture_filter = 1
+offset_right = 152.0
+offset_bottom = 20.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_hli66")
+script = ExtResource("1_poc7b")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+
+[node name="Input" type="Button" parent="HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(76, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_dyy1y")
+theme_override_font_sizes/font_size = 10
+text = "A"
+
+[node name="Action" type="Label" parent="HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(76, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_dyy1y")
+theme_override_font_sizes/font_size = 10
+text = "Move left"
+
+[connection signal="pressed" from="HBoxContainer/Input" to="." method="_on_input_pressed"]

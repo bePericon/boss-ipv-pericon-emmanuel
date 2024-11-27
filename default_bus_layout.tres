@@ -1,4 +1,22 @@
-[gd_resource type="AudioBusLayout" format=3 uid="uid://bc2p1uvk1sy6r"]
+[gd_resource type="AudioBusLayout" load_steps=5 format=3 uid="uid://bc2p1uvk1sy6r"]
+
+[sub_resource type="AudioEffectEQ10" id="AudioEffectEQ10_prlqm"]
+resource_name = "EQ10"
+band_db/1000_hz = 10.0
+band_db/2000_hz = 10.0
+
+[sub_resource type="AudioEffectPitchShift" id="AudioEffectPitchShift_rbogw"]
+resource_name = "PitchShift"
+pitch_scale = 0.6
+
+[sub_resource type="AudioEffectEQ6" id="AudioEffectEQ6_iu7ds"]
+resource_name = "EQ6"
+band_db/320_hz = 10.0
+band_db/3200_hz = 20.0
+
+[sub_resource type="AudioEffectEQ10" id="AudioEffectEQ10_ugka1"]
+resource_name = "EQ10"
+band_db/1000_hz = 10.0
 
 [resource]
 bus/1/name = &"Music"
@@ -13,15 +31,35 @@ bus/2/mute = false
 bus/2/bypass_fx = false
 bus/2/volume_db = -6.57885
 bus/2/send = &"Master"
-bus/3/name = &"Player"
+bus/3/name = &"Continue"
 bus/3/solo = false
 bus/3/mute = false
 bus/3/bypass_fx = false
-bus/3/volume_db = -4.25003
+bus/3/volume_db = -26.6051
 bus/3/send = &"Fx"
-bus/4/name = &"Enemies"
+bus/3/effect/0/effect = SubResource("AudioEffectEQ10_prlqm")
+bus/3/effect/0/enabled = true
+bus/3/effect/1/effect = SubResource("AudioEffectPitchShift_rbogw")
+bus/3/effect/1/enabled = true
+bus/4/name = &"Player"
 bus/4/solo = false
 bus/4/mute = false
 bus/4/bypass_fx = false
 bus/4/volume_db = -4.25003
 bus/4/send = &"Fx"
+bus/5/name = &"Enemies"
+bus/5/solo = false
+bus/5/mute = false
+bus/5/bypass_fx = false
+bus/5/volume_db = -4.25003
+bus/5/send = &"Fx"
+bus/6/name = &"Boss"
+bus/6/solo = false
+bus/6/mute = false
+bus/6/bypass_fx = false
+bus/6/volume_db = 0.0672607
+bus/6/send = &"Fx"
+bus/6/effect/0/effect = SubResource("AudioEffectEQ6_iu7ds")
+bus/6/effect/0/enabled = true
+bus/6/effect/1/effect = SubResource("AudioEffectEQ10_ugka1")
+bus/6/effect/1/enabled = true

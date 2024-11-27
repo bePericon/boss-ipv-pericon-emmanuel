@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://upuhfy3wucqe"]
+[gd_scene load_steps=17 format=3 uid="uid://upuhfy3wucqe"]
 
 [ext_resource type="Script" path="res://src/screens/InitialMenu.gd" id="1_uh3xb"]
 [ext_resource type="PackedScene" uid="uid://ddn0gc3sfyppy" path="res://src/screens/LevelManager.tscn" id="2_0nk4s"]
@@ -7,6 +7,7 @@
 [ext_resource type="FontFile" uid="uid://bwkk85s6e8x3" path="res://assets/fonts/tinypixel.otf" id="4_0s2nw"]
 [ext_resource type="Script" path="res://src/screens/InitialControlButtons.gd" id="5_qdy2m"]
 [ext_resource type="Texture2D" uid="uid://bjilypdpqsnwp" path="res://assets/textures/selector_samurai.png" id="6_a83w2"]
+[ext_resource type="PackedScene" uid="uid://bme65tsuywyb0" path="res://src/screens/ActionInput.tscn" id="8_5ix73"]
 [ext_resource type="AudioStream" uid="uid://dbk8b0f5bhr36" path="res://assets/sounds/music/8bit_Japanese traditional music (No copyright) _Mysterious Kyouto_ (128 kbps).mp3" id="8_gklqa"]
 [ext_resource type="AudioStream" uid="uid://47evtrkkbe7j" path="res://assets/sounds/fx/menu/select_001.ogg" id="9_vtbry"]
 [ext_resource type="AudioStream" uid="uid://b4radfyusa746" path="res://assets/sounds/fx/menu/confirmation_003.ogg" id="10_430wo"]
@@ -17,6 +18,12 @@ bg_color = Color(0.0862745, 0.0862745, 0.0862745, 0.784314)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uuhkq"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nqd1f"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fcv24"]
+bg_color = Color(0.0862745, 0.0862745, 0.0862745, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s1jpa"]
+bg_color = Color(0.393086, 0.393085, 0.393085, 1)
 
 [node name="InitialMenu" type="Node"]
 script = ExtResource("1_uh3xb")
@@ -117,7 +124,7 @@ theme_override_colors/font_color = Color(0.717647, 0.717647, 0.717647, 1)
 theme_override_fonts/font = ExtResource("4_0s2nw")
 theme_override_font_sizes/font_size = 18
 theme_override_styles/focus = SubResource("StyleBoxEmpty_nqd1f")
-text = "Options"
+text = "Controls"
 flat = true
 alignment = 0
 expand_icon = true
@@ -152,6 +159,88 @@ text = "© 1992
 All rights reserved"
 horizontal_alignment = 1
 
+[node name="Panel2" type="Panel" parent="Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fcv24")
+
+[node name="Label" type="Label" parent="Control/Panel2"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -39.0
+offset_top = 10.0
+offset_right = 39.0
+offset_bottom = 32.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("4_0s2nw")
+theme_override_font_sizes/font_size = 18
+text = "Controls"
+
+[node name="Control" type="Control" parent="Control/Panel2"]
+anchors_preset = 0
+offset_top = 40.0
+offset_right = 320.0
+offset_bottom = 180.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Panel2/Control"]
+layout_mode = 2
+offset_left = 81.0
+offset_right = 243.0
+offset_bottom = 92.0
+size_flags_horizontal = 3
+
+[node name="ActionInput" parent="Control/Panel2/Control/VBoxContainer" instance=ExtResource("8_5ix73")]
+layout_mode = 2
+action_id = "ui_left"
+action_name = "Move left"
+
+[node name="ActionInput2" parent="Control/Panel2/Control/VBoxContainer" instance=ExtResource("8_5ix73")]
+layout_mode = 2
+action_id = "ui_right"
+action_name = "Move right"
+
+[node name="ActionInput3" parent="Control/Panel2/Control/VBoxContainer" instance=ExtResource("8_5ix73")]
+layout_mode = 2
+action_id = "ui_up"
+action_name = "Move up"
+
+[node name="ActionInput4" parent="Control/Panel2/Control/VBoxContainer" instance=ExtResource("8_5ix73")]
+layout_mode = 2
+action_id = "ui_down"
+action_name = "Move down"
+
+[node name="ActionInput5" parent="Control/Panel2/Control/VBoxContainer" instance=ExtResource("8_5ix73")]
+layout_mode = 2
+action_id = "pause_menu"
+action_name = "Pause"
+
+[node name="ActionInput6" parent="Control/Panel2/Control/VBoxContainer" instance=ExtResource("8_5ix73")]
+layout_mode = 2
+action_id = "attack_01"
+action_name = "First attack"
+
+[node name="Button" type="Button" parent="Control/Panel2"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 0
+offset_left = 144.0
+offset_top = 190.0
+offset_right = 184.0
+offset_bottom = 206.0
+theme_override_fonts/font = ExtResource("4_0s2nw")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_s1jpa")
+button_mask = 0
+text = "OK"
+
 [node name="AudioMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_gklqa")
 autoplay = true
@@ -169,4 +258,5 @@ bus = &"Fx"
 [connection signal="pressed" from="Control/Panel/Control/ButtonsContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="Control/Panel/Control/ButtonsContainer/PlayButton" to="Control/Panel/Control" method="_on_play_button_pressed"]
 [connection signal="pressed" from="Control/Panel/Control/ButtonsContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="Control/Panel2/Button" to="." method="_on_button_pressed"]
 [connection signal="finished" from="ConfirmationFx" to="." method="_on_confirmation_fx_finished"]
