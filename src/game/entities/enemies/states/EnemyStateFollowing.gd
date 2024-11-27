@@ -3,7 +3,6 @@ class_name EnemyStateFollowing
 
 func on_physics_process(_delta: float) -> void:
 	if not enemy.health.is_dead_completly():
-		print("Followwwwwwingg")
 		enemy.play_animation("walk")
 		if enemy.can_see_target():
 			enemy.look_at_target()

@@ -977,7 +977,7 @@ bus = &"Player"
 [node name="Health" type="Node" parent="."]
 script = ExtResource("21_3g3nj")
 life_max = 2
-health_max = 3
+health_max = 4
 
 [node name="AlertFightZone" type="Area2D" parent="."]
 position = Vector2(2, 26)

@@ -40,6 +40,7 @@ func play_animation(animation: String) -> void:
 		_body_animations.play(animation)
 
 func take_damage(amount: int) -> void:
+	get_tree().call_group("Camera", "apply_shake", 1.0)
 	health.take_damage(amount)
 	hurting.emit(amount)
 

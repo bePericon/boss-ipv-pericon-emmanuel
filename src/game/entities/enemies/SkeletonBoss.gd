@@ -1,12 +1,13 @@
 extends CharacterBody2D
 class_name SkeletonBoss
 
-const SPEED = 40.0
+const SPEED = 100.0
 
 @onready var _body_animations: AnimationPlayer = $BodyAnimations
 @onready var _body_pivot: Node2D = $BodyPivot
 @onready var movement: Movement = $Movement
 @onready var health: Node = $Health
+@onready var feet_shape: CollisionShape2D = $FeetShape
 
 @export var zone:int 
 
@@ -23,6 +24,9 @@ func initialize(container, enemy_pos) -> void:
 func _ready() -> void:
 	movement.setup(self)
 
+func _physics_process(_delta: float) -> void:
+	setting_z_index()
+
 func _on_detection_area_body_entered(body_detected: Node2D) -> void:
 	if target == null and body_detected.name == 'Player':
 		target = body_detected
@@ -33,6 +37,7 @@ func _on_detection_area_body_exited(body_detected: Node2D) -> void:
 		target = null
 
 func take_damage(amount: int) -> void:
+	get_tree().call_group("Camera", "apply_shake", 10.0)
 	health.take_damage(amount)
 	hurting.emit(amount)
 
@@ -52,7 +57,8 @@ func look_at_target() -> void:
 	_body_pivot.scale.x = -1 if (target.global_position - global_position).x < 0 else 1
 
 func setting_z_index() -> void:
-	_body_pivot.z_index = 0 if (global_position.y - target.global_position.y) < 0 else 2
+	if target:
+		_body_pivot.z_index = 0 if (feet_shape.global_position.y - target.feet_shape.global_position.y) < 0 else 2
 
 func apply_movement() -> void:
 	var direction = target.global_position - global_position
@@ -63,7 +69,8 @@ func stop_movement() -> void:
 	movement.stop_movement()
 
 func is_close_target() -> bool:
-	return (global_position - target.global_position) < Vector2(40,10)
+	var vector = (global_position - target.global_position)
+	return Vector2(abs(vector.x), abs(vector.y)) < Vector2(80,20)
 
 func remove() -> void:
 	get_parent().remove_child(self)

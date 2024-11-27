@@ -9,6 +9,7 @@ const JUMP_VELOCITY = -400.0
 @onready var movement: Movement = $Movement
 @onready var raycast: RayCast2D = $RayCast2D
 @onready var health: Node = $Health
+@onready var feet_shape: CollisionShape2D = $FeetShape
 
 @export var zone:int
 
@@ -38,6 +39,7 @@ func _on_detection_area_body_exited(body_detected: Node2D) -> void:
 		target = null
 
 func take_damage(amount: int) -> void:
+	get_tree().call_group("Camera", "apply_shake", 2.0)
 	health.take_damage(amount)
 	hurting.emit(amount)
 
@@ -51,13 +53,6 @@ func play_animation(animation: String) -> void:
 func can_see_target() -> bool:
 	if not target:
 		return false
-	#print("enemy.can_see_target: ", target)
-	#var space_state = get_world_2d().direct_space_state
-	#var query = PhysicsRayQueryParameters2D.create(global_position, target.global_position)
-	#var result = space_state.intersect_ray(query)
-	#raycast.set_cas .set_target_position(target.global_position)
-	#raycast.force_raycast_update()
-	#return raycast.is_colliding() && raycast.get_collider() == target
 	return true
 
 func look_at_target() -> void:
@@ -67,7 +62,7 @@ func look_at_target() -> void:
 func setting_z_index() -> void:
 	if target:
 		#print("enemy.setting_z_index: ", "back" if (global_position.y - target.global_position.y) < 0 else "front")
-		_body_pivot.z_index = 0 if (global_position.y - target.global_position.y) < 0 else 2
+		_body_pivot.z_index = 0 if (feet_shape.global_position.y - target.feet_shape.global_position.y) < 0 else 2
 
 func apply_movement() -> void:
 	var direction = target.global_position - global_position

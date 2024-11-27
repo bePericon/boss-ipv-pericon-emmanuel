@@ -16,8 +16,13 @@ func _ready() -> void:
 	current_health = health_max
 
 func take_damage(amount: int) -> void:
-	current_health -= amount
-	update_health.emit(current_health)
+	if amount > 1:
+		for _x in amount:
+			current_health -= 1
+			update_health.emit(current_health)
+	else:
+		current_health -= amount
+		update_health.emit(current_health)
 	print("Take damage - current health: ", current_health, " | current life: ", current_life)
 	if current_health <= 0:
 		current_life -= 1

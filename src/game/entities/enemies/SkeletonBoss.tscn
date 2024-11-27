@@ -479,8 +479,8 @@ radius = 50.0
 height = 154.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y7117"]
-radius = 7.0
-height = 36.0
+radius = 5.0
+height = 22.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_y13mr"]
 radius = 460.053
@@ -512,7 +512,7 @@ hframes = 4
 collision_layer = 512
 collision_mask = 0
 script = ExtResource("6_yxh3t")
-damage = 1
+damage = 2
 layer = 10
 
 [node name="HitCollision" type="CollisionShape2D" parent="BodyPivot/Hitbox"]
