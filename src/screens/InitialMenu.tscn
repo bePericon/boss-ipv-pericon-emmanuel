@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://src/screens/InitialMenu.gd" id="1_uh3xb"]
 [ext_resource type="PackedScene" uid="uid://ddn0gc3sfyppy" path="res://src/screens/LevelManager.tscn" id="2_0nk4s"]
-[ext_resource type="Texture2D" uid="uid://bavpgub2vqr5h" path="res://assets/textures/kokoro.png" id="2_cvxl2"]
-[ext_resource type="Texture2D" uid="uid://rpwutl2pn1q1" path="res://assets/textures/the_legend_of_akakawa.png" id="3_3hixy"]
+[ext_resource type="Texture2D" uid="uid://kqk2u1ct1du1" path="res://assets/textures/kokoro_1.png" id="3_rx5vq"]
 [ext_resource type="FontFile" uid="uid://bwkk85s6e8x3" path="res://assets/fonts/tinypixel.otf" id="4_0s2nw"]
+[ext_resource type="Texture2D" uid="uid://cmamx8q2ompg3" path="res://assets/textures/the_legend_of_akakawa_1.png" id="4_oj1ns"]
 [ext_resource type="Script" path="res://src/screens/InitialControlButtons.gd" id="5_qdy2m"]
 [ext_resource type="Texture2D" uid="uid://bjilypdpqsnwp" path="res://assets/textures/selector_samurai.png" id="6_a83w2"]
 [ext_resource type="PackedScene" uid="uid://bme65tsuywyb0" path="res://src/screens/ActionInput.tscn" id="8_5ix73"]
@@ -59,7 +59,7 @@ offset_bottom = -105.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_cvxl2")
+texture = ExtResource("3_rx5vq")
 
 [node name="Subtitle" type="TextureRect" parent="Control/Panel"]
 texture_filter = 1
@@ -67,14 +67,14 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 6.0
-offset_top = 50.0
-offset_right = 298.0
-offset_bottom = -70.0
+offset_left = 17.2
+offset_top = 60.0
+offset_right = 650.2
+offset_bottom = -25.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("3_3hixy")
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("4_oj1ns")
 
 [node name="Control" type="Control" parent="Control/Panel"]
 layout_mode = 1
