@@ -2202,7 +2202,7 @@ enemies_in_zone = 9
 
 [node name="FightZone3" parent="FightControl" instance=ExtResource("26_aqvc7")]
 position = Vector2(2289, 0)
-enemies_in_zone = 8
+enemies_in_zone = 9
 
 [node name="FightZone4" parent="FightControl" instance=ExtResource("26_aqvc7")]
 position = Vector2(3437, 0)
